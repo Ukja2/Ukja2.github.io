@@ -1,9 +1,9 @@
 - title: Email
-  url: mailto://vszhub@gmail.com
+  url: mailto://jaewooklee739@gmail.com
   icon: fas fa-envelope
-- title: Twitter
-  url: https://twitter.com/vszhub
-  icon: fab fa-twitter
+- title: Instagram
+  url: https://www.instagram.com/ukja2/
+  icon: fab fa-instagram
 - title: GitHub
   url: https://github.com/vszhub/not-pure-poole
   icon: fab fa-github
