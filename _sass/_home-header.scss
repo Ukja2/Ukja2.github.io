@@ -6,9 +6,11 @@
   width: 100%;
   height: 100%;
 
-  -webkit-box-shadow: 0 1em 1em -.9em var(--border-color);
+  border-bottom: solid 0.5px var(--border-color);
+  /*-webkit-box-shadow: 0 1em 1em -.9em var(--border-color);
      -moz-box-shadow: 0 1em 1em -.9em var(--border-color);
-          box-shadow: 0 1em 1em -.9em var(--border-color);
+          box-shadow: 0 1em 1em -.9em var(--border-color);*/
+  
 }
 
 .home-header-menu {
