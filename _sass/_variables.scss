@@ -58,8 +58,10 @@
 
     --heading-color: #fff;
 
-    --link-color: var(--blue-300);
-    --link-hover-color: var(--blue-400);
+    --link-color: rgba(255, 255, 255, 0.548);
+    /*var(--blue-300);*/
+    --link-hover-color: rgba(255, 255, 255, 0.548);
+    // var(--blue-400);
 
     --border-color: rgba(255,255,255,.15);
 
