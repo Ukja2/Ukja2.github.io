@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Computer Architecture) 컴퓨터 산술과 논리 연산
+title: ( Computer Architecture ) 컴퓨터 산술과 논리 연산
 date: 2024-11-04 15:39 +0800
 last_modified_at: 2024-11-04 01:08:25 +0800
 tags: [Computer Architecture]
