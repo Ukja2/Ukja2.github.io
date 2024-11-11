@@ -23,8 +23,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE.md
-  - README.md
-  - scripts/
+  - README.mdpost.excerpt 
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
