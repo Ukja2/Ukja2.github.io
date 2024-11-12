@@ -3,7 +3,7 @@ layout: post
 title: "height: 100vh는 되고 100%는 왜 안되지?"
 date: 2024-05-22 23:18 +0800
 last_modified_at: 2024-05-22 01:08:25 +0800
-tags: [heigt, minheight]
+tags: []
 categories: [CSS]
 toc:  true
 ---

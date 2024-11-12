@@ -3,7 +3,7 @@ layout: post
 title: Jekyll wdm 문제 해결
 date: 2024-09-07 23:18 +0800
 last_modified_at: 2024-09-07 01:08:25 +0800
-tags: [Jekyll, wdm]
+tags: [Jekyll]
 categories: [Jekyll]
 toc:  true
 ---

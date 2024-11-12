@@ -3,7 +3,7 @@ layout: post
 title: Flexbox Froggy Practice
 date: 2024-05-19 23:18 +0800
 last_modified_at: 2024-05-19 01:08:25 +0800
-tags: [flexbox froggy]
+tags: [flexbox]
 categories: [CSS]
 toc:  true
 ---
