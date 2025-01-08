@@ -8,6 +8,8 @@ categories: [CSS]
 toc:  true
 ---
 ### ▶ flexbox?
+<!--more-->
+
 > flexbox란 박스 내 요소 간의 효율적인 공간 배분과 정렬 기능을 제공하기 위한 1차원(행 or 열) 레이아웃 모델이다.
 
 ### ▶ flexbox 만들기

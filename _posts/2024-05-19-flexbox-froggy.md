@@ -9,7 +9,7 @@ toc:  true
 ---
 
 ### ▶ Flexbox froggy?
-
+<!--more-->
 
 
 >  flexbox 속성을 통해 개구리들을 수련잎으로 옮기는 게임이다.

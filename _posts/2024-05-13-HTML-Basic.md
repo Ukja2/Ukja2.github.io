@@ -8,6 +8,8 @@ categories: [HTML]
 toc:  true
 ---
 ### ▶ HTML?
+<!--more-->
+
 > Hyper Text Markup Language의 약자로 문서, 데이터, 텍스트의 구조를 정의하는 언어이다.
 
 ### ▶ HTML 구조

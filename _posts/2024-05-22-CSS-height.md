@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "height: 100vh는 되고 100%는 왜 안되지?"
+title: "height: 100vh는 되고 100%는 왜 안될까?"
 date: 2024-05-22 23:18 +0800
 last_modified_at: 2024-05-22 01:08:25 +0800
 tags: []
@@ -8,6 +8,7 @@ categories: [CSS]
 toc:  true
 ---
 우선 이 문제에 대해 알기 전에 `vh`와 `%` 에 대한 가장 큰 차이점을 알 필요가 있다.
+<!--more-->
 
 #### ▶ vh? 
 어떠한 화면을 어떤 화면을 꽉 채우고 싶을 때 `100vh(view height)`를 자주 사용하곤 한다. 
