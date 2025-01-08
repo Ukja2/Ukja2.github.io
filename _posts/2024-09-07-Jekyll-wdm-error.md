@@ -8,6 +8,7 @@ categories: [Jekyll]
 toc:  true
 ---
 ### Ruby와 Jekyll을 사용한 블로그 제작 중 한가지 문제를 발견했다.
+
 <!--more-->
 
 실행 과정은 아래와 같다.
