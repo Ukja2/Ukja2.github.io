@@ -2,7 +2,7 @@
 layout: post
 title: 「 Linux 」 리눅스?
 date: 2025-02-20 00:00 +0800
-last_modified_at: 2024-02-20 00:00:01 +0800
+last_modified_at: 2025-02-20 00:00:01 +0800
 tags: [Linux]
 categories: [Linux]
 toc:  true

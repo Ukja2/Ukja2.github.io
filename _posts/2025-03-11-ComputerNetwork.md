@@ -2,17 +2,17 @@
 layout: post
 title: 「 ComputerNetwork 」 1주차 - 네트워크 용어 및 OSI 7 계층
 date: 2025-03-11 00:00 +0800
-last_modified_at: 2024-03-11 00:00:01 +0800
+last_modified_at: 2025-03-11 00:00:01 +0800
 tags: [ComputerNetwork]
 categories: [ComputerNetwork]
 toc:  true
 ---
-### 컴퓨터 네트워크 개요
+## 컴퓨터 네트워크 개요
 <!--more-->
 
 - 프로토콜이란 무엇인가?
 
-- 네트워크 에지: 호스트, 액세스 네트워크, 물리적 매체
+- 네트워크 엣지: 호스트, 액세스 네트워크, 물리적 매체
 
 - 네트워크 코어: 패킷/회선 교환, 인터넷 구조
 
@@ -24,9 +24,9 @@ toc:  true
 
 ---
 
-### Chapter 1. Introduction
+## Introduction
 
-#### Billions of connected computing `devices`
+#### 1️⃣ Billions of connected computing `devices`
 수십억 개의 연결된 컴퓨터 장치들
 - `Hosts` = end system  
 호스트는 종단 시스템으로 사용자가 직접 사용하는 장치 (스마트폰, pc) 등을 의미한다.
@@ -34,14 +34,14 @@ toc:  true
 인터넷의 "끝부분(엣지)"에서 네트워크 애플리케이션 실행
 (웹 브라우저, 이메일, 동영상 스트리밍 같은 네트워크 기반 프로그램 실행)
 
-#### Packet switches
+#### 2️⃣ Packet switches
 데이터를 작은 조각(패킷)으로 나눠서 전달하는 장치
 - 인터넷에서 데이터를 한 번에 보내기 힘드니까, 작은 패킷으로 잘라서 보냄.
 - 각 패킷은 주소, 순서, 내용을 가지고 있고, 목적지에서 다시 조립됨
 
 - `routers`, `switches` : 패킷 스위치의 한 종류로 패킷을 목적지로 보내는 역할
 
-#### Communication links
+#### 3️⃣ Communication links
 통신 링크 (장치 간 데이터 전달 경로)
 
 - fiber, copper, radio, satellite 
@@ -49,17 +49,17 @@ toc:  true
 - transmission rate: bandwidth
 전송 속도: 대역폭 (일정 시간 동안 전송 가능한 데이터 양)
 
-####  Networks
+#### 4️⃣ Networks
 네트워크 (장치, 라우터, 링크의 집합체)
 
 - 장치, 라우터, 링크로 이루어진 집합: ISP(인터넷 서비스 제공자)"나 "네트워크 관리자" 에 의해 관리됨 
 
-#### Internet: "network of networks"
+#### 5️⃣ Internet: "network of networks"
 인터넷은 네트워크들의 네트워크
 - 인터넷은 전 세계 수많은 작은 네트워크들이 연결된 거대한 네트워크
 (예: 집, 학교, 회사의 네트워크가 인터넷을 통해 서로 연결됨)
 
-#### `Protocols` are everywhere
+#### 6️⃣ `Protocols` are everywhere
 - **프로토콜은 데이터를 주고받는 규칙**
 네트워크에서 정해진 규칙이 없으면 서로 이해할 수 없으니까 꼭 필요함
 
@@ -73,7 +73,7 @@ toc:  true
 - Ethernet: 유선 네트워크 통신
 - CAN: 자동차에서 쓰는 통신 규약
 
-#### Internet standards
+#### 7️⃣ Internet standards
 인터넷 표준 : 인터넷에서 사용하는 공식 규칙
 
 - RFC (Request for Comments)
@@ -85,7 +85,7 @@ toc:  true
 인터넷 표준을 만드는 국제 기구
 새로운 프로토콜이나 보안 규칙을 논의하고 표준으로 정함
 
-#### Infrastructure that provides services to applications
+#### 8️⃣ Infrastructure that provides services to applications
 애플리케이션에 서비스를 제공하는 인프라
 
 물리적이고 기술적인 자원들이 모여서 어떤 시스템이나 서비스를 운영할 수 있게 해주는 기반을 말함
@@ -94,35 +94,38 @@ toc:  true
 
 ---
 
-#### Human protocols (사람 간의 프로토콜)
+## Protocols (프로토콜)
+- #### Human protocols (사람 간의 프로토콜)
 사람들이 서로 소통할 때도 **정해진 규칙(프로토콜)** 이 있음
 
 예를 들어
-"몇 시야?" (정보 요청)
-"질문 있어." (대화 시작)
-자기소개 (처음 만날 때 인사)
+- "몇 시야?" (정보 요청)
+- "질문 있어." (대화 시작)
+- 자기소개 (처음 만날 때 인사)
 
-➡️ 우리가 대화할 때도 말하는 순서와 방식을 지키는 것처럼, 네트워크에서도 이런 규칙이 필요
+-> 우리가 대화할 때도 말하는 순서와 방식을 지키는 것처럼, 네트워크에서도 이런 규칙이 필요
 
-#### Network protocols (네트워크 프로토콜)
+- #### Network protocols (네트워크 프로토콜)
 사람 대신에 **컴퓨터(기기)** 가 서로 소통할 때 사용하는 규칙
 인터넷에서 이루어지는 모든 통신 활동은 이 규칙에 따라 움직임
 
 
 **프로토콜이 정의하는 것**
 
-`메시지 형식 (format)` :
+- `메시지 형식 (format)` :
 메시지가 어떤 구조로 이루어져 있는지 (ex. 헤더, 페이로드)
 
-`메시지 순서 (order)` :
+- `메시지 순서 (order)` :
 어떤 메시지를 먼저 보내고, 다음에 무엇을 보낼지
 
-`전송 및 수신 시 동작 (actions)` :
+- `전송 및 수신 시 동작 (actions)` :
 메시지를 보낼 때와 받을 때 각각 무슨 행동을 해야 하는지
 
 > 즉 프로토콜은 컴퓨터 간 통신에서 메시지의 형식, 순서, 행동을 정의하는 규칙이다.
+
 ---
-#### Network Edge
+
+## Network Edge (네트워크 엣지)
 네트워크 엣지는 인터넷의 끝부분으로, `사용자가 인터넷에 접속하는 지점(호스트)`이다.
 
 - Hosts: Clients and Servers

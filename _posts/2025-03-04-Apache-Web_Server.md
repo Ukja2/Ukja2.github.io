@@ -2,7 +2,7 @@
 layout: post
 title: 「 Linux 」 Apache Web Server 구축 (1)
 date: 2025-03-04 00:00 +0800
-last_modified_at: 2024-03-04 00:00:01 +0800
+last_modified_at: 2025-03-04 00:00:01 +0800
 tags: [Linux]
 categories: [Linux]
 toc:  true
