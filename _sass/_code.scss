@@ -35,6 +35,13 @@ pre {
   }
 }
 
+code.language-plaintext.highlighter-rouge {
+  background-color: #d4d3d3; /* 원하는 배경색 */
+  color: #333333; /* 원하는 텍스트 색상 */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 .rouge-table {
   margin-bottom: 0;
   font-size: 100%;
