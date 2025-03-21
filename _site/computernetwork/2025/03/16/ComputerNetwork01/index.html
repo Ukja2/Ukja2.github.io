@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이 | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Network core" />
+<meta property="og:description" content="Network core" />
+<link rel="canonical" href="http://localhost:4000/computernetwork/2025/03/16/ComputerNetwork01/" />
+<meta property="og:url" content="http://localhost:4000/computernetwork/2025/03/16/ComputerNetwork01/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-16T01:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://github.com/Ukja2"},"dateModified":"2025-03-16T01:00:00+09:00","datePublished":"2025-03-16T01:00:00+09:00","description":"Network core","headline":"「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/computernetwork/2025/03/16/ComputerNetwork01/"},"url":"http://localhost:4000/computernetwork/2025/03/16/ComputerNetwork01/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이</h1>
+  <div class="post-meta"><time datetime="2025-03-16T01:00:00+09:00" itemprop="datePublished">2025년 3월 16일</time></div>
+
+  <h2 id="network-core">Network core</h2>
+<!--more-->
+
+<p>ISP 내부에는 <code class="language-plaintext highlighter-rouge">Network core</code>와 <code class="language-plaintext highlighter-rouge">Network Edge</code>가 있다.</p>
+
+<p>어떠한 정보를 보낼 때 네트워크 코어에서 데이터를 처리하는 두 가지 전송 방식이 존재한다.</p>
+
+<ol>
+  <li>Circuit Switching - 고정된 경로(회선) 를 설정하고, 데이터가 이 경로를 따라 전송되는 방식</li>
+  <li>Packet Switching - 박스에 정보를 담아 전송하는 방식</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">스위치</code>나 <code class="language-plaintext highlighter-rouge">라우터</code>가 있어야 현재의 네트워크에서 다른 네트워크로 전송이 가능함</p>
+
+<ul>
+  <li>Forwarding (전달하다) - 패킷을 라우터에서 라우터, 다른 호스트로 전달하는 과정을 의미
+    <ul>
+      <li>즉 데이터를 생성한 사람은 내가 아니며, 누군가로 부터 받은 데이터를 다른 쪽으로 전송하는 것이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="packet-switching-store-and-forward">Packet-switching: store-and-forward</h3>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/cc6eab54-5b9f-47be-8497-b0c548c6829a/image.png" alt="" /></p>
+
+<p>Packet Swtiching 방식은 store and forward 방식으로 작동한다.</p>
+
+<p>source에서 L개의 비트로 이루어진 패킷을 보내려고 하면, 라우터 내부의 <code class="language-plaintext highlighter-rouge">buffer</code>에 해당 패킷을 저장 후 라우터는 버퍼에 들어온 순서대로 패킷을 정해진 destination으로 <code class="language-plaintext highlighter-rouge">전달한다</code> .</p>
+
+<p>패킷전송지연률 = L / R</p>
+
+<p><code class="language-plaintext highlighter-rouge">End to End Delay</code> : 데이터가 출발지에서 목적지까지 전달되는 데 걸리는 전체 시간 = 2L/R</p>
+
+<p>라우터 하나를 거칠 때 2L 이며 이후 N개 만큼 곱한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">hop</code> : 패킷의 이동 단위</p>
+
+<p>위 그림에서 source에서 라우터까지의 한 번의 이동이 1hop이 된다.</p>
+
+<h3 id="packet-switching-queueing-delay-loss">Packet-switching: queueing delay, loss</h3>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/af6425b3-da50-4655-9e53-62ff0cbf3140/image.png" alt="" /></p>
+
+<p>원래 Packet switching은 여러 개의 컴퓨터가 하나의 스위치나 라우터에 연결되어서 네트워크를 좀 더 효율적으로 쓰기 위함으로 위 그림이 좀 더 현실적이라 할 수 있다.</p>
+
+<p>위의 그림예시로 A컴퓨터에서 패킷을 보내는 속도가 100Mb/s고 라우터가 처리하는 속도가 1.5Mb/s 일 때 라우터의 buffer가 전부 차면 아직 처리되지 못한 패킷을 삭제하고 새로운 패킷이 들어오게 되는데 이를 <code class="language-plaintext highlighter-rouge">loss</code> 라고 칭한다.</p>
+
+<h3 id="two-key-network-core-functions">Two key network-core functions</h3>
+
+<p>네트워크 코어의 두 가지 주요 기능</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b30c9a89-7e2b-4f76-9f56-ce03b5f9ce9e/image.png" alt="" /></p>
+
+<p>위 이미지는 여러 라우터 간 연결을 보여주며, 라우팅 알고리즘이 패킷의 최적 경로를 선택하는 과정을 나타낸다</p>
+
+<ul>
+  <li>Forwarding (포워딩)
+로컬 작업 - 라우터 하나의 관점에서 보는 것
+    <ul>
+      <li>패킷의 헤더 값에 따라 <strong>local forwarding table(로컬 포워딩 테이블)</strong> 을 참조하여 출력 링크를 결정한다</li>
+      <li>예를 들어, 패킷의 헤더 값이 “0111”이라면, 테이블에 따라 출력 링크 “2”로 이동한다.</li>
+    </ul>
+  </li>
+  <li>Routing (라우팅)
+글로벌 작업: 라우터들 끼리 이어져있는 전체적인 구성에서의 관점으로 보는 것
+    <ul>
+      <li>이는 네트워크 전체에서 경로를 설정하며, 라우팅 알고리즘을 통해 진행된다</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="circuit-switching-fdm-and-tdm">Circuit switching: FDM and TDM</h3>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/577d8c93-c27d-484a-84fa-f235da93f9e4/image.png" alt="" /></p>
+
+<p>하나의 네트워크를 다수의 유저가  통신 자원인 <code class="language-plaintext highlighter-rouge">주파수</code> 와 <code class="language-plaintext highlighter-rouge">시간</code> 을  활용해서 효율적으로 나눠 쓰도록 하기 위한 기술</p>
+
+<ul>
+  <li>Frequency Division Multiplexing (FDM)
+    <ul>
+      <li>주파수를 여러 개의 작은 대역으로 나눠서 각각 할당하는 방식</li>
+      <li>각 사용자는 특정 주파수 대역을 계속 사용 가능</li>
+    </ul>
+  </li>
+  <li>Time Division Multiplexing (TDM)
+    <ul>
+      <li>시간을 여러 개의 슬롯으로 나누고, 각 사용자에게 특정 시간 동안만 전송 기회를 주는 방식</li>
+      <li>모든 사용자가 넓은 주파수 대역을 사용할 수 있지만, 특정 시간 슬롯에서만 전송 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p>fdm을 쓰든 tdm을 쓰든 데이터의 총량(엔트로피)는 정해져있음 가로로 쓰냐 세로로 쓰냐의 차이일 뿐이다</p>
+
+<h3 id="packet-switching-vs-circuit-switching">Packet switching VS circuit switching</h3>
+
+<p>결론적으로 패킷스위칭이 좋다</p>
+
+<p>대부분의 부분에서 패킷 스위칭으로 전환이 되어가는 중임 (전화까지도)</p>
+
+<hr />
+
+<h2 id="internet-structure">Internet structure</h2>
+
+<p>과거의 인터넷 구조에서는 네트워크 간의 연결을 하나씩 설정하고 직접 연결하는 방식이었음</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/9cba6c73-ff5d-4673-b40b-7b0ffa4bc99a/image.png" alt="" /></p>
+
+<p>허나 이러한 방식은 원래는 각각의 액세스를 직접 연결해서 사용했기 때문에 그 개수의 제곱만큼의 연결선이 발생해서 비용적인 측면에서 매우 비효율적이었음</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/8a003087-b36c-4d6e-bf74-879d0ad0eadd/image.png" alt="" /></p>
+
+<p>이후 중앙 ISP가 생기고, 트래픅 흐름을 효율적으로 관리할 수 있게 되었다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/1b865831-b8b0-463a-942d-85ba7303e440/image.png" alt="" /></p>
+
+<p>하지만 글로벌 ISP는 다양하게 존재하고, 글로벌 ISP간의 데이터 교환을 위해 <code class="language-plaintext highlighter-rouge">IXP(Internet Exchange Point)</code>를 두어 다른 지역은 ISP여도 서로간의 데이터를 공유할 수 있게 됐다.</p>
+
+<h3 id="인터넷-계층-구조">인터넷 계층 구조</h3>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/7f25a009-2e8b-4435-8220-e533e5517ef3/image.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Tier 1 ISP</code>
+Tier 1 ISP는 국제적 및 국가적 단위에서 인터넷 제공하는 상위 ISP</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Content Provider Networks (CPN)</code>
+    <ul>
+      <li>인터넷 콘텐츠를 제공하는 서비스나 플랫폼이 운영하는 네트워크</li>
+      <li>CPN 또한 사용자가 접속하려고 할떄 중개자인 ISP를 거쳐서 데이터를 받을 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">IXP</code>
+IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Reginal ISP</code>
+    <ul>
+      <li>지역적으로 인터넷 서비스를 제공하는 ISP 예로 한국의 kt, lg, u+ 등이 있다.</li>
+      <li>Tier 1 ISP나 IXP와 연결되어 있으며, Access ISP를 통해 최종 사용자에게 서비스를 제공</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Access ISP</code>
+가장 하위 계층의 ISP로 지역 ISP를 통해 인터넷에 연결됩니다.</li>
+</ul>
+
+<hr />
+
+<h2 id="packet-delay">Packet Delay</h2>
+
+<p>Packet delay는 패킷이 출발지에서 목적지까지 전송되는 동안 발생하는 총 지연 시간을 의미하며, 크게 4가지 주요 원인으로 나눌 수 있다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/a443faa8-2a3e-4dbd-bc8b-9e22dd1f4ff1/image.png" alt="" /></p>
+
+<p>1.Processing delay
+연산이 복잡한 알고리즘을 돌리거나 창을 여러개 켜놓을 때에 발생하는 지연, 즉 연산을 처리할 때 걸리는 지연시간</p>
+
+<p>2.queueing delay
+라우터 버퍼에서 패킷이 출력되는 동안 지연되는 시간</p>
+
+<p>3.Transmission delay
+패킷이 전송될 때 걸리는 시간</p>
+
+<p>4.propagation
+거리 / 전파 속도</p>
+
+<p>즉 <code class="language-plaintext highlighter-rouge">패킷의 전체 지연 시간</code>은 네 가지 지연 요소의 합으로 구할 수 있다.</p>
+
+<ul>
+  <li>
+    <p>이 네 가지 지연요소 외에 남은 요소가 있다면?
+-&gt; 목적지 라우터로부터 확답을 받을 때 까지 걸리는 딜레이가 있다.</p>
+  </li>
+  <li>
+    <p>반대로 확답을 받지못해 재전송한다면? 
+-&gt; trans , porp 그리고 Echo Request를 받는 시간까지 추가 지연 발생</p>
+  </li>
+</ul>
+
+<h2 id="caravan-analogy">Caravan analogy</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/014cf9a8-1ca3-43cb-8470-a83b0728d552/image.png" alt="" /></p>
+
+<p>여기 자동차 한 대는 네트워크에서의 <code class="language-plaintext highlighter-rouge">비트</code>를, 10대의 자동차로 이루어진 카라반은 <code class="language-plaintext highlighter-rouge">패킷</code>을 의미한다</p>
+
+<p>속도와 처리 시간:</p>
+
+<ul>
+  <li>
+    <p>자동차는 시속 100km로 이동한다 (전송 속도)</p>
+  </li>
+  <li>
+    <p>톨게이트(라우터)는 한 대의 자동차를 처리하는 데 12초가 걸린다. (비트 전송 시간).</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>첫 번째 톨게이트를 통과한 카라반이 두 번째 톨게이트에 도착하여 정렬되기까지 걸리는 시간은?</p>
+</blockquote>
+
+<ul>
+  <li>첫 번째 톨게이트에서 카라반 처리 시간:</li>
+</ul>
+
+<p>각 자동차를 처리하는 데 12초가 걸리므로, 전체 카라반(10대)을 처리하는 데 
+<code class="language-plaintext highlighter-rouge">12 × 10 = 120</code> -&gt; 120초</p>
+
+<ul>
+  <li>두 번째 톨게이트까지 이동 시간:</li>
+</ul>
+
+<p>마지막 자동차가 첫 번째 톨게이트를 떠난 후 두 번째 톨게이트까지 이동하는 데 걸리는 시간은</p>
+
+<p><code class="language-plaintext highlighter-rouge">100km/(100km/hr)</code> -&gt; 1시간</p>
+
+<ul>
+  <li>총 소요 시간:</li>
+</ul>
+
+<p>첫 번째 톨게이트에서 카라반을 모두 처리하는 데 걸린 시간(120초 = 2분)과 마지막 자동차가 두 번째 톨게이트까지 도달하는 데 걸린 시간(1시간)을 합산하면 총  62분이 소요된다.</p>
+
+<h2 id="packet-queueing-delay">Packet queueing delay</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/600abe2e-7fff-488e-8812-f7b9927aba78/image.png" alt="" /></p>
+
+<p>R: 링크 대역폭 (bps, 초당 비트 전송 속도)</p>
+
+<p>L: 패킷 길이 (bits, 패킷의 크기)</p>
+
+<p>a: 평균 패킷 도착률 (초당 도착하는 패킷 수)</p>
+
+<p>La/R≈0: 트래픽 강도가 낮아 평균 큐잉 지연이 작음.</p>
+
+<p>La/R→1: 트래픽 강도가 높아져 평균 큐잉 지연이 커짐.</p>
+
+<p>La/R&gt;1: 도착하는 작업량이 서비스 가능한 양을 초과하여 지연 시간이 무한대가 됨.</p>
+
+<h2 id="packet-loss">Packet loss</h2>
+
+<ul>
+  <li>
+    <p>버퍼 내부의 원래 전송되어야 하는 패킷이 네트워크에서 사라지는 것을 의미</p>
+  </li>
+  <li>
+    <p>패킷이 도착하는 속도가 보내는 속도보다 빠를때 발생</p>
+  </li>
+  <li>
+    <p>일정 버퍼 메모리가 초과되면 <code class="language-plaintext highlighter-rouge">패킷이 삭제되는데 (buffer overwrite)</code>이를 <code class="language-plaintext highlighter-rouge">packet loss</code> 라고함</p>
+  </li>
+</ul>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#computernetwork">computernetwork</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/computernetwork/2025/03/18/ComputerNetwork_03/">
+          「 ComputerNetwork 」 네트워크 보안 및 계층화
+          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/2025/03/11/ComputerNetwork/">
+          「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층
+          <small><time datetime="2025-03-11T01:00:00+09:00">11 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/linux/2025/03/04/Apache-Web_Server/">
+          「 Linux 」 Apache Web Server 구축 (1)
+          <small><time datetime="2025-03-04T01:00:00+09:00">04 Mar 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://github.com/Ukja2">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#network-core">Network core</a>
+    <ul>
+      <li><a href="#packet-switching-store-and-forward">Packet-switching: store-and-forward</a></li>
+      <li><a href="#packet-switching-queueing-delay-loss">Packet-switching: queueing delay, loss</a></li>
+      <li><a href="#two-key-network-core-functions">Two key network-core functions</a></li>
+      <li><a href="#circuit-switching-fdm-and-tdm">Circuit switching: FDM and TDM</a></li>
+      <li><a href="#packet-switching-vs-circuit-switching">Packet switching VS circuit switching</a></li>
+    </ul>
+  </li>
+  <li><a href="#internet-structure">Internet structure</a>
+    <ul>
+      <li><a href="#인터넷-계층-구조">인터넷 계층 구조</a></li>
+    </ul>
+  </li>
+  <li><a href="#packet-delay">Packet Delay</a></li>
+  <li><a href="#caravan-analogy">Caravan analogy</a></li>
+  <li><a href="#packet-queueing-delay">Packet queueing delay</a></li>
+  <li><a href="#packet-loss">Packet loss</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

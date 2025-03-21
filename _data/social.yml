@@ -1,0 +1,9 @@
+- title: Email
+  url: mailto://jaewooklee739@gmail.com
+  icon: fas fa-envelope
+- title: Instagram
+  url: https://www.instagram.com/ukja2/
+  icon: fab fa-instagram
+- title: GitHub
+  url: https://github.com/Ukja2
+  icon: fab fa-github

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Git &amp;GitHub 기초 | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Git &amp;GitHub 기초" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="▶ Git이란 무엇인가?" />
+<meta property="og:description" content="▶ Git이란 무엇인가?" />
+<link rel="canonical" href="http://localhost:4000/git/2024/05/06/Git-GitHub-Basic/" />
+<meta property="og:url" content="http://localhost:4000/git/2024/05/06/Git-GitHub-Basic/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-06T00:18:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Git &amp;GitHub 기초" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://github.com/Ukja2"},"dateModified":"2024-05-06T00:18:00+09:00","datePublished":"2024-05-06T00:18:00+09:00","description":"▶ Git이란 무엇인가?","headline":"Git &amp;GitHub 기초","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/2024/05/06/Git-GitHub-Basic/"},"url":"http://localhost:4000/git/2024/05/06/Git-GitHub-Basic/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Git &GitHub 기초</h1>
+  <div class="post-meta"><time datetime="2024-05-06T00:18:00+09:00" itemprop="datePublished">2024년 5월 6일</time></div>
+
+  <h3 id="-git이란-무엇인가">▶ Git이란 무엇인가?</h3>
+<!--more-->
+
+<blockquote>
+  <p><strong>Git</strong>은 소프트웨어 개발 시에 사용되는 버전 관리 시스템의 일종이다.</p>
+</blockquote>
+
+<h3 id="-git을-왜-사용하는-걸까">▶ Git을 왜 사용하는 걸까?</h3>
+
+<p>보편적으로 .hwp와 같은 문서 작업시 하나의 문서를 마구잡이로
+복사 -&gt; 수정/백업을 할 때가 있다. 
+<img src="https://velog.velcdn.com/images/ukja2/post/609c7f86-e073-44c8-88ae-292626ecf42e/image.png" alt="" /> 
+이와 같은 경우의 문제점이 무엇이 있을까?</p>
+<blockquote>
+
+  <ul>
+    <li>각각의 파일간 변경사항을 추적하기 어렵다.</li>
+    <li>협업에 있어 상당한 번거로움이 있다.</li>
+    <li>데이터 손상에 대한 복구가 어렵다.</li>
+  </ul>
+</blockquote>
+
+<p>이러한 이유로 <strong>체계적인 관리</strong>의 중요성이 더욱 강조되고 있다.</p>
+
+<h3 id="-git의-핵심-기능">▶ Git의 핵심 기능</h3>
+<p><strong>1. 소스 코드 변경사항 추적 및 관리</strong></p>
+<ul>
+  <li>소스 코드가 변경되었을 때 이를 감지하고, 어떤 점이 변경되었는 지 확인할 수 있도록 한다.</li>
+</ul>
+
+<p><strong>2. 개발자 간 동시 작업 지원</strong></p>
+<ul>
+  <li>개발자는 각기 다른 작업을 병렬적으로 수행할 수 있다.</li>
+</ul>
+
+<p><strong>3. 변경 사항 기록</strong></p>
+<ul>
+  <li>프로젝트의 이전 버전으로 되돌아갈 수 있는 기능 제공한다.</li>
+</ul>
+
+<hr />
+<p><img src="https://velog.velcdn.com/images/ukja2/post/de06215a-dc16-4786-8397-241b0ae0bcfd/image.png" alt="" /></p>
+<h3 id="-github란-무엇인가">▶ GitHub란 무엇인가?</h3>
+<blockquote>
+  <p><strong>Git</strong>을 통해 관리되는 소프트웨어 프로젝트를 공유 및 협업하기 위해 사용되는 플랫폼이다.</p>
+</blockquote>
+
+<h3 id="-github의-핵심기능">▶ GitHub의 핵심기능</h3>
+<p><strong>1. 저장 및 버전 관리, 백업</strong></p>
+<ul>
+  <li>Git을 통해 관리하는 프로젝트를 GitHub에 저장, 버전 관리, 백업을 수행할 수 있다.</li>
+</ul>
+
+<p><strong>2. 협업기능 제공</strong></p>
+<ul>
+  <li>Pull-Request / Discussion 등과 같이 프로젝트를 함께 진행하는 팀원 간 협업을 위한 기능을 제공한다.</li>
+</ul>
+
+<p><strong>3. 문서화 기능 제공</strong></p>
+<ul>
+  <li>README / Wiki 등을 통해 프로젝트 문서화를 지원한다.</li>
+</ul>
+
+<p><strong>4. 소셜 네트워킹 기능 제공</strong></p>
+<ul>
+  <li>
+    <h2 id="본인-또는-다른-개발자의-작업물을-조회할-수-있다">본인 또는 다른 개발자의 작업물을 조회할 수 있다.</h2>
+    <p>**💬 그렇다면 Git과 gitHub의 차이점은 무엇인가? **
+<img src="https://velog.velcdn.com/images/ukja2/post/9c83eee8-d736-4593-9a5c-959ebaa3f1a6/image.png" alt="" /></p>
+  </li>
+</ul>
+
+<p>Git과 GitHub를 처음 다루면서 흔히 헷갈리는 개념이 ‘Git = GitHub’라고 혼동하는 것이다.</p>
+
+<blockquote>
+  <p>GitHub는 Git이라는 버전 관리 시스템으로 관리하는 프로젝트를 웹에서 볼 수 있도록(+다양한 편의 기능 제공) 해주는 서비스라는 점을 유의해야 한다.</p>
+</blockquote>
+
+<hr />
+<p><img src="https://velog.velcdn.com/images/ukja2/post/028a37f9-1188-4bd9-8691-6d9bd09fe83f/image.png" alt="" /></p>
+
+<h3 id="-git-lifecycle">▶ Git Lifecycle</h3>
+<p><strong>1. Untracked</strong></p>
+<ul>
+  <li>Git에서 관리하지 않는 파일들을 의미한다.</li>
+</ul>
+
+<p><strong>2. Tracked</strong></p>
+<ul>
+  <li>Git에서 관리하는 파일들을 의미한다.</li>
+</ul>
+
+<p><strong>3. Unmodified</strong></p>
+<ul>
+  <li>Git에서 관리하는 <strong>파일 중 수정을 하지 않은 파일</strong>들의 상태</li>
+</ul>
+
+<p><strong>4. Modified</strong></p>
+<ul>
+  <li>Git에서 관리하는 <strong>파일 중 수정을 한 파일</strong>들의 상태</li>
+</ul>
+
+<p><strong>5. Staged</strong></p>
+<ul>
+  <li>Git에서 관리하는 파일 중 <strong>다음 커밋에 포함될 에정인 파일들</strong>의 상태</li>
+</ul>
+
+<hr />
+<h3 id="-git-command">▶ Git Command</h3>
+<p><strong>1. status</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status 
+</code></pre></div></div>
+<ul>
+  <li>Git을 통해 관리하고 있는 저장소의 상태를 출력한다.</li>
+</ul>
+
+<p><strong>2. init</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
+<ul>
+  <li>init은 빈 Git repository를 만들거나 이미 있는 Repository를 다시 초기화하는 명령어다.</li>
+</ul>
+
+<p><strong>3. add</strong>
+<img src="https://velog.velcdn.com/images/ukja2/post/ea85234f-a38f-4135-9a39-661b8df21fc9/image.png" alt="" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add 
+</code></pre></div></div>
+<ul>
+  <li>
+    <h4 id="untracked---staged"><code class="language-plaintext highlighter-rouge">Untracked</code> -&gt; <code class="language-plaintext highlighter-rouge">Staged</code></h4>
+    <p>◽ 다음 commit에 포함시킨다. 
+◽ Git에서 관리하지 않고 있던 파일을 관리하도록 하게 한다.</p>
+  </li>
+  <li>
+    <h4 id="modified---staged"><code class="language-plaintext highlighter-rouge">Modified</code> -&gt; <code class="language-plaintext highlighter-rouge">Staged</code></h4>
+    <p>◽다음 commit에 포함시킨다.</p>
+  </li>
+</ul>
+
+<p>**4. commit **
+<img src="https://velog.velcdn.com/images/ukja2/post/9b8737cf-bf24-43cb-af54-b0b42d0b7e04/image.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -m "수정 내용"
+</code></pre></div></div>
+<ul>
+  <li>Git을 통해 관리하고 있는 <strong>파일들의 상태를 저장</strong>하는 명령어
+◽ <code class="language-plaintext highlighter-rouge">git add</code> 명령어를 통해 <code class="language-plaintext highlighter-rouge">Staged</code>된 파일들을 commit에 포함
+◽ <code class="language-plaintext highlighter-rouge">Unmodified</code> 상태로 만듦</li>
+</ul>
+
+<p><strong>5. push</strong>
+<img src="https://velog.velcdn.com/images/ukja2/post/72548710-de3f-4ee8-b698-255bde00fa47/image.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div></div>
+
+<ul>
+  <li>Git을 통해 관리하고 있는 <code class="language-plaintext highlighter-rouge">Local Repository</code>를 <code class="language-plaintext highlighter-rouge">Remote Repository</code>에 올리는(저장) 명령어
+◽ commit 목록을 GitHub Repository에 올림</li>
+</ul>
+
+<p>⭐ <code class="language-plaintext highlighter-rouge">local Repository</code></p>
+<ul>
+  <li>.git 디렉터리가 있는 폴더이다.</li>
+</ul>
+
+<p>⭐ <code class="language-plaintext highlighter-rouge">Remote Repository</code></p>
+<ul>
+  <li>
+    <h2 id="원격-서버에-있는-git-저장소이다">원격 서버에 있는 Git 저장소이다.</h2>
+  </li>
+</ul>
+
+<p>[출처] 개발자 이진우님의 블로그 : https://jinlee.kr/</p>
+
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#git">git</a></li><li>
+        <a class="post-tag" href="/tags/#github">github</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/computernetwork/2025/03/18/ComputerNetwork_03/">
+          「 ComputerNetwork 」 네트워크 보안 및 계층화
+          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/2025/03/16/ComputerNetwork01/">
+          「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이
+          <small><time datetime="2025-03-16T01:00:00+09:00">16 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/2025/03/11/ComputerNetwork/">
+          「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층
+          <small><time datetime="2025-03-11T01:00:00+09:00">11 Mar 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://github.com/Ukja2">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#-git이란-무엇인가">▶ Git이란 무엇인가?</a></li>
+  <li><a href="#-git을-왜-사용하는-걸까">▶ Git을 왜 사용하는 걸까?</a></li>
+  <li><a href="#-git의-핵심-기능">▶ Git의 핵심 기능</a></li>
+  <li><a href="#-github란-무엇인가">▶ GitHub란 무엇인가?</a></li>
+  <li><a href="#-github의-핵심기능">▶ GitHub의 핵심기능</a></li>
+  <li><a href="#-git-lifecycle">▶ Git Lifecycle</a></li>
+  <li><a href="#-git-command">▶ Git Command</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

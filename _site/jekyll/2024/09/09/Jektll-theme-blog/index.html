@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Jekyll theme를 이용한 블로그 개설과 오류 해결과정 | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Jekyll theme를 이용한 블로그 개설과 오류 해결과정" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="블로그를 개설 중 발생한 자잘한 오류 해결과 과정" />
+<meta property="og:description" content="블로그를 개설 중 발생한 자잘한 오류 해결과 과정" />
+<link rel="canonical" href="http://localhost:4000/jekyll/2024/09/09/Jektll-theme-blog/" />
+<meta property="og:url" content="http://localhost:4000/jekyll/2024/09/09/Jektll-theme-blog/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-09-09T00:19:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Jekyll theme를 이용한 블로그 개설과 오류 해결과정" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://github.com/Ukja2"},"dateModified":"2024-09-09T00:19:00+09:00","datePublished":"2024-09-09T00:19:00+09:00","description":"블로그를 개설 중 발생한 자잘한 오류 해결과 과정","headline":"Jekyll theme를 이용한 블로그 개설과 오류 해결과정","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/2024/09/09/Jektll-theme-blog/"},"url":"http://localhost:4000/jekyll/2024/09/09/Jektll-theme-blog/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Jekyll theme를 이용한 블로그 개설과 오류 해결과정</h1>
+  <div class="post-meta"><time datetime="2024-09-09T00:19:00+09:00" itemprop="datePublished">2024년 9월 9일</time></div>
+
+  <p>블로그를 개설 중 발생한 자잘한 오류 해결과 과정
+<!--more--></p>
+
+<hr />
+<h3 id="1-githubio-repository-생성">1. Github.io repository 생성</h3>
+<ol>
+  <li>
+    <p>우선 Github에서 ` {사용자이름}.github.io` 형식의 repo를 생성했다.
+<img src="https://velog.velcdn.com/images/ukja2/post/5ef7660a-842c-45e8-944c-b82ddfa30020/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>저렇게 생성된 repo를 나의 로컬저장소에 clone한다.
+** 이때 clone할 repo의 경로에 한국어가 있으면 추후 오류가 발생할 확률이 있기 때문에 영어로 된 경로에 clone할 것을 권장한다. **</p>
+
+    <p>나는 C 저장소에 따로 <code class="language-plaintext highlighter-rouge">Ukja2Blog</code> 라는 폴더를 생성 후 해당 폴더 내부에 clone했다.
+<img src="https://velog.velcdn.com/images/ukja2/post/48e553e3-3fbe-4deb-bc02-da92954d3428/image.png" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="2-ruby-및-jekyll-설치">2. Ruby 및 Jekyll 설치</h3>
+
+<ol>
+  <li>Ruby를 설치해준다.
+<img src="https://velog.velcdn.com/images/ukja2/post/626a70de-82d4-4e92-8121-3415f92a3108/image.png" alt="" />
+여기서 <code class="language-plaintext highlighter-rouge">DEVKIT</code>가 포함된 버전으로 설치해주고, 설치버전은 오른 쪽 표시처럼  3.3.X 버전이 안정화된 버전임을 뜻하므로 여기에 해당되는 버전,bit를 설치해주면 된다.</li>
+</ol>
+
+<p>설치 후 <code class="language-plaintext highlighter-rouge">cmd</code> 창을 켜서 아래와 설치버전이 나오면 성공적으로 설치됐음을 의미한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v (입력)
+ruby 3.3.5 (2024-09-03 revision ef084cc8f4) [x64-mingw-ucrt] (출력)
+</code></pre></div></div>
+<ol>
+  <li>Jekyll과 bundler 설치
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install jekyll
+$ gem install bundler
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Jekyll과 bundler를 설치하는 이유를 쉽게 설명하자면 Ruby내에서 <code class="language-plaintext highlighter-rouge">bundler</code>를 통해 <code class="language-plaintext highlighter-rouge">Jekyll</code>을 실행하고 <code class="language-plaintext highlighter-rouge">Jekyll</code>을 사용해서 우리가 원하는 블로그를 만들 수 있다.</p>
+
+<p>bundler에 대한 설명은 아래와 같다.
+** “bundler는 Ruby 프로젝트에 필요한 Gem들의 버전을 추적하고 설치해서 일관된 환경을 제공한다.”**
+즉 다른 버전의 프로젝트들을 실행할때 원활하게 작동할 수 있도록 해주며, 전체적으로 Ruby의 쾌적한 사용환경을 제공해주는 것 같다.</p>
+
+<p>설치를 완료 했다면 아래와 같이 입력 후 설치 확인을 해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll -v (입력)
+jekyll 4.3.3 (출력)
+
+bundler -v (입력)
+Bundler version 2.5.18 (출력)
+</code></pre></div></div>
+
+<h3 id="3-jekyll-theme-파일-넣기">3. Jekyll Theme 파일 넣기</h3>
+
+<ol>
+  <li>
+    <p>원하는 Jekyll Theme를 아래 사이트에서 고른다.
+** http://jekyllthemes.org/ **</p>
+  </li>
+  <li>
+    <p>적용하고 싶은 테마의 파일을 압축해제 후 자신의 <code class="language-plaintext highlighter-rouge">github.io repository</code>를 clone한 폴더 내부로 옮겨준다.</p>
+  </li>
+  <li>테마를 폴더로 옮겨주었다면 <code class="language-plaintext highlighter-rouge">초기화 작업을 해주는 코드를 작성해야 되는데</code> 여기서 한 가지 문제가 발생한다.
+해당 코드인 <code class="language-plaintext highlighter-rouge">$ bash tools/init.sh</code>는 Linux 환경에서 사용할 수 있기 때문에 Windows   환경에서는 수동으로 초기화 하는 방법은 선택해야 된다. ** ( 처음부터 WSL을 활용해서 작업하는 것을 추천 ) **
+    <blockquote>
+      <p>https://devpro.kr/posts/Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-(3)/
+Linux 환경에서 작업할 수 없다면 위 링크를 통해 따라하도록 하자
+!! 이렇게 했을 시 환경에 따라 오류가 발생할 수도 있다. 이는 후술함 !!</p>
+    </blockquote>
+  </li>
+  <li>초기화 작업을 해주었다면 <code class="language-plaintext highlighter-rouge">git bash</code> 로 <code class="language-plaintext highlighter-rouge">bundler install</code> 을 입력하면 정상적으로 테마적용이 완료될 것이다.</li>
+</ol>
+
+<p>이후 <code class="language-plaintext highlighter-rouge">config.yml</code> 과  <code class="language-plaintext highlighter-rouge">assets</code> 폴더 내부의 css 파일을 수정하는 등 자신의 취향에 맞게 블로그를 꾸밀 수 있다.</p>
+
+<p>모든 설정이 끝나면 아래 코드를 git bash에 입력하면</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/ukja2/post/c203c8b4-d424-4609-872c-8a7b8a79ef02/image.png" alt="" /></p>
+
+<p>노란색으로 표시한 Server address의 호스팅 주소를 브라우저에 입력하면 자신만의 블로그가 나타난다.
+<img src="https://velog.velcdn.com/images/ukja2/post/6a8311f1-8fef-4a89-9cd2-54234a816c80/image.png" alt="" /></p>
+
+<hr />
+<h2 id="오류발생과-해결">오류발생과 해결</h2>
+
+<h3 id="1-ruby와-jekyll을-처음-설치하고-테마를-적용하기-전-jekyll-new-을-통해-첫-프로젝트-생성후-bundler-install-실행-시-발생한-오류">1. Ruby와 jekyll을 처음 설치하고 테마를 적용하기 전 <code class="language-plaintext highlighter-rouge">jekyll new ./</code>을 통해 첫 프로젝트 생성후 <code class="language-plaintext highlighter-rouge">bundler install</code> 실행 시 발생한 오류</h3>
+<blockquote>
+  <p>An error occurred while installing wdm (0.1.1), and Bundler cannot continue.</p>
+</blockquote>
+
+<p>위 오류에 대한 해결방법은 나의 벨로그에 작성해 놓았다.</p>
+
+<h3 id="2-bundle-exec로-블로그-실행-시-git-bash에-나타난-오류">2. bundle exec로 블로그 실행 시 git bash에 나타난 오류</h3>
+<blockquote>
+  <p>assets/js/dist/*.min.js Not Found</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">~~.min.js</code> 를 찾을 수 없다는 뜻인데
+Jekyll Theme는 JavaScript 기반이다 보니 다양한 기능을 적용시키기 위해서는 Node.js가 필요하다. ex) 다크모드, 라이트모드, 검색창기능</p>
+
+<p>이를 해결하기 위해 수많은 검색을 하다가 해결 방법을 찾아냈다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">tools/init.sh</code> 은 Linux 환경의 node.js를 통해서 사용할 수 있다.</li>
+  <li>위 작업을 해주면 <code class="language-plaintext highlighter-rouge">assets/js/dist/*.min.js</code> 자동으로 생성되는 구조이다. 
+아마 내 생각엔 <code class="language-plaintext highlighter-rouge">tools/init.sh</code> 스크립트 내부에 build를 해주는 기능이 포함된 것 같다.</li>
+  <li>나는 <code class="language-plaintext highlighter-rouge">tools/init.sh</code> 대신 수동으로 초기화 작업을 했기 때문에  <code class="language-plaintext highlighter-rouge">*.min.js</code>가 생성될 수 없었다.</li>
+</ol>
+
+<p>그래서 나는 없는 <code class="language-plaintext highlighter-rouge">*.min.js</code> 파일을 Node.js를 통해 build하는 방법을 사용했다.</p>
+
+<ol>
+  <li>우선 Node.js를 설치</li>
+  <li>git bash로 <code class="language-plaintext highlighter-rouge">npm install</code> , <code class="language-plaintext highlighter-rouge">npm run build</code>를 입력해주면 위의 오류가 사라지는 것을 확인할 수 있다. <em>npm install을 하는 과정에서 아래와 같은 오류가 발생했다. 이와 별개로 위 작업이 정상적으로 진행된다면 오류는 해결된다.</em></li>
+</ol>
+
+<h3 id="3-nodejs를-설치하고-npm-install을-설치-과정-중-발생한-오류">3. Node.js를 설치하고 <code class="language-plaintext highlighter-rouge">npm install</code>을 설치 과정 중 발생한 오류</h3>
+<blockquote>
+  <p>bash: npm: command not found</p>
+</blockquote>
+
+<p>위와 같은 오류가 발생했는데 이는 Node.js 설치폴더가 환경변수에 등록되어 있지 않기 때문에 발생한다. 
+이는 https://wonisdaily.tistory.com/209 해당 블로그를 참고해서 해결했다.</p>
+
+<hr />
+<p>내가 한 방식이 정답이 아닐 수 있으나 해결했으니 마음이 후련하다~</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#jekyll-theme">jekyll-theme</a></li><li>
+        <a class="post-tag" href="/tags/#jekyll">jekyll</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/computernetwork/2025/03/18/ComputerNetwork_03/">
+          「 ComputerNetwork 」 네트워크 보안 및 계층화
+          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/2025/03/16/ComputerNetwork01/">
+          「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이
+          <small><time datetime="2025-03-16T01:00:00+09:00">16 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/2025/03/11/ComputerNetwork/">
+          「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층
+          <small><time datetime="2025-03-11T01:00:00+09:00">11 Mar 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://github.com/Ukja2">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div  class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+    <nav class="toc-nav">
+      <ul class="toc">
+  <li><a href="#1-githubio-repository-생성">1. Github.io repository 생성</a></li>
+  <li><a href="#2-ruby-및-jekyll-설치">2. Ruby 및 Jekyll 설치</a></li>
+  <li><a href="#3-jekyll-theme-파일-넣기">3. Jekyll Theme 파일 넣기</a></li>
+  <li><a href="#1-ruby와-jekyll을-처음-설치하고-테마를-적용하기-전-jekyll-new-을-통해-첫-프로젝트-생성후-bundler-install-실행-시-발생한-오류">1. Ruby와 jekyll을 처음 설치하고 테마를 적용하기 전 <code class="language-plaintext highlighter-rouge">jekyll new ./</code>을 통해 첫 프로젝트 생성후 <code class="language-plaintext highlighter-rouge">bundler install</code> 실행 시 발생한 오류</a></li>
+  <li><a href="#2-bundle-exec로-블로그-실행-시-git-bash에-나타난-오류">2. bundle exec로 블로그 실행 시 git bash에 나타난 오류</a></li>
+  <li><a href="#3-nodejs를-설치하고-npm-install을-설치-과정-중-발생한-오류">3. Node.js를 설치하고 <code class="language-plaintext highlighter-rouge">npm install</code>을 설치 과정 중 발생한 오류</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
