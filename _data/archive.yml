@@ -1,6 +1,15 @@
 - type: dates
   title: Dates
   url: /dates/
+- type: categories
+  title: Infra
+  url: /infra/
+- type: categories
+  title: FrontEnd
+  url: /frontend/
+- type: categories
+  title: Memoirs
+  url: /memoirs/
 
 # - type: tags
 #   title: Tags
