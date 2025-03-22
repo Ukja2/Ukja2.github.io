@@ -6,6 +6,21 @@
   </nav>
 </div>
 {% else %}
+<div class="recent-posts-wrapper">
+  <h2 class="recent-posts-title"><span class="modified-icon">📌</span> 최근 수정된 게시물</h2>
+  <ul class="recent-posts-list">
+    {% assign posts = site.posts | where: "modified", true | sort: "last_modified_at" | reverse %}
+    {% for post in posts limit:3 %}
+      <li class="recent-posts-item">
+        <a href="{{ post.url | relative_url }}" class="recent-post-link">
+          <span class="post-title">{{ post.title }}</span>
+          <span class="recent-post-date">수정: {{ post.last_modified_at | date: "%Y-%m-%d" }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="tags-wrapper">
   <h2 class="tags-title">Tags</h2>
   <ul class="tags-list">

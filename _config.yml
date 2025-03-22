@@ -4,7 +4,8 @@ description: Practice & Practice
 url: https://ukja2.github.io
 avatar: /MeMe.jpg
 paginate: 5
-permalink: pretty
+paginate_path: "/page:num/"
+permalink: /:categories/:title/
 cover_image: /bg.jpg
 
 # Excerpt settings
@@ -17,6 +18,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
 # Optimize Jekyll
 exclude:
@@ -28,6 +31,8 @@ exclude:
   - LICENSE.md
   - README.mdpost.excerpt 
   - not-pure-poole.gemspec
+  - node_modules
+  - package-lock.json
 
 # Optimize Jekyl SEO Tag
 #twitter:
@@ -68,3 +73,14 @@ utterances:
   repo: "Ukja2/ukja2.github.io"
   issue-term: "pathname"
   theme: "github-light"
+
+# Build settings
+markdown: kramdown
+include: ["_pages"]
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Site settings
+last_modified_at: "%Y-%m-%d %H:%M:%S %z"
