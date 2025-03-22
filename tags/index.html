@@ -1,0 +1,23 @@
+---
+layout: default
+title: Tags
+---
+
+<div class="tags-page">
+  <h1 class="tags-page-title">All Tags</h1>
+  
+  {% assign tags = site.tags | sort %}
+  {% for tag in tags %}
+    <div class="tag-group" id="{{ tag[0] | slugify }}">
+      <h2 class="tag-group-title">{{ tag[0] }}</h2>
+      <ul class="tag-group-list">
+        {% for post in tag[1] %}
+          <li class="tag-group-item">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-date">({{ post.date | date: "%Y-%m-%d" }})</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div> 

@@ -4,12 +4,9 @@
 // page is wrapped in `.page` and is only used on the page layout.
 
 .post-entry {
-  border-radius: 10px;
-  padding: 20px 10px 10px 30px;
-  background-color: rgba(151, 151, 151, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 10px 10px 20px rgba(20, 20, 20, 1); /* 오른쪽 아래에 흐린 그림자 */
-  margin-bottom: var(--spacer-3);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: var(--spacer-2);
 }
 
 .page,

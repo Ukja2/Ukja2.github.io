@@ -12,7 +12,7 @@ body {
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
   color: var(--body-color);
-  background-color: rgb(15, 15, 15);
+  background-color: var(--body-bg);
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }

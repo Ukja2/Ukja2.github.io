@@ -21,7 +21,6 @@
   display: block;
   margin-right: auto;
   margin-left: auto;
-  
 }
 
 .masthead-title {
@@ -66,7 +65,7 @@
 
   &:hover,
   &:focus {
-    color: var(--link-hover-color);
+    color: #fff;
   }
 }
 
@@ -81,7 +80,7 @@
   padding: var(--spacer);
   &:hover,
   &:focus {
-    color: var(--link-hover-color);
+    color: #fff;
     background-color: transparent;
   }
 }
