@@ -234,3 +234,47 @@ footer {
     }
   }
 }
+
+
+//차례대로 포스트 제목, 날짜, 내용 크기 조절 
+.post-title {
+  font-size: 1.3rem;
+  margin: 0.3rem 0;
+}
+
+.post-meta {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.post-content {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 0.8rem;
+  list-style: none;
+}
+
+.pagination-item {
+  color: var(--gray-600);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--gray-900);
+  }
+
+  &.active {
+    color: var(--gray-900);
+    font-weight: bold;
+  }
+
+  &.disabled {
+    color: var(--gray-400);
+  }
+}

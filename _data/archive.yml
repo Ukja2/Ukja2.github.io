@@ -5,3 +5,8 @@
 # - type: tags
 #   title: Tags
 #   url: /tags/
+
+- title: Infra
+  url: /categories/infra/
+- title: FrontEnd
+  url: /categories/frontend/

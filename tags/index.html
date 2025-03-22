@@ -3,21 +3,51 @@ layout: default
 title: Tags
 ---
 
-<div class="tags-page">
-  <h1 class="tags-page-title">All Tags</h1>
-  
-  {% assign tags = site.tags | sort %}
-  {% for tag in tags %}
-    <div class="tag-group" id="{{ tag[0] | slugify }}">
-      <h2 class="tag-group-title">{{ tag[0] }}</h2>
-      <ul class="tag-group-list">
-        {% for post in tag[1] %}
-          <li class="tag-group-item">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <span class="post-date">({{ post.date | date: "%Y-%m-%d" }})</span>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+<div class="tags-header">
+  <h1 class="tags-header-title">{{ page.title }}</h1>
+  <div class="tags-header-line"></div>
+</div>
+
+<div class="tags-clouds">
+  {% for tag in site.tags %}
+  <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
   {% endfor %}
-</div> 
+</div>
+
+<div class="tags-posts">
+  {% for tag in site.tags %}
+  <div class="tags-post-section">
+    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+    <ul class="tags-post-list">
+      {% assign posts = tag[1] %}
+      {% for post in posts %}
+      <li class="tags-post-item">
+        <span class="tags-post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a class="tags-post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+<style>
+.tags-post-item {
+  margin: 0.5rem 0;
+}
+
+.tags-post-meta {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.tags-post-title {
+  text-decoration: none;
+  color: var(--gray-900);
+}
+
+.tags-post-title:hover {
+  text-decoration: underline;
+}
+</style> 

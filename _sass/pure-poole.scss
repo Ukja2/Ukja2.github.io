@@ -1,0 +1,21 @@
+.pagination {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.pagination-item {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  border: 0;
+  background: none;
+}
+
+.pagination-item:first-child {
+  border: 0;
+}
+
+.pagination-item:last-child {
+  border: 0;
+} 

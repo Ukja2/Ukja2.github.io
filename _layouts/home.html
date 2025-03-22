@@ -23,7 +23,9 @@ layout: default
       {%- endif -%}
     </div>
 
-  <p>{{ post.excerpt | strip_html }}</p>
+    <div class="post-content">
+      {{ post.excerpt | strip_html }}
+    </div>
   </section>
   {% endfor %}
   {%- if jekyll.environment == "production" and site.disqus -%}
@@ -32,14 +34,40 @@ layout: default
 </div>
 
 <div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | relative_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
   {% if paginator.previous_page %}
-    <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: relative_url }}">Newer</a>
+    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
   {% else %}
-    <span class="pagination-item newer">Newer</span>
+    <span class="pagination-item disabled">&laquo;</span>
+  {% endif %}
+
+  {% assign max_page = paginator.total_pages | minus: 2 %}
+  {% assign start_page = paginator.page | minus: 1 %}
+  {% if start_page < 1 %}
+    {% assign start_page = 1 %}
+  {% elsif start_page > max_page %}
+    {% assign start_page = max_page %}
+  {% endif %}
+
+  {% assign end_page = start_page | plus: 2 %}
+  {% if end_page > paginator.total_pages %}
+    {% assign end_page = paginator.total_pages %}
+  {% endif %}
+
+  {% for page in (start_page..end_page) %}
+    {% if page == paginator.page %}
+      <span class="pagination-item active">{{ page }}</span>
+    {% else %}
+      {% if page == 1 %}
+        <a class="pagination-item" href="{{ '/' | relative_url }}">{{ page }}</a>
+      {% else %}
+        <a class="pagination-item" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">&raquo;</a>
+  {% else %}
+    <span class="pagination-item disabled">&raquo;</span>
   {% endif %}
 </div>

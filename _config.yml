@@ -7,6 +7,9 @@ paginate: 5
 permalink: pretty
 cover_image: /bg.jpg
 
+# Excerpt settings
+excerpt_separator: <!--more-->
+
 # Gems
 plugins:
   - jekyll-gist
@@ -56,9 +59,6 @@ author:
   name: Ukja2
   url: https://ukja2.github.io
   email: jaewooklee739@gmail.com
-
-
-excerpt_separator: <!--more-->
 
 # Tags settings
 tag_page: /tags/
