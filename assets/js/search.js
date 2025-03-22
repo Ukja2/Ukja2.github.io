@@ -70,8 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!url.startsWith('/')) {
                 url = '/' + url;
             }
+            // GitHub Pages URL 구조에 맞게 수정
             if (pathSegments.length > 0 && pathSegments[0] === 'Ukja2.github.io') {
-                url = '/Ukja2.github.io' + url;
+                url = url.replace(/^\/Ukja2\.github\.io/, '');
             }
             console.log('결과 URL:', url); // URL 로깅
 
