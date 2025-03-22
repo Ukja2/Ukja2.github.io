@@ -62,3 +62,8 @@ excerpt_separator: <!--more-->
 
 # Tags settings
 tag_page: /tags/
+
+utterances:
+  repo: "Ukja2/ukja2.github.io"
+  issue-term: "pathname"
+  theme: "github-light"
