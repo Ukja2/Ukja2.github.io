@@ -4,8 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('search-results');
     let searchData = [];
 
+    // 현재 페이지의 경로를 기준으로 search.json의 경로 계산
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    const searchJsonPath = pathSegments.length > 0 
+        ? `/${pathSegments[0]}/search.json`
+        : '/search.json';
+
     // 검색 데이터 로드
-    fetch('/search.json')
+    fetch(searchJsonPath)
         .then(response => {
             if (!response.ok) {
                 throw new Error('검색 데이터를 불러올 수 없습니다.');
@@ -58,7 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? firstSentence.substring(0, 100) + '...' 
                 : firstSentence;
 
-            const url = result.url.startsWith('/') ? result.url : `/${result.url}`;
+            // URL 처리
+            let url = result.url;
+            if (!url.startsWith('/')) {
+                url = '/' + url;
+            }
+            if (pathSegments.length > 0) {
+                url = '/' + pathSegments[0] + url;
+            }
             console.log('결과 URL:', url); // URL 로깅
 
             return `
@@ -71,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }).join('');
 
+        console.log('생성된 HTML:', html); // HTML 로깅
         searchResults.innerHTML = html;
+        console.log('searchResults 요소:', searchResults); // 요소 로깅
     }
 }); 
