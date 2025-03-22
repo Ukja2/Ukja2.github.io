@@ -63,6 +63,7 @@ excerpt_separator: <!--more-->
 # Tags settings
 tag_page: /tags/
 
+# 다른 지킬 테마와 달리 아래 설정을 추가해주어야 깃허브 로그인이 정상적으로 작동함
 utterances:
   repo: "Ukja2/ukja2.github.io"
   issue-term: "pathname"
