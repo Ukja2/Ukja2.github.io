@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             searchData = data;
             console.log('검색 데이터 로드 완료:', searchData.length, '개의 항목');
+            console.log('첫 번째 항목:', searchData[0]); // 데이터 구조 확인
         })
         .catch(error => {
             console.error('검색 데이터 로드 중 오류 발생:', error);
@@ -29,16 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // 검색 입력 이벤트 처리
     searchInput.addEventListener('input', function(e) {
         const query = e.target.value.trim().toLowerCase();
+        console.log('검색어:', query); // 검색어 로깅
+
         if (query.length < 2) {
             searchResults.innerHTML = '<p>검색어를 2글자 이상 입력해주세요.</p>';
             return;
         }
 
         const results = searchData.filter(item => {
-            return item.title.toLowerCase().includes(query) ||
-                   item.content.toLowerCase().includes(query);
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const contentMatch = item.content.toLowerCase().includes(query);
+            console.log('항목 검색:', item.title, '제목 일치:', titleMatch, '내용 일치:', contentMatch);
+            return titleMatch || contentMatch;
         });
 
+        console.log('검색 결과 수:', results.length); // 결과 수 로깅
         displayResults(results);
     });
 
@@ -57,9 +63,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? firstSentence.substring(0, 100) + '...' 
                 : firstSentence;
 
+            const url = result.url.startsWith('/') ? result.url : `/${result.url}`;
+            console.log('결과 URL:', url); // URL 로깅
+
             return `
                 <div class="search-result-item">
-                    <a href="${baseUrl}${result.url}">
+                    <a href="${baseUrl}${url}">
                         <h3>${result.title}</h3>
                         <p>${truncatedContent}</p>
                     </a>
