@@ -57,7 +57,11 @@ layout: default
       {% if page == paginator.page %}
         <span class="pagination-item current">{{ page }}</span>
       {% else %}
-        <a class="pagination-item" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        {% if page == 1 %}
+          <a class="pagination-item" href="{{ '/' | relative_url }}">{{ page }}</a>
+        {% else %}
+          <a class="pagination-item" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
       {% endif %}
     {% endfor %}
 
