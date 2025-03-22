@@ -32,14 +32,90 @@ layout: default
 </div>
 
 <div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | relative_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: relative_url }}">Newer</a>
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
+  {% if paginator.total_pages > 1 %}
+    {% if paginator.page > 1 %}
+      <a class="pagination-item arrow" href="{{ paginator.previous_page_path | relative_url }}">
+        <span class="arrow-icon">←</span>
+      </a>
+    {% else %}
+      <span class="pagination-item arrow disabled">
+        <span class="arrow-icon">←</span>
+      </span>
+    {% endif %}
+
+    {% assign start_page = paginator.page | minus: 1 %}
+    {% if start_page < 1 %}
+      {% assign start_page = 1 %}
+    {% endif %}
+
+    {% assign end_page = start_page | plus: 2 %}
+    {% if end_page > paginator.total_pages %}
+      {% assign end_page = paginator.total_pages %}
+    {% endif %}
+
+    {% for page in (start_page..end_page) %}
+      {% if page == paginator.page %}
+        <span class="pagination-item current">{{ page }}</span>
+      {% else %}
+        <a class="pagination-item" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.page < paginator.total_pages %}
+      <a class="pagination-item arrow" href="{{ paginator.next_page_path | relative_url }}">
+        <span class="arrow-icon">→</span>
+      </a>
+    {% else %}
+      <span class="pagination-item arrow disabled">
+        <span class="arrow-icon">→</span>
+      </span>
+    {% endif %}
   {% endif %}
 </div>
+
+<style>
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination-item {
+  padding: 5px 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  min-width: 32px;
+  text-align: center;
+}
+
+.pagination-item:hover:not(.disabled) {
+  background-color: var(--gray-100);
+  border-color: var(--gray-400);
+}
+
+.pagination-item.current {
+  background-color: var(--gray-200);
+  border-color: var(--gray-400);
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+.pagination-item.arrow {
+  padding: 5px 8px;
+}
+
+.pagination-item.arrow.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.arrow-icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+</style>
