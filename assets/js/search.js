@@ -4,13 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('search-results');
     let searchData = [];
 
-    // 현재 페이지의 base URL 가져오기
-    const baseUrl = window.location.pathname.includes('/Ukja2.github.io') 
-        ? '/Ukja2.github.io' 
-        : '';
-
     // 검색 데이터 로드
-    fetch(`${baseUrl}/search.json`)
+    fetch('/search.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('검색 데이터를 불러올 수 없습니다.');
@@ -68,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             return `
                 <div class="search-result-item">
-                    <a href="${baseUrl}${url}">
+                    <a href="${url}">
                         <h3>${result.title}</h3>
                         <p>${truncatedContent}</p>
                     </a>
