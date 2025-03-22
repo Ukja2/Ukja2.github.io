@@ -6,16 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 검색 데이터 로드
     fetch('/search.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('검색 데이터를 불러올 수 없습니다.');
+            }
+            return response.json();
+        })
         .then(data => {
             searchData = data;
+        })
+        .catch(error => {
+            console.error('검색 데이터 로드 중 오류 발생:', error);
+            searchResults.innerHTML = '<p>검색 기능을 사용할 수 없습니다. 잠시 후 다시 시도해주세요.</p>';
         });
 
     // 검색 입력 이벤트 처리
     searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase();
+        const query = e.target.value.trim().toLowerCase();
         if (query.length < 2) {
-            searchResults.innerHTML = '';
+            searchResults.innerHTML = '<p>검색어를 2글자 이상 입력해주세요.</p>';
             return;
         }
 
