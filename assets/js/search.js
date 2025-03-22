@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 현재 페이지의 경로를 기준으로 search.json의 경로 계산
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(Boolean);
-    const searchJsonPath = pathSegments.length > 0 
-        ? `/${pathSegments[0]}/search.json`
+    const searchJsonPath = pathSegments.length > 0 && pathSegments[0] === 'Ukja2.github.io'
+        ? '/Ukja2.github.io/search.json'
         : '/search.json';
 
     // 검색 데이터 로드
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!url.startsWith('/')) {
                 url = '/' + url;
             }
-            if (pathSegments.length > 0) {
-                url = '/' + pathSegments[0] + url;
+            if (pathSegments.length > 0 && pathSegments[0] === 'Ukja2.github.io') {
+                url = '/Ukja2.github.io' + url;
             }
             console.log('결과 URL:', url); // URL 로깅
 
