@@ -9,134 +9,15 @@ title: Tags
   {% assign tags = site.tags | sort %}
   {% for tag in tags %}
     <div class="tag-group" id="{{ tag[0] | slugify }}">
-      <h2 class="tag-group-title">{{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span></h2>
+      <h2 class="tag-group-title">{{ tag[0] }}</h2>
       <ul class="tag-group-list">
         {% for post in tag[1] %}
-          <li class="tag-group-item {% if forloop.index > 10 %}hidden{% endif %}">
+          <li class="tag-group-item">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <span class="post-date">({{ post.date | date: "%Y-%m-%d" }})</span>
           </li>
         {% endfor %}
       </ul>
-      {% if tag[1].size > 10 %}
-        <div class="load-more-container">
-          <button class="load-more-btn" data-tag="{{ tag[0] | slugify }}">
-            더 보기
-          </button>
-        </div>
-      {% endif %}
     </div>
   {% endfor %}
-</div>
-
-<style>
-.tags-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.tags-page-title {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-  font-size: 1.5em;
-}
-
-.tag-group {
-  margin-bottom: 40px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.tag-group-title {
-  color: #2c3e50;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #e9ecef;
-  font-size: 1.2em;
-}
-
-.tag-count {
-  color: #6c757d;
-  font-size: 0.9em;
-}
-
-.tag-group-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tag-group-item {
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.tag-group-item a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-.tag-group-item a:hover {
-  text-decoration: underline;
-}
-
-.post-date {
-  color: #6c757d;
-  font-size: 0.9em;
-}
-
-.load-more-container {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.load-more-btn {
-  background-color: var(--gray-100);
-  color: var(--gray-700);
-  border: 1px solid var(--gray-300);
-  padding: 8px 16px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: all 0.2s ease;
-  font-family: var(--body-font);
-}
-
-.load-more-btn:hover {
-  background-color: var(--gray-200);
-  color: var(--gray-900);
-  border-color: var(--gray-400);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.hidden {
-  display: none;
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const loadMoreButtons = document.querySelectorAll('.load-more-btn');
-  
-  loadMoreButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const tag = this.dataset.tag;
-      const tagGroup = this.closest('.tag-group');
-      const hiddenItems = tagGroup.querySelectorAll('.hidden');
-      
-      // 숨겨진 항목들을 보이게 만들기
-      hiddenItems.forEach(item => {
-        item.classList.remove('hidden');
-      });
-      
-      // 더 보기 버튼 제거
-      this.remove();
-    });
-  });
-});
-</script> 
+</div> 

@@ -1,6 +1,5 @@
 ---
-layout: archive-taxonomies
-type: dates
+layout: archive-dates
 permalink: /dates/
 title: Dates
---- 
+---

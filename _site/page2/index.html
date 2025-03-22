@@ -29,6 +29,7 @@
 
 
   <body>
+
     <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
   <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
     </div>
@@ -74,18 +75,6 @@
           <a href="/dates/" class="pure-menu-link "">Dates</a>
         </li>
       
-        <li class="pure-menu-item">
-          <a href="/infra/" class="pure-menu-link "">Infra</a>
-        </li>
-      
-        <li class="pure-menu-item">
-          <a href="/frontend/" class="pure-menu-link "">FrontEnd</a>
-        </li>
-      
-        <li class="pure-menu-item">
-          <a href="/memoirs/" class="pure-menu-link "">Memoirs</a>
-        </li>
-      
     </ul>
     
   </div>
@@ -96,7 +85,7 @@
   
   <section class="post-entry">
     <h2 class="post-title">
-      <a href="/infra/linux/2025/02/20/Linux-outline/">
+      <a href="/linux/2025/02/20/Linux-outline/">
         「 Linux 」 리눅스?
       </a>
     </h2>
@@ -174,84 +163,12 @@
 
 <div class="pagination">
   
-    
-      <a class="pagination-item arrow" href="/">
-        <span class="arrow-icon">←</span>
-      </a>
-    
-
-    
-    
-
-    
-    
-
-    
-      
-        
-          <a class="pagination-item" href="/">1</a>
-        
-      
-    
-      
-        <span class="pagination-item current">2</span>
-      
-    
-
-    
-      <span class="pagination-item arrow disabled">
-        <span class="arrow-icon">→</span>
-      </span>
-    
+    <span class="pagination-item older">Older</span>
+  
+  
+    <a class="pagination-item newer" href="/">Newer</a>
   
 </div>
-
-<style>
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 30px;
-}
-
-.pagination-item {
-  padding: 5px 10px;
-  border: 1px solid var(--gray-300);
-  border-radius: var(--border-radius);
-  color: var(--gray-700);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  min-width: 32px;
-  text-align: center;
-}
-
-.pagination-item:hover:not(.disabled) {
-  background-color: var(--gray-100);
-  border-color: var(--gray-400);
-}
-
-.pagination-item.current {
-  background-color: var(--gray-200);
-  border-color: var(--gray-400);
-  color: var(--gray-900);
-  font-weight: 500;
-}
-
-.pagination-item.arrow {
-  padding: 5px 8px;
-}
-
-.pagination-item.arrow.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.arrow-icon {
-  font-size: 1.2em;
-  line-height: 1;
-}
-</style>
 
 </main>
 
@@ -261,12 +178,6 @@
 </footer>
 </div>
       <div class="sidebar-right pure-u-1 pure-u-md-1-4">
-<div class="search-container">
-  <h2 class="search-title">Search</h2>
-  <input type="text" id="search-input" placeholder="무엇이든 검색해보세요! 😁">
-  <div id="search-results"></div>
-</div>
-
 <div class="tags-wrapper">
   <h2 class="tags-title">Tags</h2>
   <ul class="tags-list">
@@ -334,8 +245,7 @@
 </div>
     </div>
 
-    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
-    <script src="/assets/js/search.js"></script><script>
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
   function strip(str, remove) {
     while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
       str = str.substr(1);

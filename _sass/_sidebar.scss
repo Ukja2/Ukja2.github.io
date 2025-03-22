@@ -24,10 +24,16 @@
 }
 
 .masthead-title {
+  
   padding: 0;
   margin: 0;
   font-size: 2rem;
   font-weight: 900;
+
+  a:hover,
+  a:focus {
+    color: var(--link-hover-color);
+  }
 }
 
 .masthead-tagline {
@@ -54,6 +60,7 @@
   color: inherit;
   letter-spacing: 0.05em;
   font-size: 100%;
+  // border-bottom: 2px solid;
   border-color: inherit;
 
   &:hover,
@@ -81,49 +88,5 @@
 @media (max-width: $md-width) {
   .avatar-image {
     width: 15%;
-  }
-}
-
-.search-container {
-  margin-bottom: 2em;
-  
-  #search-input {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 1em;
-    font-size: 0.9em;
-    
-    &:focus {
-      outline: none;
-      border-color: var(--link-color);
-    }
-  }
-  
-  #results-container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    
-    li {
-      margin-bottom: 0.5em;
-      
-      a {
-        color: var(--link-color);
-        text-decoration: none;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      
-      .search-date {
-        display: block;
-        font-size: 0.8em;
-        color: var(--gray-600);
-        margin-top: 0.2em;
-      }
-    }
   }
 }

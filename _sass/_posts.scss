@@ -7,7 +7,6 @@
   padding: 20px 0;
   border-bottom: 1px solid var(--gray-200);
   margin-bottom: var(--spacer-2);
-  font-size: 1em;
 }
 
 .page,
@@ -29,11 +28,11 @@
 .post-title {
   color: var(--heading-color);
   margin-bottom: 10px;
-  font-size: 1.2em;
 }
 .page-title,
 .post-title {
   margin-top: 0;
+  
 }
 .post-title a {
   color: inherit;
