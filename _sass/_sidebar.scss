@@ -170,3 +170,21 @@
   font-size: 0.85rem;
   margin-left: 0.3rem;
 }
+
+.frame-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.frame {
+  display: inline-block;
+  padding: 5px;
+  background: transparent;
+}
+
+.frame-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
