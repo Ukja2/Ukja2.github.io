@@ -92,83 +92,81 @@
 }
 
 .recent-posts-wrapper {
-  margin-top: var(--spacer-2);
-  padding: 0;
-  background: var(--gray-000);
-  border-radius: 8px;
-  padding: 0.8rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--gray-200);
+  background-color: rgba(251, 251, 251, 0.8);
+  border-radius: var(--border-radius);
+  padding: 0.3rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tags-wrapper {
+  margin-bottom: 1.5rem;
 }
 
 .recent-posts-title {
-  margin-bottom: 0.8rem;
-  font-size: 1.25rem;
+  color: #1a252f;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--heading-color);
-  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 0.8rem;
   padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  text-align: center;
-
-  .modified-icon {
-    font-size: 1.2rem;
-  }
+  height: 2.5rem;
+  margin: 0 auto 0.8rem auto;
 }
 
-.recent-posts-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.recent-posts-item {
+.tags-title {
+  color: #1a252f;
+  font-size: 1.2rem;
+  font-weight: 600;
   margin-bottom: 0.8rem;
-  transition: transform 0.2s ease;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--gray-200);
-  
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  
-  &:hover {
-    transform: translateX(5px);
-  }
+  text-align: left;
 }
 
-.recent-post-link {
-  display: flex;
-  flex-direction: column;
-  color: inherit;
+.recent-posts-list,
+.tags-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-posts-item,
+.tags-item {
+  margin-bottom: 0.6rem;
+}
+
+.recent-posts-item:last-child,
+.tags-item:last-child {
+  margin-bottom: 0;
+}
+
+.recent-post-link,
+.tag-link {
+  color: #1a252f;
   text-decoration: none;
-  padding: 0.3rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-  
+  display: block;
+  transition: color 0.2s ease;
+
   &:hover {
-    background-color: var(--hover-bg);
+    color: #2c3e50;
   }
-}
-
-.modified-icon {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-
-.post-title {
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.4;
-  margin-bottom: 0.3rem;
 }
 
 .recent-post-date {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--gray-600);
   margin-top: 0.2rem;
+  display: block;
+}
+
+.tag-count {
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
 }
