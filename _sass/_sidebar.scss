@@ -106,11 +106,8 @@
 .recent-posts-wrapper {
   width: 100%;
   max-width: 300px;
-  background-color: rgba(251, 251, 251, 0.8);
-  border-radius: var(--border-radius);
   padding: 0.3rem 1.2rem 1.2rem 1.2rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -127,7 +124,7 @@
   font-weight: 600;
   margin-bottom: 0.8rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 2px solid var(--gray-200);
   text-align: center;
   display: flex;
   align-items: center;

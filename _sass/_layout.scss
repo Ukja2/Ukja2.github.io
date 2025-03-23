@@ -60,31 +60,30 @@ footer {
   }
 }
 
-@media (min-width: $lg-width) {
+@media (min-width: 1200px) {
   .sidebar-right {
     display: block;
   }
+  
+  .content {
+    width: 50%;
+  }
 }
 
-@media (max-width: $lg-width) {
+@media (max-width: 1200px) {
   .sidebar-right {
-    display: none;
+    display: none !important;
+  }
+  
+  .content {
+    width: 75%;
   }
 }
 
 @media (max-width: $md-width) {
   .content {
     width: 100%;
-  }
-  
-  .sidebar-right {
-    display: none;
-  }
-}
-
-@media (min-width: $md-width) and (max-width: $lg-width) {
-  .content {
-    width: 75%;
+    margin-left: 0;
   }
 }
 
