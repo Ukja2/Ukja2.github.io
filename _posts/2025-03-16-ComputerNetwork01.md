@@ -8,9 +8,11 @@ toc:  true
 ---
 
 ## Network core
-<!--more-->
+
 
 ISP 내부에는 `Network core`와 `Network Edge`가 있다.
+
+<!--more-->
 
 어떠한 정보를 보낼 때 네트워크 코어에서 데이터를 처리하는 두 가지 전송 방식이 존재한다.
 

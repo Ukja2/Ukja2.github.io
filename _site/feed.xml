@@ -1,12 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-23T16:06:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 ComputerNetwork 」 네트워크 보안 및 계층화</title><link href="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-23T16:29:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 ComputerNetwork 」 네트워크 보안 및 계층화</title><link href="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
 
-<!--more-->
-
-<p>우선 과거에는 보안이 중요하지 않았음, 애초에 네트워크 간 통신을 하기도 어려웠던 상황이었다.</p>
-
-<p>즉, 누군가의 정보를 탈취한다는 개념에 집중할 수 없었다.</p>
-
-<p>하지만 과거와 달리 인터넷 보안에 신경을 쓸 시기가 왔는데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.</p>
+<p>현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.
+<!--more--></p>
 
 <p>고 단계의 계층으로 갈 수록 암호화의 기술도 고도화할 수 있게 됐다.
 예를 들어, 파일의 암호화 등</p>
@@ -129,10 +124,11 @@ Worm : 사용자의 행동과 무관하게, 직접 수신하면 감염됨</p>
 
 <p>데이터를 네트워크를 통해 전송할 때, 각 계층은 자신만의 정보를 담은 <strong>헤더(header)</strong> 를 추가하며, 계층이 내려갈 때마다 헤더가 붙는다.</p>
 
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network Security]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/computernetwork/ComputerNetwork01/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-16T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
-<!--more-->
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/computernetwork/ComputerNetwork01/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-16T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
 
 <p>ISP 내부에는 <code class="language-plaintext highlighter-rouge">Network core</code>와 <code class="language-plaintext highlighter-rouge">Network Edge</code>가 있다.</p>
+
+<!--more-->
 
 <p>어떠한 정보를 보낼 때 네트워크 코어에서 데이터를 처리하는 두 가지 전송 방식이 존재한다.</p>
 
@@ -378,7 +374,7 @@ IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소<
   <li>
     <p>일정 버퍼 메모리가 초과되면 <code class="language-plaintext highlighter-rouge">패킷이 삭제되는데 (buffer overwrite)</code>이를 <code class="language-plaintext highlighter-rouge">packet loss</code> 라고함</p>
   </li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network core]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층</title><link href="http://localhost:4000/computernetwork/ComputerNetwork/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층" /><published>2025-03-11T01:00:00+09:00</published><updated>2025-03-11T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork/"><![CDATA[<h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network core ISP 내부에는 Network core와 Network Edge가 있다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층</title><link href="http://localhost:4000/computernetwork/ComputerNetwork/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층" /><published>2025-03-11T01:00:00+09:00</published><updated>2025-03-11T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork/"><![CDATA[<h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
 <!--more-->
 
 <ul>
