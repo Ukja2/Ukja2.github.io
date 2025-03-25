@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 3주차 - 1 Application Layer (1)
+title: 「 ComputerNetwork 」 3주 2차시,  Application Layer (1)
 date: 2025-03-25 00:00 +0800
 tags: [ComputerNetwork]
 categories: [ComputerNetwork]

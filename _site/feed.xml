@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-23T16:59:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 ComputerNetwork 」 네트워크 보안 및 계층화</title><link href="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T14:17:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 ComputerNetwork 」 3주 2차시, Application Layer (1)</title><link href="http://localhost:4000/computernetwork/ComputerNetwork_04/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 3주 2차시, Application Layer (1)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork_04</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork_04/"><![CDATA[<p>Application Layer 에는 다음과 같은 예시가 있다.
+<!--more--></p>
+
+<ul>
+  <li>social networking</li>
+  <li>Web</li>
+  <li>text messaging</li>
+  <li>e-mail</li>
+  <li>multi-user network games</li>
+  <li>streaming stored video (YouTube, Hulu, Netflix)</li>
+  <li>P2P file sharing</li>
+</ul>
+
+<h2 id="creating-a-network-app">Creating a network app</h2>
+
+<ol>
+  <li>Application은 End System에서 실행된다.</li>
+  <li>이는 네트워크를 통해 데이터를 주고받음</li>
+  <li>라우터 같은 네트워크 장치(코어 장비)에는 애플리케이션을 설치하지 않음
+    <ul>
+      <li>네트워크 장치는 데이터를 “전달”할 뿐, 애플리케이션을 실행하지 않음!</li>
+      <li>즉, 우리는 라우터를 프로그래밍할 필요 없이, 사용자 장치에서 애플리케이션을 개발하면 됨</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="client-server-paradigm">Client-server paradigm</h2>
+<p>클라이언트-서버 모델은 <strong>클라이언트(Client)</strong> 가 <strong>서버(Server)</strong> 에 요청(Request)을 보내고, 서버가 해당 요청을 처리한 후 <strong>응답(Response)</strong> 을 보내주는 구조</p>
+
+<ol>
+  <li>서버(Server)의 특징
+    <ul>
+      <li>항상 켜져 있는(Always-on) 호스트</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>고정된(IP Address) 주소 사용
+    <ul>
+      <li>클라이언트가 언제든지 서버에 접속할 수 있도록 영구적인 IP 주소를 가짐.</li>
+    </ul>
+  </li>
+  <li>대규모 서비스를 위해 데이터센터에 위치
+    <ul>
+      <li>예를 들어, 넷플릭스의 경우 온갖 영화(데이터)가 데이터센터에 들어가있다고 생각하면 됨</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>클라이언트(Client)의 특징
+    <ul>
+      <li>서버에 접속하여 요청을 보냄</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>일시적으로 연결됨(Intermittently connected)
+    <ul>
+      <li>필요할 때만 서버에 접속하고, 평소에는 네트워크 연결이 없어도 됨.</li>
+    </ul>
+  </li>
+  <li>동적인(Dynamic) IP 주소 사용
+    <ul>
+      <li>IP address는 한정적이기 때문</li>
+    </ul>
+  </li>
+  <li>클라이언트끼리는 직접 통신하지 않음
+    <ul>
+      <li>일반적으로 서버를 거쳐야 클라이언트 간 통신이 가능함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="p2p-peer-to-peer-architecture">P2P (Peer-to-Peer) Architecture</h2>
+
+<p><code class="language-plaintext highlighter-rouge">엔드 유저(클라이언트)</code> 장치들 간 직접 통신하는 구조</p>
+
+<ul>
+  <li>서버 없이(peer끼리) 직접 통신</li>
+  <li>각 피어(Peer)가 동시에 클라이언트 &amp; 서버 역할 수행</li>
+  <li><code class="language-plaintext highlighter-rouge">Self Scalability</code>
+    <ul>
+      <li>새로운 피어(사용자)가 생기면 서비스 요청자 + 제공자 역할을 동시에 함</li>
+      <li>피어가 많아질수록 네트워크 처리량(Throughput)도 증가</li>
+      <li>서버 없이도 자연스럽게 확장됨</li>
+      <li>즉, <code class="language-plaintext highlighter-rouge">네트워크들의 연결성과 범위를 스스로 줄였다 늘렸다 하는 것을 의미</code></li>
+    </ul>
+  </li>
+  <li>Peer는 네트워크에 일시적으로 연결되고, IP 주소가 자주 변경됨
+    <ul>
+      <li>관리 복잡 (중앙 관리 서버가 없어서 어려움)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="processes-communicating">Processes Communicating</h2>
+
+<ul>
+  <li>프로세스(Process)란? : 운영 중인 프로그램 (CPU에서 실행 중인 프로그램)
+    <ul>
+      <li>하나의 컴퓨터에는 여러개의 프로세스가 동작가능하다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">프로세스 간 통신 (Inter-Process Communication)</code>
+    <ul>
+      <li>하나의 호스트에서 OS를 통과해서 앱들끼리 통신을 할 수 있는 것을 의미한다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">서로 다른 호스트</code>에 있는 프로세스들은 <strong>메시지</strong> 를 교환하여 통신한다. 
+그거를 패킷이라 표현하는데 7계층이라 메세지라고 표현한다.</li>
+</ul>
+
+<h2 id="sockets">Sockets</h2>
+<p><code class="language-plaintext highlighter-rouge">소켓(Socket)</code>은 네트워크 통신에서 프로세스가 메시지를 보내고 받는 창구를 의미한다.</p>
+
+<p>이는 문에 비유할 수 있는데,</p>
+<ul>
+  <li>보내는 프로세스는 메시지를 소켓을 통해 “문 밖으로” 보낸다.</li>
+  <li>받는 프로세스는 “문 안”에 있는 소켓을 통해 메시지를 받는다.</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/70cb6cc4-1388-405e-8807-4cbf5b490eb8/image.png" alt="" /></p>
+
+<p>App을 벗어나는 통로를 socket이라 칭한다.</p>
+
+<h2 id="addressing-processes">Addressing Processes</h2>
+
+<p>프로세스가 메시지를 받으려면, 그 프로세스를 식별할 수 있는 고유한 아이디가 필요하다. 이를 위해서 IP 주소와 포트 번호가 사용된다.</p>
+
+<ul>
+  <li>IP 주소와 프로세스의 관계
+    <ul>
+      <li>
+        <p>호스트 장치는 고유한 32비트 IP 주소를 가짐.</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">하지만, IP 주소만으로는 특정 프로세스를 식별할 수 없다.</code> 왜냐하면 하나의 호스트에서 여러 프로세스가 동시에 실행되기 때문임</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>즉 프로세스를 식별하기 위한 주소는 <code class="language-plaintext highlighter-rouge">IP 주소</code>와 <code class="language-plaintext highlighter-rouge">포트 번호</code> 두 가지를 포함한다.</p>
+
+<p>비슷한 경우로 로컬 네트워크 내에서 장치간에서는 <code class="language-plaintext highlighter-rouge">Mac Address</code> 를 통해서 통신을 할 수 있다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Application Layer 에는 다음과 같은 예시가 있다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 3주 1차시, 네트워크 보안 및 계층화</title><link href="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 3주 1차시, 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
 
 <p>현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.
 <!--more--></p>
@@ -124,7 +273,49 @@ Worm : 사용자의 행동과 무관하게, 직접 수신하면 감염됨</p>
 
 <p>데이터를 네트워크를 통해 전송할 때, 각 계층은 자신만의 정보를 담은 <strong>헤더(header)</strong> 를 추가하며, 계층이 내려갈 때마다 헤더가 붙는다.</p>
 
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/computernetwork/ComputerNetwork01/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-16T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">「 AWS 」 EC2 인스턴스 생성및 접속</title><link href="http://localhost:4000/infra/aws/AWS_Server/" rel="alternate" type="text/html" title="「 AWS 」 EC2 인스턴스 생성및 접속" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/infra/aws/AWS_Server</id><content type="html" xml:base="http://localhost:4000/infra/aws/AWS_Server/"><![CDATA[<p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
+
+<!--more-->
+
+<p><strong>회원가입</strong>을 통해 AWS 계정을 생성해준다. ( 과정 생략 )</p>
+
+<h3 id="ec2-인스턴스-생성">EC2 인스턴스 생성</h3>
+
+<h4 id="1-좌측-상단-검색창에-ec2를-검색한-후-클릭해준다">1. 좌측 상단 검색창에 <strong>EC2</strong>를 검색한 후 클릭해준다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3a5ac3df-bfc8-4ede-9d1d-55754d613da4/image.png" alt="" /></p>
+
+<h4 id="2-우측-인스턴스-시작을-눌러준다">2. 우측 인스턴스 시작을 눌러준다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/ec63d5df-9736-4df9-8ed6-7b4437562002/image.png" alt="" /></p>
+
+<h4 id="3-인스턴스명은-내가-알아보기-쉽도록-설정하면-된다">3. 인스턴스명은 내가 알아보기 쉽도록 설정하면 된다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3180b1ae-f8ac-4cf7-b08b-7f9c2a83c9de/image.png" alt="" /></p>
+
+<h4 id="4-ami-설정은-아래의-형식을-따랐다">4. AMI 설정은 아래의 형식을 따랐다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/034a28fb-c710-4ad5-bcdd-88562ae01111/image.png" alt="" /></p>
+
+<p>나는 아직 잘 모르기 때문에 운영체제는 Ubuntu를 골랐으며, 버전은 <code class="language-plaintext highlighter-rouge">24.04 LTS</code> 와 <code class="language-plaintext highlighter-rouge">22.04 LTS</code>가 있는데, 둘 다 프리 티어 사용이 가능해서 아무래도 안정적인 22.04 버전을 사용했다.</p>
+
+<p>아키텍처는 앞선 이유와 동일하게 잘 모르기 때문에 기본설정인 <code class="language-plaintext highlighter-rouge">64비트(x86)</code> 를 사용했다.</p>
+
+<h4 id="5-인스턴스-유형은-프리-티어가-가능한-t2micro-모델을-사용한다">5. 인스턴스 유형은 프리 티어가 가능한 <code class="language-plaintext highlighter-rouge">t2.micro</code> 모델을 사용한다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b76420fa-20ee-43de-bf67-6c1b39165d10/image.png" alt="" /></p>
+
+<p><strong>EC2 인스턴스 유형(Instance Type)</strong> 은 CPU, 메모리(RAM), 네트워크 성능 등에 따라 분류된 <strong>서버의 스펙(성능 등급)</strong> 이라고 알면 된다.</p>
+
+<h4 id="6-키페어의-이름은-본인이-식별할-수-있도록-설정한다">6. 키페어의 이름은 본인이 식별할 수 있도록 설정한다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/36151bf1-77db-4fef-bf43-fd813cb4e48f/image.png" alt="" /></p>
+
+<p>RSA의 보안성이 높고 널리 지원되고 있으며, pem키 또한 다양한 운영 체제에서 사용 가능하게 지원되기 때문에 많이 사용한다고 한다.</p>
+
+<p>또한 키페어는 <strong>절대 유출되어서는 안되기 떄문에</strong> 따로 잘 보관하도록 하자.</p>
+
+<h4 id="7">7.</h4>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWs" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/computernetwork/ComputerNetwork01/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-25T14:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
 
 <p>ISP 내부에는 <code class="language-plaintext highlighter-rouge">Network core</code>와 <code class="language-plaintext highlighter-rouge">Network Edge</code>가 있다.</p>
 
@@ -374,7 +565,32 @@ IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소<
   <li>
     <p>일정 버퍼 메모리가 초과되면 <code class="language-plaintext highlighter-rouge">패킷이 삭제되는데 (buffer overwrite)</code>이를 <code class="language-plaintext highlighter-rouge">packet loss</code> 라고함</p>
   </li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network core ISP 내부에는 Network core와 Network Edge가 있다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층</title><link href="http://localhost:4000/computernetwork/ComputerNetwork/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층" /><published>2025-03-11T01:00:00+09:00</published><updated>2025-03-11T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork/"><![CDATA[<h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
+</ul>
+
+<h2 id="throughput">Throughput</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b164bb99-2fd8-4adf-90b6-237fe4607b86/image.png" alt="" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Througput(처리랑)</code>? : 단위 시간당 전송된 데이터의 양을 의미한다. 쉽게 말해서, 네트워크가 실제로 전달할 수 있는 속도를 나타냄</p>
+
+<p>위 그림은 각각 two hop network에서 파이프라인의 크기에 따른 처리량을 나타낸다.</p>
+
+<ul>
+  <li>
+    <p>1번은 서버 -&gt; 라우터의 파이프라인이 좁고, 라우터 -&gt; 컴퓨터의 파이프라인의 크기가 넓다.</p>
+  </li>
+  <li>
+    <p>2번은 그 반대의 경우이다.</p>
+  </li>
+</ul>
+
+<p>하지만 throughput의 크기는 작은 throughput이 결정한다 큰 게 결정하는게 아님</p>
+
+<p>예를 들어 2번 그림을 보면 Rs속도 만큼 라우터에게 보내는데, 컴퓨로 보낼때는 파이프라인이 좁기 때문에 받은 만큼 전부 보내줄 수가 없게된다. 즉 보낼 수 있는건 Rc만큼이 된다</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bottleneck link(병목현상)</code>  : 병의 입구처럼 크기가 줄어들면 원래 보낼 속도만큼을 보낼 수 없게 된다.</li>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="ComputerNetwork" /><category term="ComputerNetwork" /><summary type="html"><![CDATA[Network core ISP 내부에는 Network core와 Network Edge가 있다.]]></summary></entry><entry><title type="html">「 ComputerNetwork 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층</title><link href="http://localhost:4000/computernetwork/ComputerNetwork/" rel="alternate" type="text/html" title="「 ComputerNetwork 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층" /><published>2025-03-11T01:00:00+09:00</published><updated>2025-03-11T01:00:00+09:00</updated><id>http://localhost:4000/computernetwork/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/computernetwork/ComputerNetwork/"><![CDATA[<h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
 <!--more-->
 
 <ul>
@@ -846,7 +1062,223 @@ Apache를 재시작해주면 정상적으로 <strong>작동할 수도 있다.</s
 <p><img src="https://velog.velcdn.com/images/ghkdehs/post/45bb71ed-d9f0-41d7-bc0f-24ac536c4ae9/image.png" alt="" /></p>
 
 <p>여기까지 기초적인 웹 서버 자체를 구축했다. 
-다음부터 웹 서버 운영을 다뤄보려 한다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Infra" /><category term="Linux" /><summary type="html"><![CDATA[리눅스 웹 서버 구축 오픈 소스 웹 서버 소프트웨어인 Apache 를 사용해서 웹 서버를 구축해보려 한다.]]></summary></entry><entry><title type="html">「 Linux 」 리눅스 명령어</title><link href="http://localhost:4000/linux/Linux-Command/" rel="alternate" type="text/html" title="「 Linux 」 리눅스 명령어" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-02-20T01:00:00+09:00</updated><id>http://localhost:4000/linux/Linux-Command</id><content type="html" xml:base="http://localhost:4000/linux/Linux-Command/"><![CDATA[<h2 id="linux-기본-명령어">Linux 기본 명령어</h2>
+다음부터 웹 서버 운영을 다뤄보려 한다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Infra" /><category term="Linux" /><summary type="html"><![CDATA[리눅스 웹 서버 구축 오픈 소스 웹 서버 소프트웨어인 Apache 를 사용해서 웹 서버를 구축해보려 한다.]]></summary></entry><entry><title type="html">「 Linux 」 리눅스?</title><link href="http://localhost:4000/linux/Linux-outline/" rel="alternate" type="text/html" title="「 Linux 」 리눅스?" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/linux/Linux-outline</id><content type="html" xml:base="http://localhost:4000/linux/Linux-outline/"><![CDATA[<h2 id="linux">Linux?</h2>
+<!--more-->
+
+<ul>
+  <li>Unix 기반의 오픈소스 OS</li>
+  <li>윈도우, MacOS와 달리 <strong>무료</strong>이며, <strong>오픈소스</strong>이기 때문에 자유롭게 수정과 배포가 가능함</li>
+</ul>
+
+<p><strong>운영체제(OS)</strong>: <strong>하드웨어</strong>를 프로그램을 통해 쉽게 사용할 수 있도록 해주는 <strong>소프트웨어</strong>이다.</p>
+
+<p>여기서 설명하는 리눅스는 <strong>완전한 리눅스</strong>를 뜻함 이는 후술하겠음</p>
+<h2 id="-linux-기본구조">💻 Linux 기본구조</h2>
+<p>크게 4가지로 나뉜다.</p>
+
+<h3 id="1-커널kernel">1. 커널(Kernel)</h3>
+<p>운영체제의 핵심으로 <strong>하드웨어와 소프트웨어를 연결하는 역할</strong>을 함.</p>
+
+<h3 id="커널의-역할">커널의 역할</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>역할</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>프로세스 관리</strong></td>
+      <td>실행 중인 프로그램(프로세스)을 생성, 실행, 종료 및 스케줄링</td>
+    </tr>
+    <tr>
+      <td><strong>메모리 관리</strong></td>
+      <td>RAM 및 가상 메모리를 효율적으로 할당 및 해제</td>
+    </tr>
+    <tr>
+      <td><strong>파일 시스템 관리</strong></td>
+      <td>파일과 디렉토리, 저장장치를 관리</td>
+    </tr>
+    <tr>
+      <td><strong>장치 관리</strong></td>
+      <td>CPU, 디스크, 네트워크 장치 등 하드웨어를 제어</td>
+    </tr>
+    <tr>
+      <td><strong>네트워크 관리</strong></td>
+      <td>네트워크 인터페이스 및 데이터 통신을 담당</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="정리">정리</h3>
+<p>✅ <strong>커널은 OS의 핵심이며, 프로세스, 메모리, 파일, 장치, 네트워크 관리 담당</strong><br />
+✅ <strong>운영체제의 성능과 안정성에 중요한 역할을 함</strong></p>
+
+<hr />
+<h3 id="2-쉘shell">2. 쉘(Shell)</h3>
+<p>사용자가 운영체제(커널)와 소통할 수 있도록 <strong>명령어를 입력받고 실행하는 인터페이스</strong>.<br />
+쉽게 말해, <strong>사용자의 명령을 해석해서 커널에 전달하는 번역기 역할</strong>을 함.</p>
+
+<h3 id="쉘의-역할">쉘의 역할</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>역할</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>명령어 해석</strong></td>
+      <td>사용자가 입력한 명령어를 해석하여 커널에 전달</td>
+    </tr>
+    <tr>
+      <td><strong>프로그램 실행</strong></td>
+      <td>사용자가 입력한 명령어 또는 스크립트를 실행</td>
+    </tr>
+    <tr>
+      <td><strong>파일 &amp; 디렉토리 관리</strong></td>
+      <td>파일 생성, 삭제, 이동 등의 작업 수행</td>
+    </tr>
+    <tr>
+      <td><strong>프로세스 제어</strong></td>
+      <td>실행 중인 프로세스를 백그라운드/포그라운드 전환 및 종료</td>
+    </tr>
+    <tr>
+      <td><strong>스크립트 실행</strong></td>
+      <td>반복적인 작업을 자동화할 수 있는 쉘 스크립트 지원</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="쉘의-종류">쉘의 종류</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>쉘 종류</th>
+      <th>특징</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bash (Bourne Again Shell)</strong></td>
+      <td>가장 많이 사용되는 기본 쉘 (리눅스 기본)</td>
+    </tr>
+    <tr>
+      <td><strong>Sh (Bourne Shell)</strong></td>
+      <td>Bash의 원조, 가벼운 쉘</td>
+    </tr>
+    <tr>
+      <td><strong>Zsh (Z Shell)</strong></td>
+      <td>강력한 자동 완성 &amp; 플러그인 지원</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>📌 <strong>리눅스 기본 쉘은 Bash</strong>이며, 필요에 따라 다른 쉘로 변경 가능.</p>
+
+<h2 id="정리-1">정리</h2>
+<p>✅ <strong>쉘은 사용자가 커널과 소통할 수 있도록 해주는 인터페이스</strong><br />
+✅ <strong>명령어 실행, 파일 관리, 프로세스 제어, 스크립트 자동화 기능을 제공</strong><br />
+✅ <strong>Bash가 기본이지만 Zsh, Fish 같은 다양한 쉘도 사용 가능</strong></p>
+
+<hr />
+
+<h3 id="3-하드웨어hardware">3. 하드웨어(Hardware)</h3>
+
+<p><strong>컴퓨터구조</strong>에서 더욱 자세히 다룸</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>하드웨어</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CPU (Central Processing Unit)</strong></td>
+      <td>컴퓨터의 두뇌, 모든 계산과 명령을 처리함</td>
+    </tr>
+    <tr>
+      <td><strong>메모리 (RAM)</strong></td>
+      <td>데이터를 일시적으로 저장, 프로그램 실행에 필요한 데이터를 빠르게 읽고 씀</td>
+    </tr>
+    <tr>
+      <td><strong>저장 장치 (Hard Disk, SSD)</strong></td>
+      <td>데이터를 영구적으로 저장하는 장치, 컴퓨터가 꺼져도 데이터가 유지됨</td>
+    </tr>
+    <tr>
+      <td><strong>입출력 장치 (Input/Output Devices)</strong></td>
+      <td>사용자가 컴퓨터와 상호작용할 수 있게 돕는 장치, 예: 키보드, 마우스, 모니터 등</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="4-프로그램program">4. 프로그램(Program)</h3>
+
+<p><strong>프로그램</strong>은 <strong>하드웨어에서 실행되는 소프트웨어</strong>로, 특정 작업을 수행하거나 시스템을 제어하는 코드들로 구성</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>프로그램 종류</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>시스템 소프트웨어</strong></td>
+      <td>하드웨어와 사용자 간 상호작용을 도와주는 소프트웨어, 예: 운영체제(OS)</td>
+    </tr>
+    <tr>
+      <td><strong>응용 소프트웨어</strong></td>
+      <td>특정 작업을 수행하는 소프트웨어, 예: 웹 브라우저, 게임, 워드 프로세서 등</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h2 id="-gnu-프로젝트와-리눅스-관계">💻 GNU 프로젝트와 리눅스 관계</h2>
+<p>리눅스라고 했을 때 우리가 보통 리눅스 OS라고 부르는 것은 사실 리눅스 커널과 그 위에 추가적인 소프트웨어들, 즉 툴들이 결합된 운영체제를 의미함</p>
+
+<p>즉,</p>
+<ul>
+  <li><strong>리눅스 커널</strong>만으로는 운영체제가 아님 → <strong>GNU 프로젝트의 툴</strong>과 결합해서 완전한 OS가 됨.</li>
+  <li>그래서 <strong>GNU/Linux</strong>라고도 부름.<br />
+(예: Ubuntu는 GNU 툴 + 리눅스 커널을 포함한 배포판)
+—
+    <h2 id="-리눅스-배포판-linux-distribution">💻 리눅스 배포판 (Linux Distribution)</h2>
+    <p>위에서 설명했다시피 리눅스는 커널만으로 동작하지 않기 때문에 
+<strong>리눅스 커널 + GNU 프로젝트(또는 툴)</strong> 을 조합해서 만든 <strong>배포판</strong>을 통해 <strong>완전한 리눅스</strong>를 사용할 수 있다.</p>
+  </li>
+</ul>
+
+<h3 id="대표적인-배포판">대표적인 배포판</h3>
+<p>| 배포판  | 특징 |
+|———|—————-|
+| <strong>Ubuntu</strong>  | 초보자 친화적, 데스크탑 &amp; 서버용으로 인기 |
+| <strong>CentOS</strong>  | 안정성이 뛰어나 서버용으로 많이 사용됨 (RHEL 기반) |
+| <strong>Debian</strong>  | 보안과 안정성이 뛰어나며 다양한 파생판이 존재 |
+| <strong>Fedora</strong>  | 최신 기술 반영이 빠르며 Red Hat 지원 |
+| <strong>Arch Linux</strong>  | 최소한의 기본 구성, 사용자가 직접 커스터마이징 |
+—</p>
+
+<h2 id="-cli-vs-gui">💻 CLI vs GUI</h2>
+<p>| 인터페이스 | 설명 |
+|————|————————————————–|
+| <strong>CLI (Command Line Interface)</strong> | 명령어 기반, 터미널 사용 (서버 관리에 최적화) |
+| <strong>GUI (Graphical User Interface)</strong> | 그래픽 환경 제공 (데스크탑 사용에 적합) |</p>
+<ul>
+  <li>리눅스는 기본적으로 CLI 중심이지만, GUI 환경도 사용 가능.</li>
+  <li><strong>서버 운영 = CLI</strong>, <strong>일반 사용자 = GUI</strong> 선택 가능</li>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux?]]></summary></entry><entry><title type="html">「 Linux 」 리눅스 명령어</title><link href="http://localhost:4000/linux/Linux-Command/" rel="alternate" type="text/html" title="「 Linux 」 리눅스 명령어" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-02-20T01:00:00+09:00</updated><id>http://localhost:4000/linux/Linux-Command</id><content type="html" xml:base="http://localhost:4000/linux/Linux-Command/"><![CDATA[<h2 id="linux-기본-명령어">Linux 기본 명령어</h2>
 
 <!--more-->
 
@@ -1069,223 +1501,7 @@ Apache를 재시작해주면 정상적으로 <strong>작동할 수도 있다.</s
 
 <p><code class="language-plaintext highlighter-rouge">sudo apt-get update</code> : 시스템 패키지 목록을 업데이트 (Ubuntu 기준)</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo rm -rf /</code> : 주의! 시스템을 파괴할 수 있음 (루트 디렉토리 삭제)</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux 기본 명령어]]></summary></entry><entry><title type="html">「 Linux 」 리눅스?</title><link href="http://localhost:4000/linux/Linux-outline/" rel="alternate" type="text/html" title="「 Linux 」 리눅스?" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/linux/Linux-outline</id><content type="html" xml:base="http://localhost:4000/linux/Linux-outline/"><![CDATA[<h2 id="linux">Linux?</h2>
-<!--more-->
-
-<ul>
-  <li>Unix 기반의 오픈소스 OS</li>
-  <li>윈도우, MacOS와 달리 <strong>무료</strong>이며, <strong>오픈소스</strong>이기 때문에 자유롭게 수정과 배포가 가능함</li>
-</ul>
-
-<p><strong>운영체제(OS)</strong>: <strong>하드웨어</strong>를 프로그램을 통해 쉽게 사용할 수 있도록 해주는 <strong>소프트웨어</strong>이다.</p>
-
-<p>여기서 설명하는 리눅스는 <strong>완전한 리눅스</strong>를 뜻함 이는 후술하겠음</p>
-<h2 id="-linux-기본구조">💻 Linux 기본구조</h2>
-<p>크게 4가지로 나뉜다.</p>
-
-<h3 id="1-커널kernel">1. 커널(Kernel)</h3>
-<p>운영체제의 핵심으로 <strong>하드웨어와 소프트웨어를 연결하는 역할</strong>을 함.</p>
-
-<h3 id="커널의-역할">커널의 역할</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>역할</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>프로세스 관리</strong></td>
-      <td>실행 중인 프로그램(프로세스)을 생성, 실행, 종료 및 스케줄링</td>
-    </tr>
-    <tr>
-      <td><strong>메모리 관리</strong></td>
-      <td>RAM 및 가상 메모리를 효율적으로 할당 및 해제</td>
-    </tr>
-    <tr>
-      <td><strong>파일 시스템 관리</strong></td>
-      <td>파일과 디렉토리, 저장장치를 관리</td>
-    </tr>
-    <tr>
-      <td><strong>장치 관리</strong></td>
-      <td>CPU, 디스크, 네트워크 장치 등 하드웨어를 제어</td>
-    </tr>
-    <tr>
-      <td><strong>네트워크 관리</strong></td>
-      <td>네트워크 인터페이스 및 데이터 통신을 담당</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="정리">정리</h3>
-<p>✅ <strong>커널은 OS의 핵심이며, 프로세스, 메모리, 파일, 장치, 네트워크 관리 담당</strong><br />
-✅ <strong>운영체제의 성능과 안정성에 중요한 역할을 함</strong></p>
-
-<hr />
-<h3 id="2-쉘shell">2. 쉘(Shell)</h3>
-<p>사용자가 운영체제(커널)와 소통할 수 있도록 <strong>명령어를 입력받고 실행하는 인터페이스</strong>.<br />
-쉽게 말해, <strong>사용자의 명령을 해석해서 커널에 전달하는 번역기 역할</strong>을 함.</p>
-
-<h3 id="쉘의-역할">쉘의 역할</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>역할</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>명령어 해석</strong></td>
-      <td>사용자가 입력한 명령어를 해석하여 커널에 전달</td>
-    </tr>
-    <tr>
-      <td><strong>프로그램 실행</strong></td>
-      <td>사용자가 입력한 명령어 또는 스크립트를 실행</td>
-    </tr>
-    <tr>
-      <td><strong>파일 &amp; 디렉토리 관리</strong></td>
-      <td>파일 생성, 삭제, 이동 등의 작업 수행</td>
-    </tr>
-    <tr>
-      <td><strong>프로세스 제어</strong></td>
-      <td>실행 중인 프로세스를 백그라운드/포그라운드 전환 및 종료</td>
-    </tr>
-    <tr>
-      <td><strong>스크립트 실행</strong></td>
-      <td>반복적인 작업을 자동화할 수 있는 쉘 스크립트 지원</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="쉘의-종류">쉘의 종류</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>쉘 종류</th>
-      <th>특징</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Bash (Bourne Again Shell)</strong></td>
-      <td>가장 많이 사용되는 기본 쉘 (리눅스 기본)</td>
-    </tr>
-    <tr>
-      <td><strong>Sh (Bourne Shell)</strong></td>
-      <td>Bash의 원조, 가벼운 쉘</td>
-    </tr>
-    <tr>
-      <td><strong>Zsh (Z Shell)</strong></td>
-      <td>강력한 자동 완성 &amp; 플러그인 지원</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>📌 <strong>리눅스 기본 쉘은 Bash</strong>이며, 필요에 따라 다른 쉘로 변경 가능.</p>
-
-<h2 id="정리-1">정리</h2>
-<p>✅ <strong>쉘은 사용자가 커널과 소통할 수 있도록 해주는 인터페이스</strong><br />
-✅ <strong>명령어 실행, 파일 관리, 프로세스 제어, 스크립트 자동화 기능을 제공</strong><br />
-✅ <strong>Bash가 기본이지만 Zsh, Fish 같은 다양한 쉘도 사용 가능</strong></p>
-
-<hr />
-
-<h3 id="3-하드웨어hardware">3. 하드웨어(Hardware)</h3>
-
-<p><strong>컴퓨터구조</strong>에서 더욱 자세히 다룸</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>하드웨어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>CPU (Central Processing Unit)</strong></td>
-      <td>컴퓨터의 두뇌, 모든 계산과 명령을 처리함</td>
-    </tr>
-    <tr>
-      <td><strong>메모리 (RAM)</strong></td>
-      <td>데이터를 일시적으로 저장, 프로그램 실행에 필요한 데이터를 빠르게 읽고 씀</td>
-    </tr>
-    <tr>
-      <td><strong>저장 장치 (Hard Disk, SSD)</strong></td>
-      <td>데이터를 영구적으로 저장하는 장치, 컴퓨터가 꺼져도 데이터가 유지됨</td>
-    </tr>
-    <tr>
-      <td><strong>입출력 장치 (Input/Output Devices)</strong></td>
-      <td>사용자가 컴퓨터와 상호작용할 수 있게 돕는 장치, 예: 키보드, 마우스, 모니터 등</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h3 id="4-프로그램program">4. 프로그램(Program)</h3>
-
-<p><strong>프로그램</strong>은 <strong>하드웨어에서 실행되는 소프트웨어</strong>로, 특정 작업을 수행하거나 시스템을 제어하는 코드들로 구성</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>프로그램 종류</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>시스템 소프트웨어</strong></td>
-      <td>하드웨어와 사용자 간 상호작용을 도와주는 소프트웨어, 예: 운영체제(OS)</td>
-    </tr>
-    <tr>
-      <td><strong>응용 소프트웨어</strong></td>
-      <td>특정 작업을 수행하는 소프트웨어, 예: 웹 브라우저, 게임, 워드 프로세서 등</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-<h2 id="-gnu-프로젝트와-리눅스-관계">💻 GNU 프로젝트와 리눅스 관계</h2>
-<p>리눅스라고 했을 때 우리가 보통 리눅스 OS라고 부르는 것은 사실 리눅스 커널과 그 위에 추가적인 소프트웨어들, 즉 툴들이 결합된 운영체제를 의미함</p>
-
-<p>즉,</p>
-<ul>
-  <li><strong>리눅스 커널</strong>만으로는 운영체제가 아님 → <strong>GNU 프로젝트의 툴</strong>과 결합해서 완전한 OS가 됨.</li>
-  <li>그래서 <strong>GNU/Linux</strong>라고도 부름.<br />
-(예: Ubuntu는 GNU 툴 + 리눅스 커널을 포함한 배포판)
-—
-    <h2 id="-리눅스-배포판-linux-distribution">💻 리눅스 배포판 (Linux Distribution)</h2>
-    <p>위에서 설명했다시피 리눅스는 커널만으로 동작하지 않기 때문에 
-<strong>리눅스 커널 + GNU 프로젝트(또는 툴)</strong> 을 조합해서 만든 <strong>배포판</strong>을 통해 <strong>완전한 리눅스</strong>를 사용할 수 있다.</p>
-  </li>
-</ul>
-
-<h3 id="대표적인-배포판">대표적인 배포판</h3>
-<p>| 배포판  | 특징 |
-|———|—————-|
-| <strong>Ubuntu</strong>  | 초보자 친화적, 데스크탑 &amp; 서버용으로 인기 |
-| <strong>CentOS</strong>  | 안정성이 뛰어나 서버용으로 많이 사용됨 (RHEL 기반) |
-| <strong>Debian</strong>  | 보안과 안정성이 뛰어나며 다양한 파생판이 존재 |
-| <strong>Fedora</strong>  | 최신 기술 반영이 빠르며 Red Hat 지원 |
-| <strong>Arch Linux</strong>  | 최소한의 기본 구성, 사용자가 직접 커스터마이징 |
-—</p>
-
-<h2 id="-cli-vs-gui">💻 CLI vs GUI</h2>
-<p>| 인터페이스 | 설명 |
-|————|————————————————–|
-| <strong>CLI (Command Line Interface)</strong> | 명령어 기반, 터미널 사용 (서버 관리에 최적화) |
-| <strong>GUI (Graphical User Interface)</strong> | 그래픽 환경 제공 (데스크탑 사용에 적합) |</p>
-<ul>
-  <li>리눅스는 기본적으로 CLI 중심이지만, GUI 환경도 사용 가능.</li>
-  <li><strong>서버 운영 = CLI</strong>, <strong>일반 사용자 = GUI</strong> 선택 가능</li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux?]]></summary></entry><entry><title type="html">SpringBoot 프로젝트 생성</title><link href="http://localhost:4000/springboot/spring/" rel="alternate" type="text/html" title="SpringBoot 프로젝트 생성" /><published>2025-01-19T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/springboot/spring</id><content type="html" xml:base="http://localhost:4000/springboot/spring/"><![CDATA[<p><img src="https://velog.velcdn.com/images/ukja2/post/f5a31409-56dc-4b07-bbbe-490beb314b9e/image.png" alt="" /></p>
+<p><code class="language-plaintext highlighter-rouge">sudo rm -rf /</code> : 주의! 시스템을 파괴할 수 있음 (루트 디렉토리 삭제)</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux 기본 명령어]]></summary></entry><entry><title type="html">SpringBoot 프로젝트 생성</title><link href="http://localhost:4000/springboot/spring/" rel="alternate" type="text/html" title="SpringBoot 프로젝트 생성" /><published>2025-01-19T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/springboot/spring</id><content type="html" xml:base="http://localhost:4000/springboot/spring/"><![CDATA[<p><img src="https://velog.velcdn.com/images/ukja2/post/f5a31409-56dc-4b07-bbbe-490beb314b9e/image.png" alt="" /></p>
 
 <p>스프링부트 프로젝트 생성시 참고사항
 <!--more--></p>
@@ -1453,229 +1669,4 @@ Jekyll Theme는 JavaScript 기반이다 보니 다양한 기능을 적용시키�
 이는 https://wonisdaily.tistory.com/209 해당 블로그를 참고해서 해결했다.</p>
 
 <hr />
-<p>내가 한 방식이 정답이 아닐 수 있으나 해결했으니 마음이 후련하다~</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Jekyll" /><category term="Jekyll theme" /><category term="Jekyll" /><summary type="html"><![CDATA[블로그를 개설 중 발생한 자잘한 오류 해결과 과정]]></summary></entry><entry><title type="html">Jekyll wdm 문제 해결</title><link href="http://localhost:4000/jekyll/Jekyll-wdm-error/" rel="alternate" type="text/html" title="Jekyll wdm 문제 해결" /><published>2024-09-08T00:18:00+09:00</published><updated>2024-09-08T00:18:00+09:00</updated><id>http://localhost:4000/jekyll/Jekyll-wdm-error</id><content type="html" xml:base="http://localhost:4000/jekyll/Jekyll-wdm-error/"><![CDATA[<h3 id="ruby와-jekyll을-사용한-블로그-제작-중-한가지-문제를-발견했다">Ruby와 Jekyll을 사용한 블로그 제작 중 한가지 문제를 발견했다.</h3>
-
-<!--more-->
-
-<p>실행 과정은 아래와 같다.</p>
-
-<ol>
-  <li>Ruby 설치 후 jekyll과 bundler를 최신 버전으로 설치</li>
-  <li>내 컴퓨터 로컬저장소 내부에 <code class="language-plaintext highlighter-rouge">{사용자 이름}.github.io</code> 의 repo를 clone했다.</li>
-  <li>clone한 repo 내부에 <code class="language-plaintext highlighter-rouge">jekyll new ./</code> 명령어로 프로젝트 생성</li>
-  <li>bundle install 실행 / 여기서 문제가 발생했다.</li>
-</ol>
-
-<blockquote>
-  <p>An error occurred while installing wdm (0.1.1), and Bundler cannot continue.</p>
-</blockquote>
-
-<p>이는 wdm이 Windows 디렉토리 변경 감시 기능을 지원하지 않을 때 발생한다고 한다.</p>
-
-<p>나는 해당 문제를 해결하기 위해 다음과 같은 과정을 거쳤다.</p>
-
-<hr />
-
-<h3 id="1-wdm-수동-설치">1. WDM 수동 설치</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install wdm 
-</code></pre></div></div>
-<p>이후 다시 <code class="language-plaintext highlighter-rouge">bundle install</code>
--&gt; 결과는 똑같았다.</p>
-
-<h3 id="2-ruby-및-bundler-업데이트">2. Ruby 및 Bundler 업데이트</h3>
-<p>-&gt; 최신버전으로 설치했기에 문제가 없었다.</p>
-
-<p>이 외에도 로컬저장소 내부의 repo를 삭제후 다시 설치하는 등 여러가지 방법을 시도했지만 결과는 똑같았다.</p>
-
-<p>그렇게 여러 시행착오를 겪다 해결방안을 찾게 되었다.</p>
-
-<hr />
-
-<h3 id="-해결방안">✔ 해결방안</h3>
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">wdm</code> 은 <code class="language-plaintext highlighter-rouge">window</code> 내부에서만 필요한 gem 이라고 한다!</p>
-</blockquote>
-
-<p>WDM은 위에 설명했다시피 디렉토리 변경 감시기능을 제공하는데 이는 필수적이지 않기때문에 없이도 작동한다고 한다.</p>
-
-<p><img src="https://velog.velcdn.com/images/ukja2/post/1c60cb11-9903-4511-b8d2-167f80debfaa/image.png" alt="" /></p>
-
-<p>gemfile 내부에 들어가서</p>
-<blockquote>
-  <p>gem “wdm”, “~&gt; 0.1.1”, :platforms =&gt; [:mingw, :x64_mingw, :mswin]</p>
-</blockquote>
-
-<p>해당 코드를 제거하고 <code class="language-plaintext highlighter-rouge">bundle install</code> 실행 하니 문제없이 정상 작동하게 됐다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Jekyll" /><category term="Jekyll" /><summary type="html"><![CDATA[Ruby와 Jekyll을 사용한 블로그 제작 중 한가지 문제를 발견했다.]]></summary></entry><entry><title type="html">Git &amp;amp;GitHub 기초</title><link href="http://localhost:4000/git/Git-GitHub-Basic/" rel="alternate" type="text/html" title="Git &amp;amp;GitHub 기초" /><published>2024-05-06T00:18:00+09:00</published><updated>2024-05-06T00:18:00+09:00</updated><id>http://localhost:4000/git/Git-GitHub-Basic</id><content type="html" xml:base="http://localhost:4000/git/Git-GitHub-Basic/"><![CDATA[<h3 id="-git이란-무엇인가">▶ Git이란 무엇인가?</h3>
-<!--more-->
-
-<blockquote>
-  <p><strong>Git</strong>은 소프트웨어 개발 시에 사용되는 버전 관리 시스템의 일종이다.</p>
-</blockquote>
-
-<h3 id="-git을-왜-사용하는-걸까">▶ Git을 왜 사용하는 걸까?</h3>
-
-<p>보편적으로 .hwp와 같은 문서 작업시 하나의 문서를 마구잡이로
-복사 -&gt; 수정/백업을 할 때가 있다. 
-<img src="https://velog.velcdn.com/images/ukja2/post/609c7f86-e073-44c8-88ae-292626ecf42e/image.png" alt="" /> 
-이와 같은 경우의 문제점이 무엇이 있을까?</p>
-<blockquote>
-
-  <ul>
-    <li>각각의 파일간 변경사항을 추적하기 어렵다.</li>
-    <li>협업에 있어 상당한 번거로움이 있다.</li>
-    <li>데이터 손상에 대한 복구가 어렵다.</li>
-  </ul>
-</blockquote>
-
-<p>이러한 이유로 <strong>체계적인 관리</strong>의 중요성이 더욱 강조되고 있다.</p>
-
-<h3 id="-git의-핵심-기능">▶ Git의 핵심 기능</h3>
-<p><strong>1. 소스 코드 변경사항 추적 및 관리</strong></p>
-<ul>
-  <li>소스 코드가 변경되었을 때 이를 감지하고, 어떤 점이 변경되었는 지 확인할 수 있도록 한다.</li>
-</ul>
-
-<p><strong>2. 개발자 간 동시 작업 지원</strong></p>
-<ul>
-  <li>개발자는 각기 다른 작업을 병렬적으로 수행할 수 있다.</li>
-</ul>
-
-<p><strong>3. 변경 사항 기록</strong></p>
-<ul>
-  <li>프로젝트의 이전 버전으로 되돌아갈 수 있는 기능 제공한다.</li>
-</ul>
-
-<hr />
-<p><img src="https://velog.velcdn.com/images/ukja2/post/de06215a-dc16-4786-8397-241b0ae0bcfd/image.png" alt="" /></p>
-<h3 id="-github란-무엇인가">▶ GitHub란 무엇인가?</h3>
-<blockquote>
-  <p><strong>Git</strong>을 통해 관리되는 소프트웨어 프로젝트를 공유 및 협업하기 위해 사용되는 플랫폼이다.</p>
-</blockquote>
-
-<h3 id="-github의-핵심기능">▶ GitHub의 핵심기능</h3>
-<p><strong>1. 저장 및 버전 관리, 백업</strong></p>
-<ul>
-  <li>Git을 통해 관리하는 프로젝트를 GitHub에 저장, 버전 관리, 백업을 수행할 수 있다.</li>
-</ul>
-
-<p><strong>2. 협업기능 제공</strong></p>
-<ul>
-  <li>Pull-Request / Discussion 등과 같이 프로젝트를 함께 진행하는 팀원 간 협업을 위한 기능을 제공한다.</li>
-</ul>
-
-<p><strong>3. 문서화 기능 제공</strong></p>
-<ul>
-  <li>README / Wiki 등을 통해 프로젝트 문서화를 지원한다.</li>
-</ul>
-
-<p><strong>4. 소셜 네트워킹 기능 제공</strong></p>
-<ul>
-  <li>
-    <h2 id="본인-또는-다른-개발자의-작업물을-조회할-수-있다">본인 또는 다른 개발자의 작업물을 조회할 수 있다.</h2>
-    <p>**💬 그렇다면 Git과 gitHub의 차이점은 무엇인가? **
-<img src="https://velog.velcdn.com/images/ukja2/post/9c83eee8-d736-4593-9a5c-959ebaa3f1a6/image.png" alt="" /></p>
-  </li>
-</ul>
-
-<p>Git과 GitHub를 처음 다루면서 흔히 헷갈리는 개념이 ‘Git = GitHub’라고 혼동하는 것이다.</p>
-
-<blockquote>
-  <p>GitHub는 Git이라는 버전 관리 시스템으로 관리하는 프로젝트를 웹에서 볼 수 있도록(+다양한 편의 기능 제공) 해주는 서비스라는 점을 유의해야 한다.</p>
-</blockquote>
-
-<hr />
-<p><img src="https://velog.velcdn.com/images/ukja2/post/028a37f9-1188-4bd9-8691-6d9bd09fe83f/image.png" alt="" /></p>
-
-<h3 id="-git-lifecycle">▶ Git Lifecycle</h3>
-<p><strong>1. Untracked</strong></p>
-<ul>
-  <li>Git에서 관리하지 않는 파일들을 의미한다.</li>
-</ul>
-
-<p><strong>2. Tracked</strong></p>
-<ul>
-  <li>Git에서 관리하는 파일들을 의미한다.</li>
-</ul>
-
-<p><strong>3. Unmodified</strong></p>
-<ul>
-  <li>Git에서 관리하는 <strong>파일 중 수정을 하지 않은 파일</strong>들의 상태</li>
-</ul>
-
-<p><strong>4. Modified</strong></p>
-<ul>
-  <li>Git에서 관리하는 <strong>파일 중 수정을 한 파일</strong>들의 상태</li>
-</ul>
-
-<p><strong>5. Staged</strong></p>
-<ul>
-  <li>Git에서 관리하는 파일 중 <strong>다음 커밋에 포함될 에정인 파일들</strong>의 상태</li>
-</ul>
-
-<hr />
-<h3 id="-git-command">▶ Git Command</h3>
-<p><strong>1. status</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status 
-</code></pre></div></div>
-<ul>
-  <li>Git을 통해 관리하고 있는 저장소의 상태를 출력한다.</li>
-</ul>
-
-<p><strong>2. init</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
-</code></pre></div></div>
-<ul>
-  <li>init은 빈 Git repository를 만들거나 이미 있는 Repository를 다시 초기화하는 명령어다.</li>
-</ul>
-
-<p><strong>3. add</strong>
-<img src="https://velog.velcdn.com/images/ukja2/post/ea85234f-a38f-4135-9a39-661b8df21fc9/image.png" alt="" /></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add 
-</code></pre></div></div>
-<ul>
-  <li>
-    <h4 id="untracked---staged"><code class="language-plaintext highlighter-rouge">Untracked</code> -&gt; <code class="language-plaintext highlighter-rouge">Staged</code></h4>
-    <p>◽ 다음 commit에 포함시킨다. 
-◽ Git에서 관리하지 않고 있던 파일을 관리하도록 하게 한다.</p>
-  </li>
-  <li>
-    <h4 id="modified---staged"><code class="language-plaintext highlighter-rouge">Modified</code> -&gt; <code class="language-plaintext highlighter-rouge">Staged</code></h4>
-    <p>◽다음 commit에 포함시킨다.</p>
-  </li>
-</ul>
-
-<p>**4. commit **
-<img src="https://velog.velcdn.com/images/ukja2/post/9b8737cf-bf24-43cb-af54-b0b42d0b7e04/image.png" alt="" /></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -m "수정 내용"
-</code></pre></div></div>
-<ul>
-  <li>Git을 통해 관리하고 있는 <strong>파일들의 상태를 저장</strong>하는 명령어
-◽ <code class="language-plaintext highlighter-rouge">git add</code> 명령어를 통해 <code class="language-plaintext highlighter-rouge">Staged</code>된 파일들을 commit에 포함
-◽ <code class="language-plaintext highlighter-rouge">Unmodified</code> 상태로 만듦</li>
-</ul>
-
-<p><strong>5. push</strong>
-<img src="https://velog.velcdn.com/images/ukja2/post/72548710-de3f-4ee8-b698-255bde00fa47/image.png" alt="" /></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
-</code></pre></div></div>
-
-<ul>
-  <li>Git을 통해 관리하고 있는 <code class="language-plaintext highlighter-rouge">Local Repository</code>를 <code class="language-plaintext highlighter-rouge">Remote Repository</code>에 올리는(저장) 명령어
-◽ commit 목록을 GitHub Repository에 올림</li>
-</ul>
-
-<p>⭐ <code class="language-plaintext highlighter-rouge">local Repository</code></p>
-<ul>
-  <li>.git 디렉터리가 있는 폴더이다.</li>
-</ul>
-
-<p>⭐ <code class="language-plaintext highlighter-rouge">Remote Repository</code></p>
-<ul>
-  <li>
-    <h2 id="원격-서버에-있는-git-저장소이다">원격 서버에 있는 Git 저장소이다.</h2>
-  </li>
-</ul>
-
-<p>[출처] 개발자 이진우님의 블로그 : https://jinlee.kr/</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="GitHub" /><summary type="html"><![CDATA[▶ Git이란 무엇인가?]]></summary></entry></feed>
+<p>내가 한 방식이 정답이 아닐 수 있으나 해결했으니 마음이 후련하다~</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Jekyll" /><category term="Jekyll theme" /><category term="Jekyll" /><summary type="html"><![CDATA[블로그를 개설 중 발생한 자잘한 오류 해결과 과정]]></summary></entry></feed>

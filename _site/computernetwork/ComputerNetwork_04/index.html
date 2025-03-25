@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>「 ComputerNetwork 」 3주 2차시, Application Layer (1) | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="「 ComputerNetwork 」 3주 2차시, Application Layer (1)" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Application Layer 에는 다음과 같은 예시가 있다." />
+<meta property="og:description" content="Application Layer 에는 다음과 같은 예시가 있다." />
+<link rel="canonical" href="http://localhost:4000/computernetwork/ComputerNetwork_04/" />
+<meta property="og:url" content="http://localhost:4000/computernetwork/ComputerNetwork_04/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-25T01:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="「 ComputerNetwork 」 3주 2차시, Application Layer (1)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-03-25T01:00:00+09:00","datePublished":"2025-03-25T01:00:00+09:00","description":"Application Layer 에는 다음과 같은 예시가 있다.","headline":"「 ComputerNetwork 」 3주 2차시, Application Layer (1)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/computernetwork/ComputerNetwork_04/"},"url":"http://localhost:4000/computernetwork/ComputerNetwork_04/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+<style>
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+      gap: 0.8rem;
+    }
+    .pagination-item {
+      padding: 0.5rem 0.8rem;
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+    .pagination-item:hover {
+      color: var(--gray-900) !important;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">「 ComputerNetwork 」 3주 2차시,  Application Layer (1)</h1>
+  <div class="post-meta"><time datetime="2025-03-25T01:00:00+09:00" itemprop="datePublished">2025년 3월 25일</time></div>
+
+  <p>Application Layer 에는 다음과 같은 예시가 있다.
+<!--more--></p>
+
+<ul>
+  <li>social networking</li>
+  <li>Web</li>
+  <li>text messaging</li>
+  <li>e-mail</li>
+  <li>multi-user network games</li>
+  <li>streaming stored video (YouTube, Hulu, Netflix)</li>
+  <li>P2P file sharing</li>
+</ul>
+
+<h2 id="creating-a-network-app">Creating a network app</h2>
+
+<ol>
+  <li>Application은 End System에서 실행된다.</li>
+  <li>이는 네트워크를 통해 데이터를 주고받음</li>
+  <li>라우터 같은 네트워크 장치(코어 장비)에는 애플리케이션을 설치하지 않음
+    <ul>
+      <li>네트워크 장치는 데이터를 “전달”할 뿐, 애플리케이션을 실행하지 않음!</li>
+      <li>즉, 우리는 라우터를 프로그래밍할 필요 없이, 사용자 장치에서 애플리케이션을 개발하면 됨</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="client-server-paradigm">Client-server paradigm</h2>
+<p>클라이언트-서버 모델은 <strong>클라이언트(Client)</strong> 가 <strong>서버(Server)</strong> 에 요청(Request)을 보내고, 서버가 해당 요청을 처리한 후 <strong>응답(Response)</strong> 을 보내주는 구조</p>
+
+<ol>
+  <li>서버(Server)의 특징
+    <ul>
+      <li>항상 켜져 있는(Always-on) 호스트</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>고정된(IP Address) 주소 사용
+    <ul>
+      <li>클라이언트가 언제든지 서버에 접속할 수 있도록 영구적인 IP 주소를 가짐.</li>
+    </ul>
+  </li>
+  <li>대규모 서비스를 위해 데이터센터에 위치
+    <ul>
+      <li>예를 들어, 넷플릭스의 경우 온갖 영화(데이터)가 데이터센터에 들어가있다고 생각하면 됨</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>클라이언트(Client)의 특징
+    <ul>
+      <li>서버에 접속하여 요청을 보냄</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>일시적으로 연결됨(Intermittently connected)
+    <ul>
+      <li>필요할 때만 서버에 접속하고, 평소에는 네트워크 연결이 없어도 됨.</li>
+    </ul>
+  </li>
+  <li>동적인(Dynamic) IP 주소 사용
+    <ul>
+      <li>IP address는 한정적이기 때문</li>
+    </ul>
+  </li>
+  <li>클라이언트끼리는 직접 통신하지 않음
+    <ul>
+      <li>일반적으로 서버를 거쳐야 클라이언트 간 통신이 가능함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="p2p-peer-to-peer-architecture">P2P (Peer-to-Peer) Architecture</h2>
+
+<p><code class="language-plaintext highlighter-rouge">엔드 유저(클라이언트)</code> 장치들 간 직접 통신하는 구조</p>
+
+<ul>
+  <li>서버 없이(peer끼리) 직접 통신</li>
+  <li>각 피어(Peer)가 동시에 클라이언트 &amp; 서버 역할 수행</li>
+  <li><code class="language-plaintext highlighter-rouge">Self Scalability</code>
+    <ul>
+      <li>새로운 피어(사용자)가 생기면 서비스 요청자 + 제공자 역할을 동시에 함</li>
+      <li>피어가 많아질수록 네트워크 처리량(Throughput)도 증가</li>
+      <li>서버 없이도 자연스럽게 확장됨</li>
+      <li>즉, <code class="language-plaintext highlighter-rouge">네트워크들의 연결성과 범위를 스스로 줄였다 늘렸다 하는 것을 의미</code></li>
+    </ul>
+  </li>
+  <li>Peer는 네트워크에 일시적으로 연결되고, IP 주소가 자주 변경됨
+    <ul>
+      <li>관리 복잡 (중앙 관리 서버가 없어서 어려움)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="processes-communicating">Processes Communicating</h2>
+
+<ul>
+  <li>프로세스(Process)란? : 운영 중인 프로그램 (CPU에서 실행 중인 프로그램)
+    <ul>
+      <li>하나의 컴퓨터에는 여러개의 프로세스가 동작가능하다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">프로세스 간 통신 (Inter-Process Communication)</code>
+    <ul>
+      <li>하나의 호스트에서 OS를 통과해서 앱들끼리 통신을 할 수 있는 것을 의미한다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">서로 다른 호스트</code>에 있는 프로세스들은 <strong>메시지</strong> 를 교환하여 통신한다. 
+그거를 패킷이라 표현하는데 7계층이라 메세지라고 표현한다.</li>
+</ul>
+
+<h2 id="sockets">Sockets</h2>
+<p><code class="language-plaintext highlighter-rouge">소켓(Socket)</code>은 네트워크 통신에서 프로세스가 메시지를 보내고 받는 창구를 의미한다.</p>
+
+<p>이는 문에 비유할 수 있는데,</p>
+<ul>
+  <li>보내는 프로세스는 메시지를 소켓을 통해 “문 밖으로” 보낸다.</li>
+  <li>받는 프로세스는 “문 안”에 있는 소켓을 통해 메시지를 받는다.</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/70cb6cc4-1388-405e-8807-4cbf5b490eb8/image.png" alt="" /></p>
+
+<p>App을 벗어나는 통로를 socket이라 칭한다.</p>
+
+<h2 id="addressing-processes">Addressing Processes</h2>
+
+<p>프로세스가 메시지를 받으려면, 그 프로세스를 식별할 수 있는 고유한 아이디가 필요하다. 이를 위해서 IP 주소와 포트 번호가 사용된다.</p>
+
+<ul>
+  <li>IP 주소와 프로세스의 관계
+    <ul>
+      <li>
+        <p>호스트 장치는 고유한 32비트 IP 주소를 가짐.</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">하지만, IP 주소만으로는 특정 프로세스를 식별할 수 없다.</code> 왜냐하면 하나의 호스트에서 여러 프로세스가 동시에 실행되기 때문임</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>즉 프로세스를 식별하기 위한 주소는 <code class="language-plaintext highlighter-rouge">IP 주소</code>와 <code class="language-plaintext highlighter-rouge">포트 번호</code> 두 가지를 포함한다.</p>
+
+<p>비슷한 경우로 로컬 네트워크 내에서 장치간에서는 <code class="language-plaintext highlighter-rouge">Mac Address</code> 를 통해서 통신을 할 수 있다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>
+
+
+  
+    <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <span class="post-tag">computernetwork</span></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+<!--댓글 기능-->
+<script src="https://utteranc.es/client.js"
+        repo="Ukja2/Ukja2.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/infra/aws/AWS_Server/">
+          「 AWS 」 EC2 인스턴스 생성및 접속
+          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/ComputerNetwork_03-copy-2/">
+          「 ComputerNetwork 」 3주 1차시, 네트워크 보안 및 계층화
+          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/computernetwork/ComputerNetwork01/">
+          「 ComputerNetwork 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이
+          <small><time datetime="2025-03-16T01:00:00+09:00">16 Mar 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://ukja2.github.io">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+  <nav class="toc-nav">
+    <ul class="toc">
+  <li><a href="#creating-a-network-app">Creating a network app</a></li>
+  <li><a href="#client-server-paradigm">Client-server paradigm</a></li>
+  <li><a href="#p2p-peer-to-peer-architecture">P2P (Peer-to-Peer) Architecture</a></li>
+  <li><a href="#processes-communicating">Processes Communicating</a></li>
+  <li><a href="#sockets">Sockets</a></li>
+  <li><a href="#addressing-processes">Addressing Processes</a></li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
