@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T14:46:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 Network 」 3주 2차시, Application Layer (1)</title><link href="http://localhost:4000/network/ComputerNetwork_04/" rel="alternate" type="text/html" title="「 Network 」 3주 2차시, Application Layer (1)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_04</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_04/"><![CDATA[<p>Application Layer 에는 다음과 같은 예시가 있다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T16:31:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 Network 」 4주 1차시, Application Layer (2)</title><link href="http://localhost:4000/network/Network-05/" rel="alternate" type="text/html" title="「 Network 」 4주 1차시, Application Layer (2)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/Network-05</id><content type="html" xml:base="http://localhost:4000/network/Network-05/"><![CDATA[<h2 id="an-application-layer-protocol-defines">An application-layer protocol defines</h2>
+<p>애플리케이션 계층 프로토콜은 네트워크를 통해 <code class="language-plaintext highlighter-rouge">프로세스 간의 통신 방식</code>을 규정하는 규칙들을 말한다.</p>
+
+<!--more-->
+
+<p>애플리케이션 계층 프로토콜이 정의하는 주요 요소들은 아래와 같다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Message syntax</code>
+    <ul>
+      <li>메시지 형식을 정의하는데, 이 형식 안에서 프레임의 구성 요소인 필드를 어떻게 배치하고, 각 필드가 무엇을 의미하는지 규정하는 것</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Message semantics</code>
+    <ul>
+      <li>메시지 필드에 포함된 0과 1로 이루어진 데이터를 해석하는 것</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="what-transport-service-does-an-app-need">What transport service does an app need</h2>
+<p>애플리케이션 계층에서 필요한 중요한 요소들</p>
+
+<ol>
+  <li>Data Integrity (데이터 무결성)
+    <ul>
+      <li>예를 들어 데이터를 받을 때 그 데이터에 대한 <code class="language-plaintext highlighter-rouge">신뢰성의 정도</code></li>
+    </ul>
+  </li>
+  <li>timing
+    <ul>
+      <li>쉽게 말해 Delay</li>
+      <li>얼마나 제 시간에 도착하는지, 짧은 수록 좋은 값</li>
+    </ul>
+  </li>
+  <li>throughput(처리량)
+    <ul>
+      <li>1초당 보낼 수 있는 데이터의 총량, 클 수록 좋은 값</li>
+    </ul>
+  </li>
+</ol>
+
+<p>여기서 한 가지 알아둬야 할 점은
+(중요) <code class="language-plaintext highlighter-rouge">Trade Off</code> : 어떠한 값의 성능을 올리기 위해선 다른 하나의 값의 성능을 낮춰야한다. 이는 네트워크적 측면에서 절대적인 개념이다.</p>
+
+<ol>
+  <li>security(보안)
+    <ul>
+      <li>encryption - 암호화</li>
+      <li>data integrity - 데이터 무결성</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="transport-service-requirements-common-apps">Transport service requirements: common apps</h2>
+<p>전송 서비스의 요구 사항을 일반적인 app들을 예로 들어보면 아래와 같다.</p>
+
+<p>일상생활에서 마주할 수 있는 app들을 기준으로 데이터 손실, 처리량, 시간 민감도에 대한 차이를 보여준다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b8eec8a0-6efe-43d1-9964-9c7adeaec6ec/image.png" alt="" /></p>
+
+<h2 id="internet-transport-protocols-services">Internet transport protocols services</h2>
+
+<ol>
+  <li>TCP service
+TCP 서비스는 기본적으로 정확성이 높으며, 시간이 오래걸림. 이러한 이유에는 <code class="language-plaintext highlighter-rouge">복잡한 구조</code>가 있다.</li>
+</ol>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">reliable transport</code></strong> : 정확성이 높으나 속도가 낮다. 또한 아래의 기능들이 전부 작동되어야 정확성을 얻을 수 있다.
+    <ul>
+      <li>flow control(흐름 제어) : 즉 너무 많은 데이터를 한 번에 보내지 않도록 조절, 받는 쪽이 처리할 수 있는 속도로만 데이터를 전송한다.</li>
+      <li>congestion control (혼잡 제어) : congenstion은 교통 체증을 뜻하는데, congenstion이 발생했을 떄 어떤 경로, 뭐부터 처리할건지
+정의하고 처리하는 역할을 한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>does not provide (제공하지 않는 것들) : 대표적으로 security(보안)이 있다.</p>
+  </li>
+  <li><strong>connection-oriented (연결 지향적)</strong> : TCP는 연결 지향적 프로토콜이기 때문에, 데이터를 전송하기 전에 클라이언트와 서버가 서로 연결을 설정해야 한다.
+    <ul>
+      <li><strong><code class="language-plaintext highlighter-rouge">hand shaking</code></strong> :  가상의 송신자와 수신자가 존재하는 통로(connection)를 만들어내는 것
+  즉 hand shaking 과정을 통해 서로간의 연결을 할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>UDP service
+UDP 서비스는 기본적으로 시간이 오래 걸리지 않으며, 정확성이 낮다. 이러한 이유로는 단순한 구조때문임</li>
+</ol>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">unreliable data transfer</code></strong> : 데이터 전송의 신뢰성이 보장되지 않는다는 뜻이야.</p>
+  </li>
+  <li>
+    <p>does not provide (제공하지 않는 것들 ): connection setup, security</p>
+    <ul>
+      <li>일방적으로 송신자가 데이터를 뿌리는 것이기 때문에 connection less</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Tcp와 Udp 는 같은 통로를 쓰기 때문에 오류는 같이 발생함
+그런데 왜 TCP는 정확성을 보장하나?
+-&gt; 데이터를 받았을 때 ACK(acknowledge) 를 체크하고,
+제대로 받지 못하면 발신자가 이에 대한 ACK를 받게 됨
+그러면 발신자가 다시 데이터를 보내게 됨
+이는 데이터가 제대로 받았는지 확인될 때까지 재전송하기 떄문임
+반대로 UDP 는 ACK를 보내지 않기 때문에 데이터를 빠르게 
+보낼 수 있는 것임</p>
+</blockquote>
+
+<h2 id="securing-tcp">Securing TCP</h2>
+
+<ul>
+  <li>Vanilla TCP &amp; UDP sockets
+    <ul>
+      <li>암호화되지 않아서 보안이 취약함.</li>
+    </ul>
+  </li>
+  <li>Transport Layer Security (TLS)
+    <ul>
+      <li>데이터를 암호화 함으로서, data integrity를 보장</li>
+      <li><code class="language-plaintext highlighter-rouge">end-point authentication</code> : 엔드 포인트에서 클라이언트 또는 서버가 각 상대방이 안전한 상태인지 <code class="language-plaintext highlighter-rouge">인증</code>을 통해 신뢰성을 확인</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">TLS implemented in application layer </code>
+    <ul>
+      <li>TLS는 어플리케이션 계층에서 구현된다</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[An application-layer protocol defines 애플리케이션 계층 프로토콜은 네트워크를 통해 프로세스 간의 통신 방식을 규정하는 규칙들을 말한다.]]></summary></entry><entry><title type="html">「 Network 」 3주 2차시, Application Layer (1)</title><link href="http://localhost:4000/network/ComputerNetwork_04/" rel="alternate" type="text/html" title="「 Network 」 3주 2차시, Application Layer (1)" /><published>2025-03-24T01:00:00+09:00</published><updated>2025-03-24T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_04</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_04/"><![CDATA[<p>Application Layer 에는 다음과 같은 예시가 있다.
 <!--more--></p>
 
 <ul>
@@ -147,7 +281,49 @@
 
 <p>비슷한 경우로 로컬 네트워크 내에서 장치간에서는 <code class="language-plaintext highlighter-rouge">Mac Address</code> 를 통해서 통신을 할 수 있다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Application Layer 에는 다음과 같은 예시가 있다.]]></summary></entry><entry><title type="html">「 Network 」 3주 1차시, 네트워크 보안 및 계층화</title><link href="http://localhost:4000/network/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 Network 」 3주 1차시, 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
+<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Application Layer 에는 다음과 같은 예시가 있다.]]></summary></entry><entry><title type="html">「 AWS 」 EC2 인스턴스 생성및 접속</title><link href="http://localhost:4000/infra/aws/AWS_Server/" rel="alternate" type="text/html" title="「 AWS 」 EC2 인스턴스 생성및 접속" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/infra/aws/AWS_Server</id><content type="html" xml:base="http://localhost:4000/infra/aws/AWS_Server/"><![CDATA[<p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
+
+<!--more-->
+
+<p><strong>회원가입</strong>을 통해 AWS 계정을 생성해준다. ( 과정 생략 )</p>
+
+<h3 id="ec2-인스턴스-생성">EC2 인스턴스 생성</h3>
+
+<h4 id="1-좌측-상단-검색창에-ec2를-검색한-후-클릭해준다">1. 좌측 상단 검색창에 <strong>EC2</strong>를 검색한 후 클릭해준다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3a5ac3df-bfc8-4ede-9d1d-55754d613da4/image.png" alt="" /></p>
+
+<h4 id="2-우측-인스턴스-시작을-눌러준다">2. 우측 인스턴스 시작을 눌러준다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/ec63d5df-9736-4df9-8ed6-7b4437562002/image.png" alt="" /></p>
+
+<h4 id="3-인스턴스명은-내가-알아보기-쉽도록-설정하면-된다">3. 인스턴스명은 내가 알아보기 쉽도록 설정하면 된다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3180b1ae-f8ac-4cf7-b08b-7f9c2a83c9de/image.png" alt="" /></p>
+
+<h4 id="4-ami-설정은-아래의-형식을-따랐다">4. AMI 설정은 아래의 형식을 따랐다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/034a28fb-c710-4ad5-bcdd-88562ae01111/image.png" alt="" /></p>
+
+<p>나는 아직 잘 모르기 때문에 운영체제는 Ubuntu를 골랐으며, 버전은 <code class="language-plaintext highlighter-rouge">24.04 LTS</code> 와 <code class="language-plaintext highlighter-rouge">22.04 LTS</code>가 있는데, 둘 다 프리 티어 사용이 가능해서 아무래도 안정적인 22.04 버전을 사용했다.</p>
+
+<p>아키텍처는 앞선 이유와 동일하게 잘 모르기 때문에 기본설정인 <code class="language-plaintext highlighter-rouge">64비트(x86)</code> 를 사용했다.</p>
+
+<h4 id="5-인스턴스-유형은-프리-티어가-가능한-t2micro-모델을-사용한다">5. 인스턴스 유형은 프리 티어가 가능한 <code class="language-plaintext highlighter-rouge">t2.micro</code> 모델을 사용한다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b76420fa-20ee-43de-bf67-6c1b39165d10/image.png" alt="" /></p>
+
+<p><strong>EC2 인스턴스 유형(Instance Type)</strong> 은 CPU, 메모리(RAM), 네트워크 성능 등에 따라 분류된 <strong>서버의 스펙(성능 등급)</strong> 이라고 알면 된다.</p>
+
+<h4 id="6-키페어의-이름은-본인이-식별할-수-있도록-설정한다">6. 키페어의 이름은 본인이 식별할 수 있도록 설정한다.</h4>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/36151bf1-77db-4fef-bf43-fd813cb4e48f/image.png" alt="" /></p>
+
+<p>RSA의 보안성이 높고 널리 지원되고 있으며, pem키 또한 다양한 운영 체제에서 사용 가능하게 지원되기 때문에 많이 사용한다고 한다.</p>
+
+<p>또한 키페어는 <strong>절대 유출되어서는 안되기 떄문에</strong> 따로 잘 보관하도록 하자.</p>
+
+<h4 id="7">7.</h4>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWs" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">「 Network 」 3주 1차시, 네트워크 보안 및 계층화</title><link href="http://localhost:4000/network/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 Network 」 3주 1차시, 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
 
 <p>현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.
 <!--more--></p>
@@ -273,49 +449,7 @@ Worm : 사용자의 행동과 무관하게, 직접 수신하면 감염됨</p>
 
 <p>데이터를 네트워크를 통해 전송할 때, 각 계층은 자신만의 정보를 담은 <strong>헤더(header)</strong> 를 추가하며, 계층이 내려갈 때마다 헤더가 붙는다.</p>
 
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">「 AWS 」 EC2 인스턴스 생성및 접속</title><link href="http://localhost:4000/infra/aws/AWS_Server/" rel="alternate" type="text/html" title="「 AWS 」 EC2 인스턴스 생성및 접속" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/infra/aws/AWS_Server</id><content type="html" xml:base="http://localhost:4000/infra/aws/AWS_Server/"><![CDATA[<p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
-
-<!--more-->
-
-<p><strong>회원가입</strong>을 통해 AWS 계정을 생성해준다. ( 과정 생략 )</p>
-
-<h3 id="ec2-인스턴스-생성">EC2 인스턴스 생성</h3>
-
-<h4 id="1-좌측-상단-검색창에-ec2를-검색한-후-클릭해준다">1. 좌측 상단 검색창에 <strong>EC2</strong>를 검색한 후 클릭해준다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3a5ac3df-bfc8-4ede-9d1d-55754d613da4/image.png" alt="" /></p>
-
-<h4 id="2-우측-인스턴스-시작을-눌러준다">2. 우측 인스턴스 시작을 눌러준다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/ec63d5df-9736-4df9-8ed6-7b4437562002/image.png" alt="" /></p>
-
-<h4 id="3-인스턴스명은-내가-알아보기-쉽도록-설정하면-된다">3. 인스턴스명은 내가 알아보기 쉽도록 설정하면 된다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/3180b1ae-f8ac-4cf7-b08b-7f9c2a83c9de/image.png" alt="" /></p>
-
-<h4 id="4-ami-설정은-아래의-형식을-따랐다">4. AMI 설정은 아래의 형식을 따랐다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/034a28fb-c710-4ad5-bcdd-88562ae01111/image.png" alt="" /></p>
-
-<p>나는 아직 잘 모르기 때문에 운영체제는 Ubuntu를 골랐으며, 버전은 <code class="language-plaintext highlighter-rouge">24.04 LTS</code> 와 <code class="language-plaintext highlighter-rouge">22.04 LTS</code>가 있는데, 둘 다 프리 티어 사용이 가능해서 아무래도 안정적인 22.04 버전을 사용했다.</p>
-
-<p>아키텍처는 앞선 이유와 동일하게 잘 모르기 때문에 기본설정인 <code class="language-plaintext highlighter-rouge">64비트(x86)</code> 를 사용했다.</p>
-
-<h4 id="5-인스턴스-유형은-프리-티어가-가능한-t2micro-모델을-사용한다">5. 인스턴스 유형은 프리 티어가 가능한 <code class="language-plaintext highlighter-rouge">t2.micro</code> 모델을 사용한다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b76420fa-20ee-43de-bf67-6c1b39165d10/image.png" alt="" /></p>
-
-<p><strong>EC2 인스턴스 유형(Instance Type)</strong> 은 CPU, 메모리(RAM), 네트워크 성능 등에 따라 분류된 <strong>서버의 스펙(성능 등급)</strong> 이라고 알면 된다.</p>
-
-<h4 id="6-키페어의-이름은-본인이-식별할-수-있도록-설정한다">6. 키페어의 이름은 본인이 식별할 수 있도록 설정한다.</h4>
-
-<p><img src="https://velog.velcdn.com/images/ghkdehs/post/36151bf1-77db-4fef-bf43-fd813cb4e48f/image.png" alt="" /></p>
-
-<p>RSA의 보안성이 높고 널리 지원되고 있으며, pem키 또한 다양한 운영 체제에서 사용 가능하게 지원되기 때문에 많이 사용한다고 한다.</p>
-
-<p>또한 키페어는 <strong>절대 유출되어서는 안되기 떄문에</strong> 따로 잘 보관하도록 하자.</p>
-
-<h4 id="7">7.</h4>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWs" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">「 Network 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/network/ComputerNetwork01/" rel="alternate" type="text/html" title="「 Network 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-25T14:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">「 Network 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/network/ComputerNetwork01/" rel="alternate" type="text/html" title="「 Network 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-25T14:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
 
 <p>ISP 내부에는 <code class="language-plaintext highlighter-rouge">Network core</code>와 <code class="language-plaintext highlighter-rouge">Network Edge</code>가 있다.</p>
 
@@ -1542,131 +1676,4 @@ Spring Boot의 내장 서버를 활용해 간단히 실행 가능한 애플리�
   <li>기능 추가: 필요한 라이브러리를 자동으로 프로젝트에 포함시켜 줌.</li>
   <li>간편한 설정: 각 라이브러리에 맞는 기본 설정을 자동으로 제공.</li>
   <li>의존성 관리: 관련된 라이브러리 버전을 스프링 부트에 맞게 맞춰줌.</li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="SpringBoot" /><category term="SpringBoot" /><category term="Java" /><summary type="html"><![CDATA[스프링부트 프로젝트 생성시 참고사항]]></summary></entry><entry><title type="html">Jekyll theme를 이용한 블로그 개설과 오류 해결과정</title><link href="http://localhost:4000/jekyll/Jektll-theme-blog/" rel="alternate" type="text/html" title="Jekyll theme를 이용한 블로그 개설과 오류 해결과정" /><published>2024-09-09T00:19:00+09:00</published><updated>2024-09-09T00:19:00+09:00</updated><id>http://localhost:4000/jekyll/Jektll-theme-blog</id><content type="html" xml:base="http://localhost:4000/jekyll/Jektll-theme-blog/"><![CDATA[<p>블로그를 개설 중 발생한 자잘한 오류 해결과 과정
-<!--more--></p>
-
-<hr />
-<h3 id="1-githubio-repository-생성">1. Github.io repository 생성</h3>
-<ol>
-  <li>
-    <p>우선 Github에서 ` {사용자이름}.github.io` 형식의 repo를 생성했다.
-<img src="https://velog.velcdn.com/images/ukja2/post/5ef7660a-842c-45e8-944c-b82ddfa30020/image.png" alt="" /></p>
-  </li>
-  <li>
-    <p>저렇게 생성된 repo를 나의 로컬저장소에 clone한다.
-** 이때 clone할 repo의 경로에 한국어가 있으면 추후 오류가 발생할 확률이 있기 때문에 영어로 된 경로에 clone할 것을 권장한다. **</p>
-
-    <p>나는 C 저장소에 따로 <code class="language-plaintext highlighter-rouge">Ukja2Blog</code> 라는 폴더를 생성 후 해당 폴더 내부에 clone했다.
-<img src="https://velog.velcdn.com/images/ukja2/post/48e553e3-3fbe-4deb-bc02-da92954d3428/image.png" alt="" /></p>
-  </li>
-</ol>
-
-<h3 id="2-ruby-및-jekyll-설치">2. Ruby 및 Jekyll 설치</h3>
-
-<ol>
-  <li>Ruby를 설치해준다.
-<img src="https://velog.velcdn.com/images/ukja2/post/626a70de-82d4-4e92-8121-3415f92a3108/image.png" alt="" />
-여기서 <code class="language-plaintext highlighter-rouge">DEVKIT</code>가 포함된 버전으로 설치해주고, 설치버전은 오른 쪽 표시처럼  3.3.X 버전이 안정화된 버전임을 뜻하므로 여기에 해당되는 버전,bit를 설치해주면 된다.</li>
-</ol>
-
-<p>설치 후 <code class="language-plaintext highlighter-rouge">cmd</code> 창을 켜서 아래와 설치버전이 나오면 성공적으로 설치됐음을 의미한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -v (입력)
-ruby 3.3.5 (2024-09-03 revision ef084cc8f4) [x64-mingw-ucrt] (출력)
-</code></pre></div></div>
-<ol>
-  <li>Jekyll과 bundler 설치
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install jekyll
-$ gem install bundler
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-<p>Jekyll과 bundler를 설치하는 이유를 쉽게 설명하자면 Ruby내에서 <code class="language-plaintext highlighter-rouge">bundler</code>를 통해 <code class="language-plaintext highlighter-rouge">Jekyll</code>을 실행하고 <code class="language-plaintext highlighter-rouge">Jekyll</code>을 사용해서 우리가 원하는 블로그를 만들 수 있다.</p>
-
-<p>bundler에 대한 설명은 아래와 같다.
-** “bundler는 Ruby 프로젝트에 필요한 Gem들의 버전을 추적하고 설치해서 일관된 환경을 제공한다.”**
-즉 다른 버전의 프로젝트들을 실행할때 원활하게 작동할 수 있도록 해주며, 전체적으로 Ruby의 쾌적한 사용환경을 제공해주는 것 같다.</p>
-
-<p>설치를 완료 했다면 아래와 같이 입력 후 설치 확인을 해준다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll -v (입력)
-jekyll 4.3.3 (출력)
-
-bundler -v (입력)
-Bundler version 2.5.18 (출력)
-</code></pre></div></div>
-
-<h3 id="3-jekyll-theme-파일-넣기">3. Jekyll Theme 파일 넣기</h3>
-
-<ol>
-  <li>
-    <p>원하는 Jekyll Theme를 아래 사이트에서 고른다.
-** http://jekyllthemes.org/ **</p>
-  </li>
-  <li>
-    <p>적용하고 싶은 테마의 파일을 압축해제 후 자신의 <code class="language-plaintext highlighter-rouge">github.io repository</code>를 clone한 폴더 내부로 옮겨준다.</p>
-  </li>
-  <li>테마를 폴더로 옮겨주었다면 <code class="language-plaintext highlighter-rouge">초기화 작업을 해주는 코드를 작성해야 되는데</code> 여기서 한 가지 문제가 발생한다.
-해당 코드인 <code class="language-plaintext highlighter-rouge">$ bash tools/init.sh</code>는 Linux 환경에서 사용할 수 있기 때문에 Windows   환경에서는 수동으로 초기화 하는 방법은 선택해야 된다. ** ( 처음부터 WSL을 활용해서 작업하는 것을 추천 ) **
-    <blockquote>
-      <p>https://devpro.kr/posts/Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-(3)/
-Linux 환경에서 작업할 수 없다면 위 링크를 통해 따라하도록 하자
-!! 이렇게 했을 시 환경에 따라 오류가 발생할 수도 있다. 이는 후술함 !!</p>
-    </blockquote>
-  </li>
-  <li>초기화 작업을 해주었다면 <code class="language-plaintext highlighter-rouge">git bash</code> 로 <code class="language-plaintext highlighter-rouge">bundler install</code> 을 입력하면 정상적으로 테마적용이 완료될 것이다.</li>
-</ol>
-
-<p>이후 <code class="language-plaintext highlighter-rouge">config.yml</code> 과  <code class="language-plaintext highlighter-rouge">assets</code> 폴더 내부의 css 파일을 수정하는 등 자신의 취향에 맞게 블로그를 꾸밀 수 있다.</p>
-
-<p>모든 설정이 끝나면 아래 코드를 git bash에 입력하면</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
-</code></pre></div></div>
-<p><img src="https://velog.velcdn.com/images/ukja2/post/c203c8b4-d424-4609-872c-8a7b8a79ef02/image.png" alt="" /></p>
-
-<p>노란색으로 표시한 Server address의 호스팅 주소를 브라우저에 입력하면 자신만의 블로그가 나타난다.
-<img src="https://velog.velcdn.com/images/ukja2/post/6a8311f1-8fef-4a89-9cd2-54234a816c80/image.png" alt="" /></p>
-
-<hr />
-<h2 id="오류발생과-해결">오류발생과 해결</h2>
-
-<h3 id="1-ruby와-jekyll을-처음-설치하고-테마를-적용하기-전-jekyll-new-을-통해-첫-프로젝트-생성후-bundler-install-실행-시-발생한-오류">1. Ruby와 jekyll을 처음 설치하고 테마를 적용하기 전 <code class="language-plaintext highlighter-rouge">jekyll new ./</code>을 통해 첫 프로젝트 생성후 <code class="language-plaintext highlighter-rouge">bundler install</code> 실행 시 발생한 오류</h3>
-<blockquote>
-  <p>An error occurred while installing wdm (0.1.1), and Bundler cannot continue.</p>
-</blockquote>
-
-<p>위 오류에 대한 해결방법은 나의 벨로그에 작성해 놓았다.</p>
-
-<h3 id="2-bundle-exec로-블로그-실행-시-git-bash에-나타난-오류">2. bundle exec로 블로그 실행 시 git bash에 나타난 오류</h3>
-<blockquote>
-  <p>assets/js/dist/*.min.js Not Found</p>
-</blockquote>
-
-<p><code class="language-plaintext highlighter-rouge">~~.min.js</code> 를 찾을 수 없다는 뜻인데
-Jekyll Theme는 JavaScript 기반이다 보니 다양한 기능을 적용시키기 위해서는 Node.js가 필요하다. ex) 다크모드, 라이트모드, 검색창기능</p>
-
-<p>이를 해결하기 위해 수많은 검색을 하다가 해결 방법을 찾아냈다.</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">tools/init.sh</code> 은 Linux 환경의 node.js를 통해서 사용할 수 있다.</li>
-  <li>위 작업을 해주면 <code class="language-plaintext highlighter-rouge">assets/js/dist/*.min.js</code> 자동으로 생성되는 구조이다. 
-아마 내 생각엔 <code class="language-plaintext highlighter-rouge">tools/init.sh</code> 스크립트 내부에 build를 해주는 기능이 포함된 것 같다.</li>
-  <li>나는 <code class="language-plaintext highlighter-rouge">tools/init.sh</code> 대신 수동으로 초기화 작업을 했기 때문에  <code class="language-plaintext highlighter-rouge">*.min.js</code>가 생성될 수 없었다.</li>
-</ol>
-
-<p>그래서 나는 없는 <code class="language-plaintext highlighter-rouge">*.min.js</code> 파일을 Node.js를 통해 build하는 방법을 사용했다.</p>
-
-<ol>
-  <li>우선 Node.js를 설치</li>
-  <li>git bash로 <code class="language-plaintext highlighter-rouge">npm install</code> , <code class="language-plaintext highlighter-rouge">npm run build</code>를 입력해주면 위의 오류가 사라지는 것을 확인할 수 있다. <em>npm install을 하는 과정에서 아래와 같은 오류가 발생했다. 이와 별개로 위 작업이 정상적으로 진행된다면 오류는 해결된다.</em></li>
-</ol>
-
-<h3 id="3-nodejs를-설치하고-npm-install을-설치-과정-중-발생한-오류">3. Node.js를 설치하고 <code class="language-plaintext highlighter-rouge">npm install</code>을 설치 과정 중 발생한 오류</h3>
-<blockquote>
-  <p>bash: npm: command not found</p>
-</blockquote>
-
-<p>위와 같은 오류가 발생했는데 이는 Node.js 설치폴더가 환경변수에 등록되어 있지 않기 때문에 발생한다. 
-이는 https://wonisdaily.tistory.com/209 해당 블로그를 참고해서 해결했다.</p>
-
-<hr />
-<p>내가 한 방식이 정답이 아닐 수 있으나 해결했으니 마음이 후련하다~</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Jekyll" /><category term="Jekyll theme" /><category term="Jekyll" /><summary type="html"><![CDATA[블로그를 개설 중 발생한 자잘한 오류 해결과 과정]]></summary></entry></feed>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="SpringBoot" /><category term="SpringBoot" /><category term="Java" /><summary type="html"><![CDATA[스프링부트 프로젝트 생성시 참고사항]]></summary></entry></feed>
