@@ -24,14 +24,17 @@
 <div class="tags-wrapper">
   <h2 class="tags-title">Tags</h2>
   <ul class="tags-list">
-    {% assign sorted_tags = site.tags | sort %}
-    {% for tag in sorted_tags limit:10 %}
-    <li class="tags-item">
-      <a href="/tags/#{{ tag[0] | slugify }}" class="tag-link">
-        {{ tag[0] }}
-        <span class="tag-count">({{ tag[1].size }})</span>
-      </a>
-    </li>
+    {% assign allowed_tags = "AWS,ComputerNetwork,SpringBoot,Linux" | split: "," %}
+    {% for tag in allowed_tags %}
+      {% assign tag_posts = site.tags[tag] %}
+      {% if tag_posts %}
+        <li class="tags-item">
+          <a href="/tags/#{{ tag | slugify }}" class="tag-link">
+            {{ tag }}
+            <span class="tag-count">({{ tag_posts.size }})</span>
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
