@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 3주 1차시, 네트워크 보안 및 계층화 
+title: 「 Network 」 3주 1차시, 네트워크 보안 및 계층화 
 date: 2025-03-18 00:00 +0800
-tags: [ComputerNetwork]
-categories: [ComputerNetwork]
+tags: [Network]
+categories: [Network]
 toc:  true
 ---
 ## Network Security

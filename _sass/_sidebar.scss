@@ -177,6 +177,13 @@
   margin-left: 0.3rem;
 }
 
+.frame-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
 .frame-wrapper {
   margin-top: 0;
   text-align: center;
@@ -186,13 +193,6 @@
   display: inline-block;
   padding: 5px;
   background: transparent;
-}
-
-.frame-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 2px;
 }
 
 @media (min-height: 900px) {

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이
+title: 「 Network 」 2주 2차시, 네트워크 계속, 인터넷 구조, 패킷 딜레이
 date: 2025-03-16 00:00 +0800
 last_modified_at: 2025-03-25 14:00:00 +0900
 modified: true
-tags: [ComputerNetwork]
-categories: [ComputerNetwork]
+tags: [Network]
+categories: [Network]
 toc:  true
 ---
 

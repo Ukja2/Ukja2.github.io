@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층
+title: 「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층
 date: 2025-03-11 00:00 +0800
-tags: [ComputerNetwork]
-categories: [ComputerNetwork]
+tags: [Network]
+categories: [Network]
 toc:  true
 ---
 ## 컴퓨터 네트워크 개요
