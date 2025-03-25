@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 네트워크 보안 및 계층화 
+title: 「 ComputerNetwork 」 2주차 - 2네트워크 보안 및 계층화 
 date: 2025-03-18 00:00 +0800
 tags: [ComputerNetwork]
 categories: [ComputerNetwork]
@@ -106,4 +106,3 @@ Encapsulation : 캡슐화
 
 
 ![](https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png)
-

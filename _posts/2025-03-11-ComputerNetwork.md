@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 네트워크 소개 및 OSI 7 계층
+title: 「 ComputerNetwork 」 1주차 - 2 네트워크 소개 및 OSI 7 계층
 date: 2025-03-11 00:00 +0800
 tags: [ComputerNetwork]
 categories: [ComputerNetwork]

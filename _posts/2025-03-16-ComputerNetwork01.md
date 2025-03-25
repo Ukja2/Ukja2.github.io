@@ -1,7 +1,9 @@
 ---
 layout: post
-title: 「 ComputerNetwork 」 네트워크 계속, 인터넷 구조, 패킷 딜레이
+title: 「 ComputerNetwork 」 2주차 - 1네트워크 계속, 인터넷 구조, 패킷 딜레이
 date: 2025-03-16 00:00 +0800
+last_modified_at: 2025-03-25 14:00:00 +0900
+modified: true
 tags: [ComputerNetwork]
 categories: [ComputerNetwork]
 toc:  true
@@ -215,3 +217,23 @@ La/R>1: 도착하는 작업량이 서비스 가능한 양을 초과하여 지연
 - 패킷이 도착하는 속도가 보내는 속도보다 빠를때 발생 
 
 - 일정 버퍼 메모리가 초과되면 `패킷이 삭제되는데 (buffer overwrite)`이를 `packet loss` 라고함
+
+## Throughput
+
+![](https://velog.velcdn.com/images/ghkdehs/post/b164bb99-2fd8-4adf-90b6-237fe4607b86/image.png)
+
+
+`Througput(처리랑)`? : 단위 시간당 전송된 데이터의 양을 의미한다. 쉽게 말해서, 네트워크가 실제로 전달할 수 있는 속도를 나타냄
+
+위 그림은 각각 two hop network에서 파이프라인의 크기에 따른 처리량을 나타낸다.
+
+- 1번은 서버 -> 라우터의 파이프라인이 좁고, 라우터 -> 컴퓨터의 파이프라인의 크기가 넓다.
+
+- 2번은 그 반대의 경우이다. 
+
+하지만 throughput의 크기는 작은 throughput이 결정한다 큰 게 결정하는게 아님
+
+예를 들어 2번 그림을 보면 Rs속도 만큼 라우터에게 보내는데, 컴퓨로 보낼때는 파이프라인이 좁기 때문에 받은 만큼 전부 보내줄 수가 없게된다. 즉 보낼 수 있는건 Rc만큼이 된다
+
+- `bottleneck link(병목현상)`  : 병의 입구처럼 크기가 줄어들면 원래 보낼 속도만큼을 보낼 수 없게 된다.
+
