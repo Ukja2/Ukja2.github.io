@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-29T20:23:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">Getter &amp;amp; Setter</title><link href="http://localhost:4000/java/Java-getter-setter/" rel="alternate" type="text/html" title="Getter &amp;amp; Setter" /><published>2025-03-29T01:00:00+09:00</published><updated>2025-03-29T01:00:00+09:00</updated><id>http://localhost:4000/java/Java-getter-setter</id><content type="html" xml:base="http://localhost:4000/java/Java-getter-setter/"><![CDATA[<h4 id="getter--setter">Getter &amp; Setter?</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-29T23:49:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">Backend 3-Tier Architecture, Business Logic</title><link href="http://localhost:4000/backend/BackEnd-3tier/" rel="alternate" type="text/html" title="Backend 3-Tier Architecture, Business Logic" /><published>2025-03-29T03:00:00+09:00</published><updated>2025-03-29T03:00:00+09:00</updated><id>http://localhost:4000/backend/BackEnd-3tier</id><content type="html" xml:base="http://localhost:4000/backend/BackEnd-3tier/"><![CDATA[<h3 id="3계층-구조-three-tier-architecture">3계층 구조 (Three-Tier Architecture)</h3>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/0c708033-f7bd-48cc-bba3-517ea5806f34/image.png" alt="" /></p>
+
+<p>백엔드의 내부 로직을 3계층으로 분리하여 각각의 역할을 담당하는 아키텍처로 유지보수가 쉽고, 확장성이 좋다는 장점이 있다.
+<!--more--></p>
+
+<p><strong>1. 프레젠테이션(Presentation layer)</strong></p>
+<ul>
+  <li>사용자의 요청을 받고, 결과를 사용자에게 반환하는 역할</li>
+  <li>주로 <strong>컨트롤러(Controller)</strong> 가 이 계층에 해당</li>
+  <li>즉, 컨트롤러는 사용자와 백엔드 사이의 다리 역할</li>
+</ul>
+
+<p><strong>2. 로직(Logic later)</strong></p>
+<ul>
+  <li>핵심적인 비즈니스 로직을 담당하는 계층</li>
+  <li>데이터를 검증하고, 가공하고, 여러 개의 요청을 조합해서 처리</li>
+  <li>컨트롤러와 데이터 계층(리포지토리) 사이에서 중간 다리 역할</li>
+</ul>
+
+<p>흐름:</p>
+
+<ul>
+  <li>
+    <p>컨트롤러에서 받은 요청을 분석하고 필요한 데이터를 가져옴</p>
+  </li>
+  <li>
+    <p>가져온 데이터로 필요한 로직을 수행</p>
+  </li>
+  <li>
+    <p>처리된 결과를 컨트롤러로 반환</p>
+  </li>
+</ul>
+
+<p>쉽게 말하면, <strong>데이터를 어떻게 처리할지 결정하는 곳</strong></p>
+
+<p><strong>3. 데이터 계층 (Data Layer)</strong></p>
+<ul>
+  <li>데이터베이스와 직접 소통하는 역할</li>
+  <li>데이터를 저장, 조회, 수정, 삭제 (CRUD)</li>
+  <li>서비스 계층에서 요청한 데이터를 제공</li>
+</ul>
+
+<hr />
+
+<h3 id="business-logic">Business Logic?</h3>
+<p>애플리케이션에서 “실제 기능”을 수행하는 핵심 로직을 의미한다.
+즉, 단순한 데이터 전달이 아니라, <strong>“어떤 규칙이나 절차를 적용해서 데이터를 가공하고 처리하는 과정”</strong></p>
+
+<p><strong>비즈니스 로직이 필요한 이유?</strong></p>
+
+<p>웹 애플리케이션은 단순히 데이터를 주고받는 게 아니라, “사용자 요구에 맞는 특정한 작업”을 수행해야 함.</p>
+
+<p>예를 들어, 회원가입을 할 때 단순히 “이름과 이메일을 저장하는 것”이 아니라, 아래와 같은 검증 과정이 필요할 수 있음.</p>
+
+<ol>
+  <li>
+    <p>이메일이 이미 가입된 사용자라면? → “이미 존재하는 이메일입니다.” 오류 반환</p>
+  </li>
+  <li>
+    <p>비밀번호가 너무 짧다면? → “비밀번호는 최소 8자 이상이어야 합니다.”</p>
+  </li>
+  <li>
+    <p>회원가입 후 환영 이메일 보내기</p>
+  </li>
+</ol>
+
+<p>이런 작업들은 단순한 데이터 저장이 아니라, <strong>“회원가입이라는 비즈니스 규칙”</strong>을 따르는 것</p>
+
+<p>-&gt; 이러한 모든 작업이 “비즈니스 로직”에 해당됨</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Backend" /><category term="Backend" /><summary type="html"><![CDATA[3계층 구조 (Three-Tier Architecture) 백엔드의 내부 로직을 3계층으로 분리하여 각각의 역할을 담당하는 아키텍처로 유지보수가 쉽고, 확장성이 좋다는 장점이 있다.]]></summary></entry><entry><title type="html">Getter &amp;amp; Setter</title><link href="http://localhost:4000/java/Java-getter-setter/" rel="alternate" type="text/html" title="Getter &amp;amp; Setter" /><published>2025-03-29T02:00:00+09:00</published><updated>2025-03-29T02:00:00+09:00</updated><id>http://localhost:4000/java/Java-getter-setter</id><content type="html" xml:base="http://localhost:4000/java/Java-getter-setter/"><![CDATA[<h4 id="getter--setter">Getter &amp; Setter?</h4>
 
 <p>클래스 내부의 private 필드에 접근하거나 값을 설정하는 방법을 제공하는 메서드들이다.</p>
 
@@ -1353,223 +1423,7 @@ Apache를 재시작해주면 정상적으로 <strong>작동할 수도 있다.</s
 <p><img src="https://velog.velcdn.com/images/ghkdehs/post/45bb71ed-d9f0-41d7-bc0f-24ac536c4ae9/image.png" alt="" /></p>
 
 <p>여기까지 기초적인 웹 서버 자체를 구축했다. 
-다음부터 웹 서버 운영을 다뤄보려 한다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Infra" /><category term="Linux" /><summary type="html"><![CDATA[리눅스 웹 서버 구축 오픈 소스 웹 서버 소프트웨어인 Apache 를 사용해서 웹 서버를 구축해보려 한다.]]></summary></entry><entry><title type="html">「 Linux 」 리눅스?</title><link href="http://localhost:4000/linux/Linux-outline/" rel="alternate" type="text/html" title="「 Linux 」 리눅스?" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/linux/Linux-outline</id><content type="html" xml:base="http://localhost:4000/linux/Linux-outline/"><![CDATA[<h2 id="linux">Linux?</h2>
-<!--more-->
-
-<ul>
-  <li>Unix 기반의 오픈소스 OS</li>
-  <li>윈도우, MacOS와 달리 <strong>무료</strong>이며, <strong>오픈소스</strong>이기 때문에 자유롭게 수정과 배포가 가능함</li>
-</ul>
-
-<p><strong>운영체제(OS)</strong>: <strong>하드웨어</strong>를 프로그램을 통해 쉽게 사용할 수 있도록 해주는 <strong>소프트웨어</strong>이다.</p>
-
-<p>여기서 설명하는 리눅스는 <strong>완전한 리눅스</strong>를 뜻함 이는 후술하겠음</p>
-<h2 id="-linux-기본구조">💻 Linux 기본구조</h2>
-<p>크게 4가지로 나뉜다.</p>
-
-<h3 id="1-커널kernel">1. 커널(Kernel)</h3>
-<p>운영체제의 핵심으로 <strong>하드웨어와 소프트웨어를 연결하는 역할</strong>을 함.</p>
-
-<h3 id="커널의-역할">커널의 역할</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>역할</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>프로세스 관리</strong></td>
-      <td>실행 중인 프로그램(프로세스)을 생성, 실행, 종료 및 스케줄링</td>
-    </tr>
-    <tr>
-      <td><strong>메모리 관리</strong></td>
-      <td>RAM 및 가상 메모리를 효율적으로 할당 및 해제</td>
-    </tr>
-    <tr>
-      <td><strong>파일 시스템 관리</strong></td>
-      <td>파일과 디렉토리, 저장장치를 관리</td>
-    </tr>
-    <tr>
-      <td><strong>장치 관리</strong></td>
-      <td>CPU, 디스크, 네트워크 장치 등 하드웨어를 제어</td>
-    </tr>
-    <tr>
-      <td><strong>네트워크 관리</strong></td>
-      <td>네트워크 인터페이스 및 데이터 통신을 담당</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="정리">정리</h3>
-<p>✅ <strong>커널은 OS의 핵심이며, 프로세스, 메모리, 파일, 장치, 네트워크 관리 담당</strong><br />
-✅ <strong>운영체제의 성능과 안정성에 중요한 역할을 함</strong></p>
-
-<hr />
-<h3 id="2-쉘shell">2. 쉘(Shell)</h3>
-<p>사용자가 운영체제(커널)와 소통할 수 있도록 <strong>명령어를 입력받고 실행하는 인터페이스</strong>.<br />
-쉽게 말해, <strong>사용자의 명령을 해석해서 커널에 전달하는 번역기 역할</strong>을 함.</p>
-
-<h3 id="쉘의-역할">쉘의 역할</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>역할</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>명령어 해석</strong></td>
-      <td>사용자가 입력한 명령어를 해석하여 커널에 전달</td>
-    </tr>
-    <tr>
-      <td><strong>프로그램 실행</strong></td>
-      <td>사용자가 입력한 명령어 또는 스크립트를 실행</td>
-    </tr>
-    <tr>
-      <td><strong>파일 &amp; 디렉토리 관리</strong></td>
-      <td>파일 생성, 삭제, 이동 등의 작업 수행</td>
-    </tr>
-    <tr>
-      <td><strong>프로세스 제어</strong></td>
-      <td>실행 중인 프로세스를 백그라운드/포그라운드 전환 및 종료</td>
-    </tr>
-    <tr>
-      <td><strong>스크립트 실행</strong></td>
-      <td>반복적인 작업을 자동화할 수 있는 쉘 스크립트 지원</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="쉘의-종류">쉘의 종류</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>쉘 종류</th>
-      <th>특징</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Bash (Bourne Again Shell)</strong></td>
-      <td>가장 많이 사용되는 기본 쉘 (리눅스 기본)</td>
-    </tr>
-    <tr>
-      <td><strong>Sh (Bourne Shell)</strong></td>
-      <td>Bash의 원조, 가벼운 쉘</td>
-    </tr>
-    <tr>
-      <td><strong>Zsh (Z Shell)</strong></td>
-      <td>강력한 자동 완성 &amp; 플러그인 지원</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>📌 <strong>리눅스 기본 쉘은 Bash</strong>이며, 필요에 따라 다른 쉘로 변경 가능.</p>
-
-<h2 id="정리-1">정리</h2>
-<p>✅ <strong>쉘은 사용자가 커널과 소통할 수 있도록 해주는 인터페이스</strong><br />
-✅ <strong>명령어 실행, 파일 관리, 프로세스 제어, 스크립트 자동화 기능을 제공</strong><br />
-✅ <strong>Bash가 기본이지만 Zsh, Fish 같은 다양한 쉘도 사용 가능</strong></p>
-
-<hr />
-
-<h3 id="3-하드웨어hardware">3. 하드웨어(Hardware)</h3>
-
-<p><strong>컴퓨터구조</strong>에서 더욱 자세히 다룸</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>하드웨어</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>CPU (Central Processing Unit)</strong></td>
-      <td>컴퓨터의 두뇌, 모든 계산과 명령을 처리함</td>
-    </tr>
-    <tr>
-      <td><strong>메모리 (RAM)</strong></td>
-      <td>데이터를 일시적으로 저장, 프로그램 실행에 필요한 데이터를 빠르게 읽고 씀</td>
-    </tr>
-    <tr>
-      <td><strong>저장 장치 (Hard Disk, SSD)</strong></td>
-      <td>데이터를 영구적으로 저장하는 장치, 컴퓨터가 꺼져도 데이터가 유지됨</td>
-    </tr>
-    <tr>
-      <td><strong>입출력 장치 (Input/Output Devices)</strong></td>
-      <td>사용자가 컴퓨터와 상호작용할 수 있게 돕는 장치, 예: 키보드, 마우스, 모니터 등</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h3 id="4-프로그램program">4. 프로그램(Program)</h3>
-
-<p><strong>프로그램</strong>은 <strong>하드웨어에서 실행되는 소프트웨어</strong>로, 특정 작업을 수행하거나 시스템을 제어하는 코드들로 구성</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>프로그램 종류</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>시스템 소프트웨어</strong></td>
-      <td>하드웨어와 사용자 간 상호작용을 도와주는 소프트웨어, 예: 운영체제(OS)</td>
-    </tr>
-    <tr>
-      <td><strong>응용 소프트웨어</strong></td>
-      <td>특정 작업을 수행하는 소프트웨어, 예: 웹 브라우저, 게임, 워드 프로세서 등</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-<h2 id="-gnu-프로젝트와-리눅스-관계">💻 GNU 프로젝트와 리눅스 관계</h2>
-<p>리눅스라고 했을 때 우리가 보통 리눅스 OS라고 부르는 것은 사실 리눅스 커널과 그 위에 추가적인 소프트웨어들, 즉 툴들이 결합된 운영체제를 의미함</p>
-
-<p>즉,</p>
-<ul>
-  <li><strong>리눅스 커널</strong>만으로는 운영체제가 아님 → <strong>GNU 프로젝트의 툴</strong>과 결합해서 완전한 OS가 됨.</li>
-  <li>그래서 <strong>GNU/Linux</strong>라고도 부름.<br />
-(예: Ubuntu는 GNU 툴 + 리눅스 커널을 포함한 배포판)
-—
-    <h2 id="-리눅스-배포판-linux-distribution">💻 리눅스 배포판 (Linux Distribution)</h2>
-    <p>위에서 설명했다시피 리눅스는 커널만으로 동작하지 않기 때문에 
-<strong>리눅스 커널 + GNU 프로젝트(또는 툴)</strong> 을 조합해서 만든 <strong>배포판</strong>을 통해 <strong>완전한 리눅스</strong>를 사용할 수 있다.</p>
-  </li>
-</ul>
-
-<h3 id="대표적인-배포판">대표적인 배포판</h3>
-<p>| 배포판  | 특징 |
-|———|—————-|
-| <strong>Ubuntu</strong>  | 초보자 친화적, 데스크탑 &amp; 서버용으로 인기 |
-| <strong>CentOS</strong>  | 안정성이 뛰어나 서버용으로 많이 사용됨 (RHEL 기반) |
-| <strong>Debian</strong>  | 보안과 안정성이 뛰어나며 다양한 파생판이 존재 |
-| <strong>Fedora</strong>  | 최신 기술 반영이 빠르며 Red Hat 지원 |
-| <strong>Arch Linux</strong>  | 최소한의 기본 구성, 사용자가 직접 커스터마이징 |
-—</p>
-
-<h2 id="-cli-vs-gui">💻 CLI vs GUI</h2>
-<p>| 인터페이스 | 설명 |
-|————|————————————————–|
-| <strong>CLI (Command Line Interface)</strong> | 명령어 기반, 터미널 사용 (서버 관리에 최적화) |
-| <strong>GUI (Graphical User Interface)</strong> | 그래픽 환경 제공 (데스크탑 사용에 적합) |</p>
-<ul>
-  <li>리눅스는 기본적으로 CLI 중심이지만, GUI 환경도 사용 가능.</li>
-  <li><strong>서버 운영 = CLI</strong>, <strong>일반 사용자 = GUI</strong> 선택 가능</li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux?]]></summary></entry><entry><title type="html">「 Linux 」 리눅스 명령어</title><link href="http://localhost:4000/linux/Linux-Command/" rel="alternate" type="text/html" title="「 Linux 」 리눅스 명령어" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-02-20T01:00:00+09:00</updated><id>http://localhost:4000/linux/Linux-Command</id><content type="html" xml:base="http://localhost:4000/linux/Linux-Command/"><![CDATA[<h2 id="linux-기본-명령어">Linux 기본 명령어</h2>
+다음부터 웹 서버 운영을 다뤄보려 한다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Infra" /><category term="Linux" /><summary type="html"><![CDATA[리눅스 웹 서버 구축 오픈 소스 웹 서버 소프트웨어인 Apache 를 사용해서 웹 서버를 구축해보려 한다.]]></summary></entry><entry><title type="html">「 Linux 」 리눅스 명령어</title><link href="http://localhost:4000/linux/Linux-Command/" rel="alternate" type="text/html" title="「 Linux 」 리눅스 명령어" /><published>2025-02-20T01:00:00+09:00</published><updated>2025-02-20T01:00:00+09:00</updated><id>http://localhost:4000/linux/Linux-Command</id><content type="html" xml:base="http://localhost:4000/linux/Linux-Command/"><![CDATA[<h2 id="linux-기본-명령어">Linux 기본 명령어</h2>
 
 <!--more-->
 
