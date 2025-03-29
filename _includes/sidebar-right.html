@@ -24,7 +24,7 @@
 <div class="tags-wrapper">
   <h2 class="tags-title">Tags</h2>
   <ul class="tags-list">
-    {% assign allowed_tags = "AWS,Network,SpringBoot,Linux,Git,GitHub" | split: "," %}
+    {% assign allowed_tags = "AWS,Network,SpringBoot,Linux,Git,Java" | split: "," %}
     {% for tag in allowed_tags %}
       {% assign tag_posts = site.tags[tag] %}
       {% if tag_posts %}

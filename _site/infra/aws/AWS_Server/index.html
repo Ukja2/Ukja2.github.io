@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
   <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>「 AWS 」 EC2 인스턴스 생성및 접속 | Ukja2</title>
+<title>「 AWS 」 EC2 인스턴스 생성및 Apache로 배포 | Ukja2</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="「 AWS 」 EC2 인스턴스 생성및 접속" />
+<meta property="og:title" content="「 AWS 」 EC2 인스턴스 생성및 Apache로 배포" />
 <meta name="author" content="Ukja2" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다." />
@@ -20,9 +20,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-03-18T01:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="「 AWS 」 EC2 인스턴스 생성및 접속" />
+<meta property="twitter:title" content="「 AWS 」 EC2 인스턴스 생성및 Apache로 배포" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-03-18T01:00:00+09:00","datePublished":"2025-03-18T01:00:00+09:00","description":"Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.","headline":"「 AWS 」 EC2 인스턴스 생성및 접속","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/infra/aws/AWS_Server/"},"url":"http://localhost:4000/infra/aws/AWS_Server/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-03-18T01:00:00+09:00","datePublished":"2025-03-18T01:00:00+09:00","description":"Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.","headline":"「 AWS 」 EC2 인스턴스 생성및 Apache로 배포","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/infra/aws/AWS_Server/"},"url":"http://localhost:4000/infra/aws/AWS_Server/"}</script>
 <!-- End Jekyll SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
 <style>
@@ -85,7 +85,7 @@
 </div>
       <div class="content pure-u-1 pure-u-md-1-2"><main>
   <article class="post">
-  <h1 class="post-title">「 AWS 」 EC2 인스턴스 생성및 접속</h1>
+  <h1 class="post-title">「 AWS 」 EC2 인스턴스 생성및 Apache로 배포</h1>
   <div class="post-meta"><time datetime="2025-03-18T01:00:00+09:00" itemprop="datePublished">2025년 3월 18일</time></div>
 
   <p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
@@ -130,7 +130,125 @@
 
 <p>또한 키페어는 <strong>절대 유출되어서는 안되기 떄문에</strong> 따로 잘 보관하도록 하자.</p>
 
-<h4 id="7">7.</h4>
+<h4 id="7-네트워크-설정">7. 네트워크 설정</h4>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/f817914e-4bc6-4f56-a7e1-dcf86a0d69f2/image.png" alt="" /></p>
+
+<p>SSH(개발 환경 터미널)는 내 IP로 접근할 수 있도록 설정하여 보안을 신경써주는 것이 좋다.</p>
+
+<p>또한 HTTPS 와 HTTP 트래픽을 체크하여 포트를 열어주어 각각 보안과 웹 브라우저 접근을 허용한다.</p>
+
+<h3 id="인스턴스에-ssh로-접속하기">인스턴스에 SSH로 접속하기</h3>
+
+<h4 id="1ssh-키-파일-권한-설정">1.SSH 키 파일 권한 설정</h4>
+<p>.pem 파일의 권한을 변경해야 한다. (파일 권한 문제로 접속이 안 될 수 있음)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 400 /path/to/your/SSH_Key.pem
+</code></pre></div></div>
+
+<h4 id="2ec2-인스턴스에-접속하기">2.EC2 인스턴스에 접속하기</h4>
+<p>AWS에서 EC2 인스턴스의 공인 IP 주소를 확인하고, 다음 명령어로 접속한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i /path/to/your/SSH_Key.pem ec2-user@&lt;EC2_PUBLIC_IP&gt;
+</code></pre></div></div>
+
+<p>2번까지 완료하고 나면 서버의 신뢰성을 확인할 수 없다는 메세지가 뜨면서, <strong>“Are you sure you want to continue connecting?”</strong> 이라는 질문이 나올 것이다. 이때는 그냥 yes를 입력해주면 다음에 같은 서버를 접속할때 이와같은 경고문자가 나타나지 않을 것이다.</p>
+
+<p>터미널에서 <strong>시용자이름@EC2공인IP주소</strong> 와 같은 형태로 바뀌었다면 EC2 서버에 제대로 접속이 된 것이다.</p>
+
+<h3 id="ec2-인스턴스에-apahce-web-server-설정">EC2 인스턴스에 Apahce Web Server 설정</h3>
+
+<h4 id="1-apache-설치하기">1. Apache 설치하기</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install apache2 -y
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt update</code> : 패키지 목록을 업데이트</p>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt install apache2 -y</code> : Apache 웹 서버 설치</p>
+
+<h4 id="2-apache-서버-실행하기">2. Apache 서버 실행하기</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start apache2
+</code></pre></div></div>
+<p>위 명령어를 치고, 
+<code class="language-plaintext highlighter-rouge">http://IP주소</code> 를 입력하면</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/0576c2dd-57a4-4da6-a211-fe542975245d/image.png" alt="" /></p>
+
+<p>기본 Apache 시작 화면이 나올 것이다.</p>
+
+<h4 id="3-apache-자동-시작-설정">3. Apache 자동 시작 설정</h4>
+
+<p>서버가 재부팅되더라도 Apache가 자동으로 시작되도록 설정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable apache2
+</code></pre></div></div>
+
+<h4 id="4-서버-상태-확인">4. 서버 상태 확인</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status apache2 
+</code></pre></div></div>
+<p>위 명령어를 입력하고</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/26463779-d219-4593-9a14-95d70d92e7ff/image.png" alt="" /></p>
+
+<p>active(running)이 뜨면 정상적으로 실행 중인 것이다.</p>
+
+<h3 id="로컬-apache-파일을-ec2-apahce-폴더로-옮기기">로컬 Apache 파일을 EC2 Apahce 폴더로 옮기기</h3>
+
+<h4 id="1-ec2-인스턴스에-임시로-파일-복사하기">1. EC2 인스턴스에 임시로 파일 복사하기</h4>
+<p>나는 Apache 폴더 내의 index.html과 css 파일을 옮기려고 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp -i ~/Desktop/KeyPair/YourKey.pem /path/to/your/local/index.html ubuntu@123.45.67.89:/var/www/html/
+scp -i ~/Desktop/KeyPair/YourKey.pem /path/to/your/local/style.css ubuntu@123.45.67.89:/var/www/html/
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">scp</code> : Secure Copy Protocol의 약자로, SSH를 사용하여 <code class="language-plaintext highlighter-rouge">원격 서버</code>와 <code class="language-plaintext highlighter-rouge">로컬 시스템</code> 간에 파일을 안전하게 전송하는 명령어다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-i</code> :  identity file을 지정하는 옵션으로, SSH 연결 시 사용할 개인 키(private key) 파일을 지정하며, 이 키는 서버에 접속할 때 인증을 위한 수단으로 사용된다.</p>
+
+<h4 id="2-ec2-인스턴스에서-파일-이동하기">2. EC2 인스턴스에서 파일 이동하기</h4>
+
+<p>우선 EC2 인스턴스에 접속 후</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i /path/to/your/SSH_Key.pem ec2-user@&lt;EC2_PUBLIC_IP&gt;
+</code></pre></div></div>
+
+<p>EC2 서버 내에서 로컬로부터 받은 파일을 Apache 설정 파일로 옮긴다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv /home/ubuntu/index.html /var/www/html/
+sudo mv /home/ubuntu/style.css /var/www/html/
+</code></pre></div></div>
+
+<h4 id="3-파일-권한-설정">3. 파일 권한 설정</h4>
+
+<p>Apache가 파일에 접근할 수 있도록 파일 권한을 수정해야 한다. Apache는 일반적으로 <code class="language-plaintext highlighter-rouge">www-data</code> 사용자로 실행되므로, 다음 명령어로 권한을 설정할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown www-data:www-data /var/www/html/index.html
+sudo chown www-data:www-data /var/www/html/style.css
+</code></pre></div></div>
+
+<h4 id="4-apache-서버-재시작">4. Apache 서버 재시작</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart apache2
+</code></pre></div></div>
+
+<p>서버를 재시작하면?</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/79886e4f-671c-45b9-a9ba-e83abd0e84d6/image.png" alt="" /></p>
+
+<p>내가 만든 페이지가 정상적으로 옮겨진 것을 볼 수 있다.</p>
+
+<h3 id="dns-설정">DNS 설정</h3>
+
+<p>나의 EC2 공인 IP가 널리 퍼지면 안되니 무료 도메인을 사용하여 DNS설정을 해주자</p>
+
+<p><strong>DNS</strong> : 도메인 이름과 IP 주소를 서로 변환하는 역할</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/81c9adae-68ea-4773-b939-686fae317575/image.png" alt="" /></p>
+
+<p>여기에 들어가서 로그인 후 도메인 생성 후</p>
+
+<p><strong>current ip</strong> 탭에 EC2 IP를 적어주면 끝!</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">내가 설정한 주소 이름.duckdns.org</code></strong> 을 주소창에 입력하면 잘 접속이 될 것이다!</p>
 
 
   
@@ -160,6 +278,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/java/Java-getter-setter/">
+          Getter & Setter
+          <small><time datetime="2025-03-29T01:00:00+09:00">29 Mar 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/network/Network-05/">
           「 Network 」 4주 1차시,  Application Layer (2)
           <small><time datetime="2025-03-25T01:00:00+09:00">25 Mar 2025</time></small>
@@ -170,13 +295,6 @@
         <a href="/network/ComputerNetwork_04/">
           「 Network 」 3주 2차시,  Application Layer (1)
           <small><time datetime="2025-03-24T01:00:00+09:00">24 Mar 2025</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/network/ComputerNetwork_03-copy-2/">
-          「 Network 」 3주 1차시, 네트워크 보안 및 계층화
-          <small><time datetime="2025-03-18T01:00:00+09:00">18 Mar 2025</time></small>
         </a>
       </li>
     
@@ -197,6 +315,10 @@
   <nav class="toc-nav">
     <ul class="toc">
   <li><a href="#ec2-인스턴스-생성">EC2 인스턴스 생성</a></li>
+  <li><a href="#인스턴스에-ssh로-접속하기">인스턴스에 SSH로 접속하기</a></li>
+  <li><a href="#ec2-인스턴스에-apahce-web-server-설정">EC2 인스턴스에 Apahce Web Server 설정</a></li>
+  <li><a href="#로컬-apache-파일을-ec2-apahce-폴더로-옮기기">로컬 Apache 파일을 EC2 Apahce 폴더로 옮기기</a></li>
+  <li><a href="#dns-설정">DNS 설정</a></li>
 </ul>
 
   </nav>

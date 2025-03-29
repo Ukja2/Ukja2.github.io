@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T16:31:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">「 Network 」 4주 1차시, Application Layer (2)</title><link href="http://localhost:4000/network/Network-05/" rel="alternate" type="text/html" title="「 Network 」 4주 1차시, Application Layer (2)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/Network-05</id><content type="html" xml:base="http://localhost:4000/network/Network-05/"><![CDATA[<h2 id="an-application-layer-protocol-defines">An application-layer protocol defines</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-29T20:23:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">Getter &amp;amp; Setter</title><link href="http://localhost:4000/java/Java-getter-setter/" rel="alternate" type="text/html" title="Getter &amp;amp; Setter" /><published>2025-03-29T01:00:00+09:00</published><updated>2025-03-29T01:00:00+09:00</updated><id>http://localhost:4000/java/Java-getter-setter</id><content type="html" xml:base="http://localhost:4000/java/Java-getter-setter/"><![CDATA[<h4 id="getter--setter">Getter &amp; Setter?</h4>
+
+<p>클래스 내부의 private 필드에 접근하거나 값을 설정하는 방법을 제공하는 메서드들이다.</p>
+
+<!--more-->
+<p>Getter: 필드의 값을 반환하는 메서드</p>
+
+<p>Setter: 필드의 값을 설정하는 메서드</p>
+
+<h4 id="왜-필요한가">왜 필요한가?</h4>
+<p>자바에서는 private 접근 제어자를 사용해서 클래스의 필드를 외부에서 직접 접근하지 못하도록 막을 수 있는데, Getter와 Setter는 이런 제한을 우회해서 필드에 접근하거나 값을 변경할 수 있게 해주는 역할을 한다.</p>
+
+<h4 id="예시">예시</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Person {
+
+    // 필드는 private으로 설정 (외부에서 직접 접근 불가)
+    private String name;
+    private int age;
+
+    // Getter: name 필드의 값을 반환
+    public String getName() {
+        return name;
+    }
+
+    // Setter: name 필드에 값을 설정
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter: age 필드의 값을 반환
+    public int getAge() {
+        return age;
+    }
+
+    // Setter: age 필드에 값을 설정
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+</code></pre></div></div>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Java" /><category term="Java" /><summary type="html"><![CDATA[Getter &amp; Setter? 클래스 내부의 private 필드에 접근하거나 값을 설정하는 방법을 제공하는 메서드들이다.]]></summary></entry><entry><title type="html">「 Network 」 4주 1차시, Application Layer (2)</title><link href="http://localhost:4000/network/Network-05/" rel="alternate" type="text/html" title="「 Network 」 4주 1차시, Application Layer (2)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/Network-05</id><content type="html" xml:base="http://localhost:4000/network/Network-05/"><![CDATA[<h2 id="an-application-layer-protocol-defines">An application-layer protocol defines</h2>
 <p>애플리케이션 계층 프로토콜은 네트워크를 통해 <code class="language-plaintext highlighter-rouge">프로세스 간의 통신 방식</code>을 규정하는 규칙들을 말한다.</p>
 
 <!--more-->
@@ -281,7 +320,7 @@ UDP 서비스는 기본적으로 시간이 오래 걸리지 않으며, 정확성
 
 <p>비슷한 경우로 로컬 네트워크 내에서 장치간에서는 <code class="language-plaintext highlighter-rouge">Mac Address</code> 를 통해서 통신을 할 수 있다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Application Layer 에는 다음과 같은 예시가 있다.]]></summary></entry><entry><title type="html">「 AWS 」 EC2 인스턴스 생성및 접속</title><link href="http://localhost:4000/infra/aws/AWS_Server/" rel="alternate" type="text/html" title="「 AWS 」 EC2 인스턴스 생성및 접속" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/infra/aws/AWS_Server</id><content type="html" xml:base="http://localhost:4000/infra/aws/AWS_Server/"><![CDATA[<p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
+<p><code class="language-plaintext highlighter-rouge">Mac Address?</code> -  물리적 네트워크 장치(예: 컴퓨터, 스마트폰, 라우터 등)에 할당된 고유한 식별자를 의미한다. 이는 변경할 수 없다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Application Layer 에는 다음과 같은 예시가 있다.]]></summary></entry><entry><title type="html">「 AWS 」 EC2 인스턴스 생성및 Apache로 배포</title><link href="http://localhost:4000/infra/aws/AWS_Server/" rel="alternate" type="text/html" title="「 AWS 」 EC2 인스턴스 생성및 Apache로 배포" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/infra/aws/AWS_Server</id><content type="html" xml:base="http://localhost:4000/infra/aws/AWS_Server/"><![CDATA[<p>Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.</p>
 
 <!--more-->
 
@@ -323,7 +362,125 @@ UDP 서비스는 기본적으로 시간이 오래 걸리지 않으며, 정확성
 
 <p>또한 키페어는 <strong>절대 유출되어서는 안되기 떄문에</strong> 따로 잘 보관하도록 하자.</p>
 
-<h4 id="7">7.</h4>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWs" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">「 Network 」 3주 1차시, 네트워크 보안 및 계층화</title><link href="http://localhost:4000/network/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 Network 」 3주 1차시, 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
+<h4 id="7-네트워크-설정">7. 네트워크 설정</h4>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/f817914e-4bc6-4f56-a7e1-dcf86a0d69f2/image.png" alt="" /></p>
+
+<p>SSH(개발 환경 터미널)는 내 IP로 접근할 수 있도록 설정하여 보안을 신경써주는 것이 좋다.</p>
+
+<p>또한 HTTPS 와 HTTP 트래픽을 체크하여 포트를 열어주어 각각 보안과 웹 브라우저 접근을 허용한다.</p>
+
+<h3 id="인스턴스에-ssh로-접속하기">인스턴스에 SSH로 접속하기</h3>
+
+<h4 id="1ssh-키-파일-권한-설정">1.SSH 키 파일 권한 설정</h4>
+<p>.pem 파일의 권한을 변경해야 한다. (파일 권한 문제로 접속이 안 될 수 있음)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 400 /path/to/your/SSH_Key.pem
+</code></pre></div></div>
+
+<h4 id="2ec2-인스턴스에-접속하기">2.EC2 인스턴스에 접속하기</h4>
+<p>AWS에서 EC2 인스턴스의 공인 IP 주소를 확인하고, 다음 명령어로 접속한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i /path/to/your/SSH_Key.pem ec2-user@&lt;EC2_PUBLIC_IP&gt;
+</code></pre></div></div>
+
+<p>2번까지 완료하고 나면 서버의 신뢰성을 확인할 수 없다는 메세지가 뜨면서, <strong>“Are you sure you want to continue connecting?”</strong> 이라는 질문이 나올 것이다. 이때는 그냥 yes를 입력해주면 다음에 같은 서버를 접속할때 이와같은 경고문자가 나타나지 않을 것이다.</p>
+
+<p>터미널에서 <strong>시용자이름@EC2공인IP주소</strong> 와 같은 형태로 바뀌었다면 EC2 서버에 제대로 접속이 된 것이다.</p>
+
+<h3 id="ec2-인스턴스에-apahce-web-server-설정">EC2 인스턴스에 Apahce Web Server 설정</h3>
+
+<h4 id="1-apache-설치하기">1. Apache 설치하기</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install apache2 -y
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt update</code> : 패키지 목록을 업데이트</p>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt install apache2 -y</code> : Apache 웹 서버 설치</p>
+
+<h4 id="2-apache-서버-실행하기">2. Apache 서버 실행하기</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start apache2
+</code></pre></div></div>
+<p>위 명령어를 치고, 
+<code class="language-plaintext highlighter-rouge">http://IP주소</code> 를 입력하면</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/0576c2dd-57a4-4da6-a211-fe542975245d/image.png" alt="" /></p>
+
+<p>기본 Apache 시작 화면이 나올 것이다.</p>
+
+<h4 id="3-apache-자동-시작-설정">3. Apache 자동 시작 설정</h4>
+
+<p>서버가 재부팅되더라도 Apache가 자동으로 시작되도록 설정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl enable apache2
+</code></pre></div></div>
+
+<h4 id="4-서버-상태-확인">4. 서버 상태 확인</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status apache2 
+</code></pre></div></div>
+<p>위 명령어를 입력하고</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/26463779-d219-4593-9a14-95d70d92e7ff/image.png" alt="" /></p>
+
+<p>active(running)이 뜨면 정상적으로 실행 중인 것이다.</p>
+
+<h3 id="로컬-apache-파일을-ec2-apahce-폴더로-옮기기">로컬 Apache 파일을 EC2 Apahce 폴더로 옮기기</h3>
+
+<h4 id="1-ec2-인스턴스에-임시로-파일-복사하기">1. EC2 인스턴스에 임시로 파일 복사하기</h4>
+<p>나는 Apache 폴더 내의 index.html과 css 파일을 옮기려고 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp -i ~/Desktop/KeyPair/YourKey.pem /path/to/your/local/index.html ubuntu@123.45.67.89:/var/www/html/
+scp -i ~/Desktop/KeyPair/YourKey.pem /path/to/your/local/style.css ubuntu@123.45.67.89:/var/www/html/
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">scp</code> : Secure Copy Protocol의 약자로, SSH를 사용하여 <code class="language-plaintext highlighter-rouge">원격 서버</code>와 <code class="language-plaintext highlighter-rouge">로컬 시스템</code> 간에 파일을 안전하게 전송하는 명령어다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-i</code> :  identity file을 지정하는 옵션으로, SSH 연결 시 사용할 개인 키(private key) 파일을 지정하며, 이 키는 서버에 접속할 때 인증을 위한 수단으로 사용된다.</p>
+
+<h4 id="2-ec2-인스턴스에서-파일-이동하기">2. EC2 인스턴스에서 파일 이동하기</h4>
+
+<p>우선 EC2 인스턴스에 접속 후</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i /path/to/your/SSH_Key.pem ec2-user@&lt;EC2_PUBLIC_IP&gt;
+</code></pre></div></div>
+
+<p>EC2 서버 내에서 로컬로부터 받은 파일을 Apache 설정 파일로 옮긴다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv /home/ubuntu/index.html /var/www/html/
+sudo mv /home/ubuntu/style.css /var/www/html/
+</code></pre></div></div>
+
+<h4 id="3-파일-권한-설정">3. 파일 권한 설정</h4>
+
+<p>Apache가 파일에 접근할 수 있도록 파일 권한을 수정해야 한다. Apache는 일반적으로 <code class="language-plaintext highlighter-rouge">www-data</code> 사용자로 실행되므로, 다음 명령어로 권한을 설정할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown www-data:www-data /var/www/html/index.html
+sudo chown www-data:www-data /var/www/html/style.css
+</code></pre></div></div>
+
+<h4 id="4-apache-서버-재시작">4. Apache 서버 재시작</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart apache2
+</code></pre></div></div>
+
+<p>서버를 재시작하면?</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/79886e4f-671c-45b9-a9ba-e83abd0e84d6/image.png" alt="" /></p>
+
+<p>내가 만든 페이지가 정상적으로 옮겨진 것을 볼 수 있다.</p>
+
+<h3 id="dns-설정">DNS 설정</h3>
+
+<p>나의 EC2 공인 IP가 널리 퍼지면 안되니 무료 도메인을 사용하여 DNS설정을 해주자</p>
+
+<p><strong>DNS</strong> : 도메인 이름과 IP 주소를 서로 변환하는 역할</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/81c9adae-68ea-4773-b939-686fae317575/image.png" alt="" /></p>
+
+<p>여기에 들어가서 로그인 후 도메인 생성 후</p>
+
+<p><strong>current ip</strong> 탭에 EC2 IP를 적어주면 끝!</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">내가 설정한 주소 이름.duckdns.org</code></strong> 을 주소창에 입력하면 잘 접속이 될 것이다!</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWs" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">「 Network 」 3주 1차시, 네트워크 보안 및 계층화</title><link href="http://localhost:4000/network/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="「 Network 」 3주 1차시, 네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
 
 <p>현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.
 <!--more--></p>
@@ -1635,45 +1792,4 @@ Apache를 재시작해주면 정상적으로 <strong>작동할 수도 있다.</s
 
 <p><code class="language-plaintext highlighter-rouge">sudo apt-get update</code> : 시스템 패키지 목록을 업데이트 (Ubuntu 기준)</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo rm -rf /</code> : 주의! 시스템을 파괴할 수 있음 (루트 디렉토리 삭제)</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux 기본 명령어]]></summary></entry><entry><title type="html">SpringBoot 프로젝트 생성</title><link href="http://localhost:4000/springboot/spring/" rel="alternate" type="text/html" title="SpringBoot 프로젝트 생성" /><published>2025-01-19T01:00:00+09:00</published><updated>2025-03-22T14:30:00+09:00</updated><id>http://localhost:4000/springboot/spring</id><content type="html" xml:base="http://localhost:4000/springboot/spring/"><![CDATA[<p><img src="https://velog.velcdn.com/images/ukja2/post/f5a31409-56dc-4b07-bbbe-490beb314b9e/image.png" alt="" /></p>
-
-<p>스프링부트 프로젝트 생성시 참고사항
-<!--more--></p>
-
-<h3 id="project-metadata">Project Metadata</h3>
-<ul>
-  <li>Group : 프로젝트가 속한 조직이나 회사 이름을 나타내며, Group값은 기본적으로 Java 프로젝트의 최상위 패키지 이름으로 사용됨</li>
-  <li>Artifact : 프로젝트의 이름</li>
-  <li>
-    <p>Packaging 
-  <img src="https://velog.velcdn.com/images/ukja2/post/1e1f9960-567f-49ae-8354-bfec19829826/image.png" alt="" />
-언제 JAR과 WAR을 선택할까?
-‣ JAR:
-Spring Boot의 내장 서버를 활용해 간단히 실행 가능한 애플리케이션을 만들고 싶을 때.
-마이크로서비스 아키텍처를 사용할 때.
-‣ WAR:
-기존 서블릿 컨테이너(Tomcat, JBoss 등)에 배포해야 할 때.
-레거시 시스템과의 호환성이 필요할 때.</p>
-  </li>
-  <li>Java : JDK 버전에 맞게 선택</li>
-</ul>
-
-<h3 id="dependencies">Dependencies</h3>
-<p>스프링 프레임워크를 사용할 때 특정 기능을 구현하기 위해 다양한 라이브러리를 추가해야 되는데, 이를 직접 설정하는 대신 이니셜라이저가 제공하는 옵션에서 선택할 수 있다.</p>
-
-<p>예를 들어</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Spring Web</code> : 웹 애플리케이션 개발을 위한 종속성 (Spring MVC 포함).</li>
-  <li><code class="language-plaintext highlighter-rouge">Spring Boot DevTools</code> : 개발 편의를 위한 도구 (자동 리로드 기능 등).</li>
-  <li><code class="language-plaintext highlighter-rouge">Spring Data JPA</code> : 데이터베이스 연동을 쉽게 해주는 라이브러리.</li>
-  <li><code class="language-plaintext highlighter-rouge">Spring Security</code> : 인증과 권한 관리를 위한 라이브러리.</li>
-  <li><code class="language-plaintext highlighter-rouge">Thymeleaf</code> : HTML 템플릿 엔진.</li>
-</ul>
-
-<p>종속성의 역할</p>
-
-<ul>
-  <li>기능 추가: 필요한 라이브러리를 자동으로 프로젝트에 포함시켜 줌.</li>
-  <li>간편한 설정: 각 라이브러리에 맞는 기본 설정을 자동으로 제공.</li>
-  <li>의존성 관리: 관련된 라이브러리 버전을 스프링 부트에 맞게 맞춰줌.</li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="SpringBoot" /><category term="SpringBoot" /><category term="Java" /><summary type="html"><![CDATA[스프링부트 프로젝트 생성시 참고사항]]></summary></entry></feed>
+<p><code class="language-plaintext highlighter-rouge">sudo rm -rf /</code> : 주의! 시스템을 파괴할 수 있음 (루트 디렉토리 삭제)</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Linux" /><category term="Linux" /><summary type="html"><![CDATA[Linux 기본 명령어]]></summary></entry></feed>
