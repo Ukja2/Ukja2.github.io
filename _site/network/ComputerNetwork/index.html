@@ -88,7 +88,7 @@
   <h1 class="post-title">「 Network 」 4주 2차시,  Application Layer - HTTP (1)</h1>
   <div class="post-meta"><time datetime="2025-03-31T02:00:00+09:00" itemprop="datePublished">2025년 3월 31일</time></div>
 
-  <h4 id="web--http">WEB &amp; HTTP</h4>
+  <h3 id="web--http">WEB &amp; HTTP</h3>
 <ul>
   <li>웹 페이지는 객체(objects)로 구성되어 있다.
 <!--more-->
@@ -113,7 +113,7 @@
   <li>HTTP는 애플리케이션 레이어에서 동작하지만, 실제로 데이터를 전송할 때는 전송 계층(TCP/IP)을 사용한다.</li>
 </ul>
 
-<h4 id="http-overview">HTTP Overview</h4>
+<h3 id="http-overview">HTTP Overview</h3>
 
 <ul>
   <li>
@@ -129,7 +129,7 @@
 
 <p>HTTP는 클라이언트/서버 모델을 기반으로 작동한다.</p>
 
-<h4 id="tcp와-http의-상호작용">TCP와 HTTP의 상호작용</h4>
+<h3 id="tcp와-http의-상호작용">TCP와 HTTP의 상호작용</h3>
 
 <p>HTTP는 TCP를 사용해서 데이터를 주고받는다. TCP는 전송 계층에서 신뢰성 있는 연결을 제공하는 프로토콜</p>
 
@@ -160,7 +160,7 @@
 <p>또한 HTTP는 <strong>Stateless</strong>한 특성을 지니고 있는데,
  이는 매번 <strong>새로운 요청을 독립적으로 처리하고, 과거의 상태를 기억하지 않는다.</strong> 이 덕분에 구현이 간단하지만, 상태를 관리하려면 추가적인 기술이 필요하다.</p>
 
-<p>#### HTTP connections: two types</p>
+<h3 id="http-connections-two-types">HTTP connections: two types</h3>
 
 <ol>
   <li>Non-persistent HTTP</li>
@@ -174,7 +174,7 @@
 
 <p>한 번의 TCP 연결을 통해 여러 개의 객체를 다운로드할 수 있디. 연결이 닫히지 않고 계속 열려 있다가 더이상 연결이 필요 없을 때 닫히는 방식이다.</p>
 
-<h4 id="non-persistent-http-example">Non-persistent HTTP: example</h4>
+<h3 id="non-persistent-http-example">Non-persistent HTTP: example</h3>
 
 <p>우리의 컴퓨터와 학교 서버의 에시를 Non-persistent 예시를 들어보자</p>
 
@@ -206,7 +206,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
 
 <p>그러나 여기서 jpeg 파일 10개를 전부 찾으려면 Non-persistent HTTP에서는 각 객체(10개의 이미지)마다 새로운 TCP 연결을 열어야 한다.</p>
 
-<h4 id="rtt-round-trip-time">RTT (Round-Trip Time)</h4>
+<h3 id="rtt-round-trip-time">RTT (Round-Trip Time)</h3>
 
 <p>클라이언트가 요청을(request) 하고 응답(response)을 받는 
 일련의 시간 ( 클라이언트 → 서버 → 클라이언트 왕복 시간 )</p>
@@ -225,7 +225,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   </li>
 </ul>
 
-<h4 id="non-persistent-http-issues">Non-persistent HTTP issues</h4>
+<h3 id="non-persistent-http-issues">Non-persistent HTTP issues</h3>
 
 <ul>
   <li>
@@ -239,7 +239,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   </li>
 </ul>
 
-<h4 id="persistent-http-http11">Persistent HTTP (HTTP1.1)</h4>
+<h3 id="persistent-http-http11">Persistent HTTP (HTTP1.1)</h3>
 
 <ul>
   <li>
@@ -256,7 +256,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   </li>
 </ul>
 
-<h4 id="maintaining-userserver-state-cookies-쿠키로-상태-유지하기">Maintaining User/Server State: Cookies (쿠키로 상태 유지하기)</h4>
+<h3 id="maintaining-userserver-state-cookies-쿠키로-상태-유지하기">Maintaining User/Server State: Cookies (쿠키로 상태 유지하기)</h3>
 
 <p>HTTP는 기본적으로 <strong>stateless</strong>한 프로토콜이다.</p>
 
@@ -264,7 +264,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
 
 <p>이 때문에, 사용자 상태를 유지하려면 별도의 방법이 필요한데, 그중 가장 대표적인 방법이 <strong>쿠키(Cookie)</strong> 다.</p>
 
-<h4 id="cookies">Cookies?</h4>
+<h3 id="cookies">Cookies?</h3>
 <p>쿠키는 클라이언트(브라우저)에 저장되는 작은 데이터 조각으로, HTTP가 무상태라는 한계를 보완함</p>
 
 <p><strong>동작 방식을 살펴보면</strong></p>
@@ -285,7 +285,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
 
 <p>하지만 쿠키는 보안 이슈가 존재하기 때문에 이를 잘 보완해야 한다.</p>
 
-<h4 id="what-cookies-can-be-used-for">What cookies can be used for</h4>
+<h3 id="what-cookies-can-be-used-for">What cookies can be used for</h3>
 <ul>
   <li>authorization (인증)</li>
   <li>shopping carts (장바구니)</li>
@@ -293,7 +293,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   <li>user session state (Web e-mail) (이메일 세션 유지)</li>
 </ul>
 
-<h4 id="cookies-and-privacy">cookies and privacy</h4>
+<h3 id="cookies-and-privacy">cookies and privacy</h3>
 <ul>
   <li>
     <p>쿠키는 웹사이트가 사용자의 활동을 학습할 수 있도록 허용한다.</p>
@@ -303,7 +303,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   </li>
 </ul>
 
-<h4 id="web-caches-proxy-servers">Web caches (proxy servers)</h4>
+<h3 id="web-caches-proxy-servers">Web caches (proxy servers)</h3>
 
 <p>프록시 서버는 클라이언트와 서버 사이에서 중개 역할을 하는 서버로,  클라이언트가 서버에 직접 요청하는 대신, 프록시 서버가 대신 요청을 처리해주고, 그 결과를 클라이언트에게 전달하는 방식이다.</p>
 
@@ -365,6 +365,13 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
   <ul class="related-posts">
     
       <li>
+        <a href="/network/ComputerNetwork-Email/">
+          「 Network 」 5주 1차시,  Application Layer - Email
+          <small><time datetime="2025-04-01T02:00:00+09:00">01 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/backend/BackEnd-3tier/">
           Backend 3-Tier Architecture, Business Logic
           <small><time datetime="2025-03-29T03:00:00+09:00">29 Mar 2025</time></small>
@@ -375,13 +382,6 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
         <a href="/java/Java-getter-setter/">
           Getter & Setter
           <small><time datetime="2025-03-29T02:00:00+09:00">29 Mar 2025</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/network/Network-05/">
-          「 Network 」 4주 1차시,  Application Layer (2)
-          <small><time datetime="2025-03-25T01:00:00+09:00">25 Mar 2025</time></small>
         </a>
       </li>
     
@@ -400,7 +400,21 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
 <div class="toc-wrapper">
   <h2 class="toc-title">Table of Contents</h2>
   <nav class="toc-nav">
-    
+    <ul class="toc">
+  <li><a href="#web--http">WEB &amp; HTTP</a></li>
+  <li><a href="#http-overview">HTTP Overview</a></li>
+  <li><a href="#tcp와-http의-상호작용">TCP와 HTTP의 상호작용</a></li>
+  <li><a href="#http-connections-two-types">HTTP connections: two types</a></li>
+  <li><a href="#non-persistent-http-example">Non-persistent HTTP: example</a></li>
+  <li><a href="#rtt-round-trip-time">RTT (Round-Trip Time)</a></li>
+  <li><a href="#non-persistent-http-issues">Non-persistent HTTP issues</a></li>
+  <li><a href="#persistent-http-http11">Persistent HTTP (HTTP1.1)</a></li>
+  <li><a href="#maintaining-userserver-state-cookies-쿠키로-상태-유지하기">Maintaining User/Server State: Cookies (쿠키로 상태 유지하기)</a></li>
+  <li><a href="#cookies">Cookies?</a></li>
+  <li><a href="#what-cookies-can-be-used-for">What cookies can be used for</a></li>
+  <li><a href="#cookies-and-privacy">cookies and privacy</a></li>
+  <li><a href="#web-caches-proxy-servers">Web caches (proxy servers)</a></li>
+</ul>
 
   </nav>
 </div>

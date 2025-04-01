@@ -7,7 +7,7 @@ categories: [Network]
 toc:  true
 ---
 
-#### WEB & HTTP 
+### WEB & HTTP 
 - 웹 페이지는 객체(objects)로 구성되어 있다.
 <!--more-->
     - 이 객체의 종류는 HTML 파일, JPEG 이미지, Java 애플릿, 오디오 파일 등이 있다.
@@ -24,7 +24,7 @@ path name: /someDept/pic.gif
 
 - HTTP는 애플리케이션 레이어에서 동작하지만, 실제로 데이터를 전송할 때는 전송 계층(TCP/IP)을 사용한다.
 
-#### HTTP Overview
+### HTTP Overview
 
 - HTTP는 하이퍼텍스트 전송 프로토콜으로 **웹에서 데이터를 주고받는 규약** (프로토콜)이다.
 
@@ -34,7 +34,7 @@ path name: /someDept/pic.gif
 
 HTTP는 클라이언트/서버 모델을 기반으로 작동한다.
 
-#### TCP와 HTTP의 상호작용
+### TCP와 HTTP의 상호작용
 
 HTTP는 TCP를 사용해서 데이터를 주고받는다. TCP는 전송 계층에서 신뢰성 있는 연결을 제공하는 프로토콜
 
@@ -57,7 +57,7 @@ HTTP 메시지가 주고받은 후, TCP 연결은 종료된다. 데이터를 모
 또한 HTTP는 **Stateless**한 특성을 지니고 있는데,
  이는 매번 **새로운 요청을 독립적으로 처리하고, 과거의 상태를 기억하지 않는다.** 이 덕분에 구현이 간단하지만, 상태를 관리하려면 추가적인 기술이 필요하다.
 
- #### HTTP connections: two types
+### HTTP connections: two types
 
  1. Non-persistent HTTP
 
@@ -68,7 +68,7 @@ HTTP 메시지가 주고받은 후, TCP 연결은 종료된다. 데이터를 모
 한 번의 TCP 연결을 통해 여러 개의 객체를 다운로드할 수 있디. 연결이 닫히지 않고 계속 열려 있다가 더이상 연결이 필요 없을 때 닫히는 방식이다.
 
 
-#### Non-persistent HTTP: example
+### Non-persistent HTTP: example
 
 우리의 컴퓨터와 학교 서버의 에시를 Non-persistent 예시를 들어보자
 
@@ -91,7 +91,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index
 
 그러나 여기서 jpeg 파일 10개를 전부 찾으려면 Non-persistent HTTP에서는 각 객체(10개의 이미지)마다 새로운 TCP 연결을 열어야 한다.
 
-#### RTT (Round-Trip Time)
+### RTT (Round-Trip Time)
 
 클라이언트가 요청을(request) 하고 응답(response)을 받는 
 일련의 시간 ( 클라이언트 → 서버 → 클라이언트 왕복 시간 )
@@ -104,7 +104,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index
 
 - 총 시간 = (2 RTT + 전송 시간) × 11
 
-#### Non-persistent HTTP issues
+### Non-persistent HTTP issues
 
 - 각 객체(파일)마다 TCP 연결을 새로 열고 닫아야 하기 떄문에 객체가 2 RTT 발생
 
@@ -112,7 +112,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index
 
 - 이를 해결하기 위한 방법으로 Persistent HTTP가 등장함
 
-#### Persistent HTTP (HTTP1.1)
+### Persistent HTTP (HTTP1.1)
 
 - 서버가 응답을 보낸 후에도 TCP 연결을 유지한다
 
@@ -124,7 +124,7 @@ User enters URL: www.someSchool.edu/someDepartment/home.index
 
 
 
-#### Maintaining User/Server State: Cookies (쿠키로 상태 유지하기)
+### Maintaining User/Server State: Cookies (쿠키로 상태 유지하기)
 
 HTTP는 기본적으로 **stateless**한 프로토콜이다.
 
@@ -132,7 +132,7 @@ HTTP는 기본적으로 **stateless**한 프로토콜이다.
 
 이 때문에, 사용자 상태를 유지하려면 별도의 방법이 필요한데, 그중 가장 대표적인 방법이 **쿠키(Cookie)** 다.
 
-#### Cookies?
+### Cookies?
 쿠키는 클라이언트(브라우저)에 저장되는 작은 데이터 조각으로, HTTP가 무상태라는 한계를 보완함
 
 **동작 방식을 살펴보면**
@@ -147,18 +147,18 @@ HTTP는 기본적으로 **stateless**한 프로토콜이다.
 
 하지만 쿠키는 보안 이슈가 존재하기 때문에 이를 잘 보완해야 한다.
 
-#### What cookies can be used for
+### What cookies can be used for
 - authorization (인증)
 - shopping carts (장바구니)
 - recommendations (광고, 추천시스템)
 - user session state (Web e-mail) (이메일 세션 유지)
 
-#### cookies and privacy
+### cookies and privacy
 - 쿠키는 웹사이트가 사용자의 활동을 학습할 수 있도록 허용한다.
 
 - 서드파티 영구 쿠키(추적 쿠키)는 동일한 쿠키 값을 사용하여 여러 웹사이트에서 사용자의 신원을 추적할 수 있다. 즉 개인정보에 유의해야 한다.
 
-#### Web caches (proxy servers)
+### Web caches (proxy servers)
 
 프록시 서버는 클라이언트와 서버 사이에서 중개 역할을 하는 서버로,  클라이언트가 서버에 직접 요청하는 대신, 프록시 서버가 대신 요청을 처리해주고, 그 결과를 클라이언트에게 전달하는 방식이다.
 
