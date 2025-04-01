@@ -264,33 +264,44 @@ DNS는 리소스 레코드(Resource Record, RR)를 저장하는 분산형 데이
  **"Network Utopia"** 라는 스타트업이 DNS에 레코드를 삽입하는 과정
 
 
-1. 도메인 등록
-"Network Utopia"라는 스타트업은 networkuptopia.com 도메인을 DNS 등록기관에 등록해야 함
+1. 도메인 이름 등록
 
-이때 도메인을 등록할 때, 해당 도메인의 권한 있는 이름과 IP 주소를 제공해야 함
+networkuptopia.com 도메인을 등록하려고 DNS 등록기관(예: Network Solutions)에 신청을 할려고 한다.
 
-2. 레코드 삽입
-등록기관은 도메인에 대한 정보를 최상위 도메인 서버(예: .com TLD 서버)에 삽입해. 이때 삽입하는 레코드는 NS 레코드와 A 레코드야.
+이때 회사는 networkuptopia.com이라는 도메인 이름을 선택하고, 이 이름이 사용 가능한지 확인해야 하며, 사용 가능하다면 등록을 진행할 수 있음
 
+2. authoritative DNS 서버 정보 제공:
 
+도메인 이름을 등록하려면, 도메인 관리용 DNS 서버의 이름과 IP 주소를 제공해야 한다.
 
-NS 레코드는 networkutopia.com 도메인에 대해 **dns1.networkutopia.com**이 권한 있는 DNS서버임을 나타내는 정보다. 즉, 이 도메인에 대한 모든 DNS 요청은 dns1.networkutopia.com DNS서버로 가게 돼.
+이 정보는 도메인 이름 등록과 동시에 TLD 서버에 등록됨
 
-A 레코드는 dns1.networkutopia.com DNS서버의 실제 IP 주소가 212.212.212.1임을 나타내는 정보다. 즉, dns1.networkutopia.com을 찾으려면 212.212.212.1이라는 IP 주소를 사용해.
+3. 등록기관이 TLD 서버에 레코드 추가
 
-3. 권한 있는 DNS서버 설정
-로컬에서 **dns1.networkuptopia.com**이라는 DNS서버를 설정하고, 해당 서버의 IP 주소를 212.212.212.1로 지정해.
+등록기관은 .com TLD 서버에 두 가지 레코드를 추가한다.
 
-4. A 레코드와 MX 레코드 추가
-A 레코드:
+- NS 레코드: networkutopia.com 도메인에 대한 **authoritative DNS 서버**로 dns1.networkuptopia.com을 지정하는 레코드.
 
-**www.networkuptopia.com**에 대한 A 레코드를 설정. 이 레코드는 **www.networkuptopia.com**이라는 도메인이 실제로 어느 IP 주소로 연결될지를 설정하는 것. 예를 들어, 이 웹사이트가 212.212.212.1이라는 서버에 호스팅되면, A 레코드는 다음과 같을 수 있음
+(networkutopia.com, dns1.networkuptopia.com, NS)
 
-(www.networkuptopia.com, 212.212.212.1, A)
+- A 레코드: dns1.networkuptopia.com의 IP 주소는 212.212.212.1로 지정하는 레코드.
 
-MX 레코드:
+(dns1.networkuptopia.com, 212.212.212.1, A)
 
-networkuptopia.com 도메인의 메일 서버(MX, Mail Exchange) 정보를 설정한다. 예를 들어, 이메일 서버가 **mail.networkuptopia.com**에 위치한다면, MX 레코드는 다음과 같이 설정할 수 있음
+이렇게 두 레코드가 TLD 서버에 추가되면, 해당 도메인에 대한 요청은 dns1.networkuptopia.com DNS서버로 향하게 된다.
 
-(networkuptopia.com, mail.networkuptopia.com, MX)
+4. 자신의 DNS 서버 설정:
 
+dns1.networkuptopia.com이라는 DNS서버를 자체적으로 설정하는데, 이 네임서버의 IP 주소는 212.212.212.1이야. 이 서버는 이제 networkuptopia.com 도메인에 대한 DNS 요청을 처리하게 된다.
+
+5. 해당 서버에서 필요한 DNS 레코드를 추가해야 한다.
+
+A 레코드: www.networkuptopia.com에 대한 IP 주소를 설정.
+
+MX 레코드: networkuptopia.com에 대한 이메일 서버를 설정.
+
+**즉 이를 통해 전체적인 흐름을 정리해보자면**
+
+유토피아 회사는 등록기관을 통해 사용 가능한 도메인 이름을 찾아서 이를 등록하면, 등록기관에서  그 도메인에 대한 authoritative DNS 서버 정보(dns1.networkuptopia.com , 212.212.212.1)를 TLD 서버에 등록해준다. 이때 A 레코드, NS 레코드를 등록하면 TLD 서버에 추가되고, 해당 도메인(networkutopia.com)에 대한 요청은 authoritative DNS 서버 주소(dns1.networkuptopia.com)로 향하게 된다. 그러고나서 회사는 authoritative DNS 서버에서 A레코드 및 MX 레코드를 설정하여 최종적으로 본인 자사 홈페이지와 연결할 수 있게 설정한다.
+
+클라이언트 입장에서 networkutopia.com 주소를 입력하면 `.com` TLD 서버에서 이에 해당하는 도메인을 찾고, 그 도메인의 실제 authoritative DNS 서버 주소로 연결해준다. 이후 authoritative DNS 서버에 설정된 실제 주소를 통해 홈페이지에 접속할 수 있게 된다.
