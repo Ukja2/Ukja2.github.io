@@ -256,12 +256,12 @@ DNS는 리소스 레코드(Resource Record, RR)를 저장하는 분산형 데이
 
 - type = NS
     - name: 도메인 이름 (예: foo.com)
-    - value: 해당 도메인의 권한을 가진 네임서버의 호스트 이름 (예: ns1.foo.com)
+    - value: 해당 도메인의 권한을 가진 DNS서버의 호스트 이름 (예: ns1.foo.com)
 
 
 ### Inserting records into DNS
 
- **"Network Utopia"**라는 스타트업이 DNS에 레코드를 삽입하는 과정
+ **"Network Utopia"** 라는 스타트업이 DNS에 레코드를 삽입하는 과정
 
 
 1. 도메인 등록
@@ -274,12 +274,12 @@ DNS는 리소스 레코드(Resource Record, RR)를 저장하는 분산형 데이
 
 
 
-NS 레코드는 networkutopia.com 도메인에 대해 **dns1.networkutopia.com**이 권한 있는 DNS서버임을 나타내는 정보다. 즉, 이 도메인에 대한 모든 DNS 요청은 dns1.networkutopia.com 네임서버로 가게 돼.
+NS 레코드는 networkutopia.com 도메인에 대해 **dns1.networkutopia.com**이 권한 있는 DNS서버임을 나타내는 정보다. 즉, 이 도메인에 대한 모든 DNS 요청은 dns1.networkutopia.com DNS서버로 가게 돼.
 
-A 레코드는 dns1.networkutopia.com 네임서버의 실제 IP 주소가 212.212.212.1임을 나타내는 정보다. 즉, dns1.networkutopia.com을 찾으려면 212.212.212.1이라는 IP 주소를 사용해.
+A 레코드는 dns1.networkutopia.com DNS서버의 실제 IP 주소가 212.212.212.1임을 나타내는 정보다. 즉, dns1.networkutopia.com을 찾으려면 212.212.212.1이라는 IP 주소를 사용해.
 
 3. 권한 있는 DNS서버 설정
-로컬에서 **dns1.networkuptopia.com**이라는 네임서버를 설정하고, 해당 서버의 IP 주소를 212.212.212.1로 지정해.
+로컬에서 **dns1.networkuptopia.com**이라는 DNS서버를 설정하고, 해당 서버의 IP 주소를 212.212.212.1로 지정해.
 
 4. A 레코드와 MX 레코드 추가
 A 레코드:
