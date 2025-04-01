@@ -8,6 +8,9 @@ paginate_path: "/page:num/"
 permalink: /:categories/:title/
 cover_image: /bg.jpg
 
+# Timezone settings
+timezone: Asia/Seoul
+
 # Excerpt settings
 excerpt_separator: <!--more-->
 
