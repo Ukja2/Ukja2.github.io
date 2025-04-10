@@ -3,7 +3,7 @@ layout: post
 title: 「 AWS 」 EC2 인스턴스 생성및 Apache로 배포
 date: 2025-03-18 00:00 +0800
 tags: [AWS] 
-categories: [Infra, AWs]
+categories: [Infra, AWS]
 toc:  true
 ---
 

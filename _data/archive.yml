@@ -8,5 +8,7 @@
 
 - title: Infra
   url: /categories/infra/
-- title: FrontEnd
+- title: Frontend
   url: /categories/frontend/
+- title: Backend
+  url: /categories/backend/

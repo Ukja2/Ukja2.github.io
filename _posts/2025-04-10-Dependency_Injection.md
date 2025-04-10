@@ -2,8 +2,8 @@
 layout: post
 title: 의존성 주입
 date: 2025-04-10 01:00 +0800
-tags: [SpringBoot]
-categories: [SpringBoot]
+tags: [Spring]
+categories: [Spring]
 toc:  true
 ---
 
