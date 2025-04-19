@@ -7,22 +7,22 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
   <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>ChatBot 프로젝트(2) - Controller 클래스 | Ukja2</title>
+<title>뽑아주소서 서비스 동작 흐름 | Ukja2</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="ChatBot 프로젝트(2) - Controller 클래스" />
+<meta property="og:title" content="뽑아주소서 서비스 동작 흐름" />
 <meta name="author" content="Ukja2" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Practice &amp; Practice" />
-<meta property="og:description" content="Practice &amp; Practice" />
-<link rel="canonical" href="http://localhost:4000/springboot/ChatBotPj(2)/" />
-<meta property="og:url" content="http://localhost:4000/springboot/ChatBotPj(2)/" />
+<meta name="description" content="서비스 동작 흐름도 기록용" />
+<meta property="og:description" content="서비스 동작 흐름도 기록용" />
+<link rel="canonical" href="http://localhost:4000/spring/AIproject/" />
+<meta property="og:url" content="http://localhost:4000/spring/AIproject/" />
 <meta property="og:site_name" content="Ukja2" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-04-10T03:00:00+09:00" />
+<meta property="article:published_time" content="2025-04-13T02:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="ChatBot 프로젝트(2) - Controller 클래스" />
+<meta property="twitter:title" content="뽑아주소서 서비스 동작 흐름" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-04-10T03:00:00+09:00","datePublished":"2025-04-10T03:00:00+09:00","description":"Practice &amp; Practice","headline":"ChatBot 프로젝트(2) - Controller 클래스","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/springboot/ChatBotPj(2)/"},"url":"http://localhost:4000/springboot/ChatBotPj(2)/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-04-13T02:00:00+09:00","datePublished":"2025-04-13T02:00:00+09:00","description":"서비스 동작 흐름도 기록용","headline":"뽑아주소서 서비스 동작 흐름","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/spring/AIproject/"},"url":"http://localhost:4000/spring/AIproject/"}</script>
 <!-- End Jekyll SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
 <style>
@@ -85,18 +85,66 @@
 </div>
       <div class="content pure-u-1 pure-u-md-1-2"><main>
   <article class="post">
-  <h1 class="post-title">ChatBot 프로젝트(2) - Controller 클래스</h1>
-  <div class="post-meta"><time datetime="2025-04-10T03:00:00+09:00" itemprop="datePublished">2025년 4월 10일</time></div>
+  <h1 class="post-title">뽑아주소서 서비스 동작 흐름</h1>
+  <div class="post-meta"><time datetime="2025-04-13T02:00:00+09:00" itemprop="datePublished">2025년 4월 13일</time></div>
 
-  
+  <h3 id="서비스-동작-흐름도-기록용">서비스 동작 흐름도 기록용</h3>
+<!--more-->
+<ol>
+  <li>
+    <p>사용자가 질문을 입력
+→ 프론트엔드에서 입력값은 단순한 string 형태로 존재</p>
+  </li>
+  <li>프론트에서 fetch() 함수로 백엔드에 전송
+→ 이때 자바스크립트에서 JSON.stringify()를 사용해
+→ JSON 형태로 포장해서 전송됨
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "message": "자기소개서 도와줘!"
+}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>백엔드는 이 JSON을 <code class="language-plaintext highlighter-rouge">@RequestBody</code>로 받아 처리
+→ <code class="language-plaintext highlighter-rouge">"message"</code> 값을 매개변수로 꺼냄</p>
+  </li>
+  <li>
+    <p>그 값을 바탕으로 GPT API에 보낼 본문(JSON)을 생성
+→ <code class="language-plaintext highlighter-rouge">"model"</code>, <code class="language-plaintext highlighter-rouge">"messages"</code>, <code class="language-plaintext highlighter-rouge">"max_tokens"</code> 등 GPT가 이해할 수 있는 구조로 만듦
+→ 헤더(Authorization, Content-Type)도 포함해서 GPT에게 POST 요청</p>
+  </li>
+  <li>GPT는 응답(JSON)을 반환함</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "이렇게 작성해보세요!"
+      }
+    }
+  ]
+}
+</code></pre></div></div>
+
+<ol>
+  <li>백엔드는 이 응답을 파싱하여 “content”만 추출
+→ 그 내용을 다시 JSON으로 포장해서 프론트에 반환
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "response": "이렇게 작성해보세요!"
+}
+</code></pre></div>    </div>
+  </li>
+  <li>프론트는 response 값을 받아 사용자에게 보여줌</li>
+</ol>
+
 
 
   
     <div class="post-tags-section">
   <i class="post-tags-icon fas fa-tags"></i>
   <ul class="post-tags"><li>
-        <span class="post-tag">springboot</span></li><li>
-        <span class="post-tag">project</span></li></ul>
+        <span class="post-tag">spring</span></li></ul>
 </div>
 
   
@@ -133,9 +181,9 @@
       </li>
     
       <li>
-        <a href="/springboot/ChatBotPj(1)/">
-          ChatBot 프로젝트(1) - 기본설정, 서비스 클래스 생성
-          <small><time datetime="2025-04-03T03:00:00+09:00">03 Apr 2025</time></small>
+        <a href="/network/ComputerNetwork-Email/">
+          「 Network 」 5주 1차시,  Application Layer - Email
+          <small><time datetime="2025-04-01T03:00:00+09:00">01 Apr 2025</time></small>
         </a>
       </li>
     
@@ -154,7 +202,9 @@
 <div class="toc-wrapper">
   <h2 class="toc-title">Table of Contents</h2>
   <nav class="toc-nav">
-    
+    <ul class="toc">
+  <li><a href="#서비스-동작-흐름도-기록용">서비스 동작 흐름도 기록용</a></li>
+</ul>
 
   </nav>
 </div>

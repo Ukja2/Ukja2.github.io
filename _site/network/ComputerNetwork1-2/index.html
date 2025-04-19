@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층 | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="컴퓨터 네트워크 개요" />
+<meta property="og:description" content="컴퓨터 네트워크 개요" />
+<link rel="canonical" href="http://localhost:4000/network/ComputerNetwork1-2/" />
+<meta property="og:url" content="http://localhost:4000/network/ComputerNetwork1-2/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-11T01:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-03-11T01:00:00+09:00","datePublished":"2025-03-11T01:00:00+09:00","description":"컴퓨터 네트워크 개요","headline":"「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/network/ComputerNetwork1-2/"},"url":"http://localhost:4000/network/ComputerNetwork1-2/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+<style>
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+      gap: 0.8rem;
+    }
+    .pagination-item {
+      padding: 0.5rem 0.8rem;
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+    .pagination-item:hover {
+      color: var(--gray-900) !important;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층</h1>
+  <div class="post-meta"><time datetime="2025-03-11T01:00:00+09:00" itemprop="datePublished">2025년 3월 11일</time></div>
+
+  <h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
+<!--more-->
+
+<ul>
+  <li>
+    <p>프로토콜이란 무엇인가?</p>
+  </li>
+  <li>
+    <p>네트워크 엣지: 호스트, 액세스 네트워크, 물리적 매체</p>
+  </li>
+  <li>
+    <p>네트워크 코어: 패킷/회선 교환, 인터넷 구조</p>
+  </li>
+  <li>
+    <p>프로토콜 계층, 서비스 모델</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="introduction">Introduction</h2>
+
+<h4 id="1️⃣-billions-of-connected-computing-devices">1️⃣ Billions of connected computing <code class="language-plaintext highlighter-rouge">devices</code></h4>
+<p>수십억 개의 연결된 컴퓨터 장치들</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Hosts</code> = end system<br />
+호스트는 종단 시스템으로 사용자가 직접 사용하는 장치 (스마트폰, pc) 등을 의미한다.</li>
+  <li>running network apps at Internet’s “edge”
+인터넷의 “끝부분(엣지)”에서 네트워크 애플리케이션 실행
+(웹 브라우저, 이메일, 동영상 스트리밍 같은 네트워크 기반 프로그램 실행)</li>
+</ul>
+
+<h4 id="2️⃣-packet-switches">2️⃣ Packet switches</h4>
+<p>데이터를 작은 조각(패킷)으로 나눠서 전달하는 장치</p>
+<ul>
+  <li>인터넷에서 데이터를 한 번에 보내기 힘드니까, 작은 패킷으로 잘라서 보냄.</li>
+  <li>
+    <p>각 패킷은 주소, 순서, 내용을 가지고 있고, 목적지에서 다시 조립됨</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">routers</code>, <code class="language-plaintext highlighter-rouge">switches</code> : 패킷 스위치의 한 종류로 패킷을 목적지로 보내는 역할</li>
+</ul>
+
+<h4 id="3️⃣-communication-links">3️⃣ Communication links</h4>
+<p>통신 링크 (장치 간 데이터 전달 경로)</p>
+
+<ul>
+  <li>fiber, copper, radio, satellite 
+광섬유, 구리선, 무선(라디오), 위성</li>
+  <li>transmission rate: bandwidth
+전송 속도: 대역폭 (일정 시간 동안 전송 가능한 데이터 양)</li>
+</ul>
+
+<h4 id="4️⃣-networks">4️⃣ Networks</h4>
+<p>네트워크 (장치, 라우터, 링크의 집합체)</p>
+
+<ul>
+  <li>장치, 라우터, 링크로 이루어진 집합: ISP(인터넷 서비스 제공자)”나 “네트워크 관리자” 에 의해 관리됨</li>
+</ul>
+
+<h4 id="5️⃣-internet-network-of-networks">5️⃣ Internet: “network of networks”</h4>
+<p>인터넷은 네트워크들의 네트워크</p>
+<ul>
+  <li>인터넷은 전 세계 수많은 작은 네트워크들이 연결된 거대한 네트워크
+(예: 집, 학교, 회사의 네트워크가 인터넷을 통해 서로 연결됨)</li>
+</ul>
+
+<h4 id="6️⃣-protocols-are-everywhere">6️⃣ <code class="language-plaintext highlighter-rouge">Protocols</code> are everywhere</h4>
+<ul>
+  <li>
+    <p><strong>프로토콜은 데이터를 주고받는 규칙</strong>
+네트워크에서 정해진 규칙이 없으면 서로 이해할 수 없으니까 꼭 필요함</p>
+  </li>
+  <li>
+    <p>프로토콜의 역할 : 메시지 전송과 수신을 제어</p>
+  </li>
+</ul>
+
+<p><strong>대표적인 프로토콜 예시</strong></p>
+<ul>
+  <li>HTTP: 웹 페이지를 주고받는 규칙 (인터넷 브라우징)</li>
+  <li>TCP/IP: 데이터가 안전하게 전송되도록 보장</li>
+  <li>Wi-Fi: 무선 네트워크 연결</li>
+  <li>4G: 모바일 데이터 통신</li>
+  <li>Ethernet: 유선 네트워크 통신</li>
+  <li>CAN: 자동차에서 쓰는 통신 규약</li>
+</ul>
+
+<h4 id="7️⃣-internet-standards">7️⃣ Internet standards</h4>
+<p>인터넷 표준 : 인터넷에서 사용하는 공식 규칙</p>
+
+<ul>
+  <li>
+    <p>RFC (Request for Comments)
+인터넷 표준을 정의하는 문서
+새로운 기술이나 프로토콜을 만들 때 RFC 문서로 공개하고 의견을 받음
+(예: HTTP, TCP/IP 같은 중요한 기술도 RFC로 시작)</p>
+  </li>
+  <li>
+    <p>IETF (Internet Engineering Task Force)
+인터넷 표준을 만드는 국제 기구
+새로운 프로토콜이나 보안 규칙을 논의하고 표준으로 정함</p>
+  </li>
+</ul>
+
+<h4 id="8️⃣-infrastructure-that-provides-services-to-applications">8️⃣ Infrastructure that provides services to applications</h4>
+<p>애플리케이션에 서비스를 제공하는 인프라</p>
+
+<p>물리적이고 기술적인 자원들이 모여서 어떤 시스템이나 서비스를 운영할 수 있게 해주는 기반을 말함</p>
+
+<p>즉, 인프라는 <strong>하드웨어(서버, 라우터)</strong> 와 <strong>소프트웨어(프로토콜, 시스템)</strong> 를 모두 포함</p>
+
+<hr />
+
+<h2 id="protocols-프로토콜">Protocols (프로토콜)</h2>
+<ul>
+  <li>
+    <h4 id="human-protocols-사람-간의-프로토콜">Human protocols (사람 간의 프로토콜)</h4>
+    <p>사람들이 서로 소통할 때도 <strong>정해진 규칙(프로토콜)</strong> 이 있음</p>
+  </li>
+</ul>
+
+<p>예를 들어</p>
+<ul>
+  <li>“몇 시야?” (정보 요청)</li>
+  <li>“질문 있어.” (대화 시작)</li>
+  <li>자기소개 (처음 만날 때 인사)</li>
+</ul>
+
+<p>-&gt; 우리가 대화할 때도 말하는 순서와 방식을 지키는 것처럼, 네트워크에서도 이런 규칙이 필요</p>
+
+<ul>
+  <li>
+    <h4 id="network-protocols-네트워크-프로토콜">Network protocols (네트워크 프로토콜)</h4>
+    <p>사람 대신에 <strong>컴퓨터(기기)</strong> 가 서로 소통할 때 사용하는 규칙
+인터넷에서 이루어지는 모든 통신 활동은 이 규칙에 따라 움직임</p>
+  </li>
+</ul>
+
+<p><strong>프로토콜이 정의하는 것</strong></p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">메시지 형식 (format)</code> :
+메시지가 어떤 구조로 이루어져 있는지 (ex. 헤더, 페이로드)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">메시지 순서 (order)</code> :
+어떤 메시지를 먼저 보내고, 다음에 무엇을 보낼지</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">전송 및 수신 시 동작 (actions)</code> :
+메시지를 보낼 때와 받을 때 각각 무슨 행동을 해야 하는지</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>즉 프로토콜은 컴퓨터 간 통신에서 메시지의 형식, 순서, 행동을 정의하는 규칙이다.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="network-edge-네트워크-엣지">Network Edge (네트워크 엣지)</h2>
+<p>네트워크 엣지는 인터넷의 끝부분으로, <code class="language-plaintext highlighter-rouge">사용자가 인터넷에 접속하는 지점(호스트)</code>이다.</p>
+
+<ul>
+  <li>Hosts: Clients and Servers</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">클라이언트</code>: 인터넷을 통해 서비스를 요청하는 장치 (예: 스마트폰, PC)
+<code class="language-plaintext highlighter-rouge">서버</code>: 인터넷에서 서비스를 제공하는 장치 (예: 웹 서버, 데이터베이스 서버)</p>
+
+<p><code class="language-plaintext highlighter-rouge">클라이언트</code>와 <code class="language-plaintext highlighter-rouge">서버</code>는 서로 데이터를 주고받으며 인터넷 상에서 서비스를 주고받는 관계다. 해당 수업에서는 둘의 구별을 두지 않는 걸로 가정</p>
+
+<ul>
+  <li>Servers Often in Data Centers : 서버는 보통 데이터 센터에  존재</li>
+</ul>
+
+<p>즉, 네트워크 엣지는 클라이언트(사용자)와 서버가 서로 소통하는 지점, 그리고 이 지점에서 호스트들이 연결되고 통신한다.</p>
+
+<ul>
+  <li>Access networks, physical media (액세스 네트워크, 매질) : 
+액세스 네트워크는 사용자가 인터넷에 접속하는 부분이고, 유선 또는 무선 링크를 통해 데이터를 주고받음</li>
+</ul>
+
+<hr />
+
+<h2 id="network-core-네트워크-코어">Network core (네트워크 코어)</h2>
+<p>interconnected routers: 서로 연결된 라우터들</p>
+
+<p>→ 네트워크 간에 여러 라우터들이 서로 연결되어 데이터를 목적지까지 전달함</p>
+
+<p>network of networks: 네트워크들의 네트워크</p>
+
+<p>→ 인터넷은 작은 네트워크들이 모여서 이루어진 거대한 네트워크</p>
+
+<p><code class="language-plaintext highlighter-rouge">네트워크 코어</code>: 여러 라우터들이 서로 연결되어 다양한 네트워크를 하나로 묶는 중심 부분</p>
+
+<hr />
+
+<h2 id="transmission-rate전송률--bandwidth대역폭">Transmission rate(전송률) &amp; Bandwidth(대역폭)</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Transmission rate(전송률)</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">bps(단위)</code> : bit / second -&gt; 1/S = ———-
+초당 몇개의 비트를 네트워크를 통해서 보낼 수 있는지
+Ex 강한 압력으로 파이프에 물을 넣으면 1초 동안 물을 더 많이 보낼 수 있게 된다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Bandwidth(대역폭)</code>
+Ex 동일한 압력으로 물을 넣을 때 파이프의 직경이 클수록 더 많은 물을 보낼 수 있게 된다.</li>
+</ul>
+
+<p>즉 개념적인 부분에서 대역폭은 네트워크가 최대로 전송할 수 있는 용량이며, 전송률은 전송되는 데이터의 속도를 의미한다.</p>
+
+<p>이 차이를 알 필요가 있다.</p>
+
+<hr />
+
+<h2 id="fdmfrequency-division-multiplexing">FDM(Frequency Division Multiplexing)</h2>
+<ul>
+  <li>
+    <p>하나의 통신 채널을 여러 개의 주파수 대역으로 나누어 여러 신호를 동시에 전송하는 방식이다.</p>
+  </li>
+  <li>
+    <p>각 신호는 서로 다른 주파수 대역을 사용하므로 <code class="language-plaintext highlighter-rouge">간섭</code> 이 없다.</p>
+  </li>
+  <li>
+    <p>예를 들어 무전기와 라디오 같이 특정 대역을 정하면 그 대역으로 통신할 수 있게 된다.</p>
+  </li>
+  <li>
+    <p>멀티플렉싱을 할 수 있는 방법으로 1. 시간대를 나누거나 2. 주파수 대역을 나눈 방식이 있다.</p>
+  </li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/dbec666c-bb7f-46ef-aa07-7d6c94605d8c/image.png" alt="" /></p>
+
+<h2 id="osi-7-layer">OSI 7 Layer</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/dc03e147-a1f7-4c90-b5a7-ba9c71b74771/image.png" alt="" />
+ISO/OSI reference model 이라고 부른다.</p>
+
+<ul>
+  <li>국제표준기구(ISO)에서 컴퓨너 네트워크를 구성할 때 어떤 것들이 필요한지 모든 기능들을 상세하게 분석한 후, 이 정도의 기능들을 다루는 <code class="language-plaintext highlighter-rouge">Layer</code>가 있어야 완전한 통신이 된다고 정의함</li>
+</ul>
+
+<p>해당 강의 에서는 Top-Down 방식으로 진행 예정이며, 간단한 설명만 아래에서부터 시작</p>
+
+<h4 id="1️⃣-physical">1️⃣ Physical</h4>
+<p>실제 데이터가 전송되는 물리적인 매체(케이블, 전파, 광섬유 등)를 다루는 계층</p>
+
+<h4 id="2️⃣-link">2️⃣ Link</h4>
+<p>물리 계층(1계층)에서 받은 데이터를 신뢰성 있게 전송하도록 관리하는 계층</p>
+
+<p>어딘가에 데이터를 보낼 때 내가 사용할 수 있는 media(데이터가 전송되는 매체)`을 할당해준다.
+= 데이터를 보낼 경로를 MAC 주소를 통해 어떤 장치로 보낼지 결정하고, 그 경로(유선, 무선)에 따라 데이터를 전송하는 걸 의미</p>
+
+<h4 id="3️⃣-network">3️⃣ Network</h4>
+<p>어떠한 목적지까지의 데이터를 전달하는 <code class="language-plaintext highlighter-rouge">라우팅</code>을 담당한다.</p>
+<blockquote>
+  <p><strong>라우팅</strong> : 네트워크 내에서 데이터를 전달할 경로를 설정하고 관리하는 과정</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>즉, 네트워크간의 연결에서 어떤 경로로 데이터를 보낼지 결정하는 것이 3계층의 역할이다.</p>
+  </li>
+  <li>
+    <p>예를 들어 대구에서 서울로 간다고 가정했을 때, 어떤 도시를 거쳐서 갈 것인지 네비게이션이 최적의 경로를 설정하는 경우</p>
+  </li>
+</ul>
+
+<h4 id="4️⃣-transport">4️⃣ Transport</h4>
+<p>Transport Layer는 데이터를 <code class="language-plaintext highlighter-rouge">보낸 사람</code>과 <code class="language-plaintext highlighter-rouge">받은 사람</code> 사이에서 정확하고 신뢰성 있는 통신을 보장하는 역할을 한다.</p>
+
+<ul>
+  <li>주요 기능
+    <ul>
+      <li>큰 데이터를 작은 데이터로 패킷화</li>
+      <li>데이터 손상 유무를 체크하고, 이상이 있을 시 재전송 요청</li>
+      <li>데이터의 양을 조절해서 흐름 제어</li>
+      <li>데이터 전송 시작 전에 연결을 설정하고, 받은 후 연결 종료</li>
+    </ul>
+  </li>
+</ul>
+
+<p>이 모든 특징은 택배 회사를 통해 택배를 보내는 흐름과 유사하다.</p>
+
+<h4 id="5️⃣-session">5️⃣ Session</h4>
+<p>데이터 교환의 흐름을 제어하고, 동기화나 복구를 처리하는 역할</p>
+
+<h4 id="6️⃣-presentation">6️⃣ Presentation</h4>
+<p>데이터를 사람이 이해할 수 있는 형태로 변환 (부호화, 압축, 암호화)</p>
+
+<ul>
+  <li>주요 기능
+    <ul>
+      <li>데이터 변환 (Data Translation) : 서로 다른 시스템 간 데이터 변환</li>
+      <li>암호화/복호화 (Encryption/Decryption) : 보안 강화 (예: SSL/TLS)</li>
+      <li>압축 (Compression) : 전송 속도 향상 (예: ZIP, MP3, JPEG)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="7️⃣-applications">7️⃣ applications</h4>
+<p>사용자가 직접 접하는 소프트웨어나 서비스 제공</p>
+
+<hr />
+
+<h2 id="host--packet-transmission-delay-패킷-전송-지연률">Host : packet transmission delay (패킷 전송 지연률)</h2>
+
+<p>패킷 전송 지연 계산</p>
+
+<p>어떠한 패킷을 전송하는 데 걸리는 시간은 아래와 같이 계산</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/eb6be68d-3384-4293-b232-5c8218a06f58/image.png" alt="" /></p>
+
+<p>L: 패킷의 크기 (비트 단위)</p>
+
+<p>R: 링크의 전송 속도 (비트/초)</p>
+
+<p>l개의 비트로 r이라는 bps를 통해 걸리는 시간을 계산하는 것이 곧 지연률이 된다.</p>
+
+<p>만약 packet transmission delay를 구할 때 단위는 <code class="language-plaintext highlighter-rouge">초</code>가 나와야 된다.</p>
+
+<hr />
+
+<h2 id="link--guided-media-unguided-media">Link : Guided media, Unguided media</h2>
+
+<p>이 둘의 기준을 어떠한 정보를 전송하는데 이 정보를 누구나 받을 수 있냐와 없냐의 차이로 볼 수 있다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Guided media</code> : 어떠한 물리적인 전선, 케이블을 통해 전송되는 매체
+    <ul>
+      <li>전선, 광섬유 케이블(Fiber)</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Unguided media</code> : 물리적인 전선 등 없이 공기나 진공을 통해 자유롭게 전송하는 방식
+    <ul>
+      <li>라디오</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="link--physical-media">Link : Physical media</h3>
+<ul>
+  <li>Coaxial cable</li>
+  <li>Fiber optic cable</li>
+  <li>Wireless radio
+    <ul>
+      <li>물리적인 전선을 쓰지는 않지만 <code class="language-plaintext highlighter-rouge">전파</code> 라는 신호가 실제의 공기를 통해 전달되기 때문에 Physical media의 일종이다.</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">half-duplex</code></strong> : 양방향 통신에서 한 번에 하나의 방향으로만 데이터 전송이 가능한 방식
+예를 들어 무전기가 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+
+  
+    <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <span class="post-tag">network</span></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+<!--댓글 기능-->
+<script src="https://utteranc.es/client.js"
+        repo="Ukja2/Ukja2.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/spring/AIproject/">
+          뽑아주소서 서비스 동작 흐름
+          <small><time datetime="2025-04-13T02:00:00+09:00">13 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/spring/Dependency_Injection/">
+          의존성 주입
+          <small><time datetime="2025-04-10T02:00:00+09:00">10 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/java/JavaMap/">
+          Map 인터페이스
+          <small><time datetime="2025-04-03T03:00:00+09:00">03 Apr 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://ukja2.github.io">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+<div class="toc-wrapper">
+  <h2 class="toc-title">Table of Contents</h2>
+  <nav class="toc-nav">
+    <ul class="toc">
+  <li><a href="#컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</a></li>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#protocols-프로토콜">Protocols (프로토콜)</a></li>
+  <li><a href="#network-edge-네트워크-엣지">Network Edge (네트워크 엣지)</a></li>
+  <li><a href="#network-core-네트워크-코어">Network core (네트워크 코어)</a></li>
+  <li><a href="#transmission-rate전송률--bandwidth대역폭">Transmission rate(전송률) &amp; Bandwidth(대역폭)</a></li>
+  <li><a href="#fdmfrequency-division-multiplexing">FDM(Frequency Division Multiplexing)</a></li>
+  <li><a href="#osi-7-layer">OSI 7 Layer</a></li>
+  <li><a href="#host--packet-transmission-delay-패킷-전송-지연률">Host : packet transmission delay (패킷 전송 지연률)</a></li>
+  <li><a href="#link--guided-media-unguided-media">Link : Guided media, Unguided media</a>
+    <ul>
+      <li><a href="#link--physical-media">Link : Physical media</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </nav>
+</div>
+
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
