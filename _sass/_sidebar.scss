@@ -133,22 +133,19 @@
   margin: 0 auto 0.8rem auto;
 }
 
-.recent-posts-list,
-.tags-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
+.recent-posts-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }
 
-.recent-posts-item,
-.tags-item {
-  margin-bottom: 0.6rem;
-}
-
-.recent-posts-item:last-child,
-.tags-item:last-child {
+.recent-posts-item {
   margin-bottom: 0;
+  min-width: 220px;
+  flex: 0 0 auto;
 }
 
 .recent-post-link,
@@ -157,6 +154,9 @@
   text-decoration: none;
   display: block;
   transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     color: var(--gray-600);

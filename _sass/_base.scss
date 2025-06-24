@@ -68,3 +68,10 @@ mark {
   background-color: var(--yellow-100);
   border-radius: .125rem;
 }
+
+@media (max-width: $md-width) {
+  img, table, pre, code {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

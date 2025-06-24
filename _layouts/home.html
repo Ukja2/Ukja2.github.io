@@ -28,8 +28,8 @@ layout: default
       {% endfor %}
     </ul>
     {% endif %}
-    <div class="post-content post-excerpt-line">
-      {{ post.excerpt | strip_html | truncate: 60 }}
+    <div class="post-content post-excerpt-line excerpt-ellipsis">
+      {{ post.excerpt | strip_html | truncate: 50 }}
     </div>
   </section>
   {% endfor %}
