@@ -12,11 +12,13 @@ Email의 세가지 구성요소
 
 ![](https://velog.velcdn.com/images/ghkdehs/post/6c98f74d-a106-48fd-8afa-b9a7b95eceda/image.png)
 
-
 <!--more-->
+
 1. user agents : 사용자를 대신하여 일을 수행하는 것 (쉽게 서비스에 가입한 유저라고 생각)
 2. mail servers : 메일 서버 
 3. simple mail transfer protocol: SMTP : 이메일 전송을 위한 프로토콜.
+
+
 
 **app 계층에서는 이세가지가 있어야 통신이 가능**
 

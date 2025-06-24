@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-06-25T03:41:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">의존성 주입</title><link href="http://localhost:4000/spring/Dependency_Injection/" rel="alternate" type="text/html" title="의존성 주입" /><published>2025-04-10T02:00:00+09:00</published><updated>2025-04-10T02:00:00+09:00</updated><id>http://localhost:4000/spring/Dependency_Injection</id><content type="html" xml:base="http://localhost:4000/spring/Dependency_Injection/"><![CDATA[<h2 id="의존성-주입dependency-injection-di">의존성 주입(Dependency Injection, DI)?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-06-25T03:53:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">의존성 주입</title><link href="http://localhost:4000/spring/Dependency_Injection/" rel="alternate" type="text/html" title="의존성 주입" /><published>2025-04-10T02:00:00+09:00</published><updated>2025-04-10T02:00:00+09:00</updated><id>http://localhost:4000/spring/Dependency_Injection</id><content type="html" xml:base="http://localhost:4000/spring/Dependency_Injection/"><![CDATA[<h2 id="의존성-주입dependency-injection-di">의존성 주입(Dependency Injection, DI)?</h2>
 
 <p>이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.
 <!--more--></p>
@@ -88,6 +88,7 @@ public class Car {
 <p><img src="https://velog.velcdn.com/images/ghkdehs/post/6c98f74d-a106-48fd-8afa-b9a7b95eceda/image.png" alt="" /></p>
 
 <!--more-->
+
 <ol>
   <li>user agents : 사용자를 대신하여 일을 수행하는 것 (쉽게 서비스에 가입한 유저라고 생각)</li>
   <li>mail servers : 메일 서버</li>
@@ -1654,7 +1655,6 @@ IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소<
 <ul>
   <li><code class="language-plaintext highlighter-rouge">bottleneck link(병목현상)</code>  : 병의 입구처럼 크기가 줄어들면 원래 보낼 속도만큼을 보낼 수 없게 된다.</li>
 </ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Network core ISP 내부에는 Network core와 Network Edge가 있다.]]></summary></entry><entry><title type="html">네트워크 소개 및 OSI 7 Layer</title><link href="http://localhost:4000/network/ComputerNetwork1-2/" rel="alternate" type="text/html" title="네트워크 소개 및 OSI 7 Layer" /><published>2025-03-11T01:00:00+09:00</published><updated>2025-03-11T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork1-2</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork1-2/"><![CDATA[<h2 id="컴퓨터-네트워크-개요">컴퓨터 네트워크 개요</h2>
-<!--more-->
 
 <ul>
   <li>
@@ -1663,6 +1663,11 @@ IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소<
   <li>
     <p>네트워크 엣지: 호스트, 액세스 네트워크, 물리적 매체</p>
   </li>
+</ul>
+
+<!--more-->
+
+<ul>
   <li>
     <p>네트워크 코어: 패킷/회선 교환, 인터넷 구조</p>
   </li>
@@ -2008,4 +2013,4 @@ ISO/OSI reference model 이라고 부른다.</p>
 예를 들어 무전기가 있다.</li>
     </ul>
   </li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[컴퓨터 네트워크 개요]]></summary></entry></feed>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[컴퓨터 네트워크 개요 프로토콜이란 무엇인가? 네트워크 엣지: 호스트, 액세스 네트워크, 물리적 매체]]></summary></entry></feed>

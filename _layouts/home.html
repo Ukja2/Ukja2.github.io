@@ -5,7 +5,7 @@ layout: default
 {% include home-header.html %}
 
 <div class="posts posts-grid">
-  {% for post in paginator.posts limit:5 %}
+  {% for post in paginator.posts limit:4 %}
   <section class="post-entry post-card">
     <h2 class="post-title post-title-line">
       <a href="{{ post.url | relative_url }}">

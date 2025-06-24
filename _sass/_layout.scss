@@ -36,17 +36,18 @@ footer {
 @media (min-width: $md-width) {
   .content {
     padding-top: var(--spacer-3);
-    padding-left: var(--spacer-3);
-    padding-right: var(--spacer-3);
-    margin-left: 21%;
-    width: 58%;
+    padding-left: var(--spacer-2);
+    padding-right: var(--spacer-2);
+    margin-left: 25%;
+    margin-right: 21%;
+    width: 54%;
   }
 
   .sidebar-left {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 21%;
+    width: 25%;
   }
 
   .sidebar-right {
@@ -72,7 +73,7 @@ footer {
   }
   
   .content {
-    width: 58%;
+    width: 54%;
   }
 }
 
@@ -82,7 +83,7 @@ footer {
   }
   
   .content {
-    width: 75%;
+    width: 90%;
   }
 }
 
