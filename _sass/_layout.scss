@@ -112,7 +112,7 @@ footer {
       color: var(--body-color);
       
       &:hover {
-        color: var(--link-hover-color);
+        color: var(--gray-600);
       }
     }
 
@@ -222,7 +222,7 @@ footer {
         text-decoration: none;
         
         &:hover {
-          color: var(--link-hover-color);
+          color: var(--gray-600);
         }
       }
 

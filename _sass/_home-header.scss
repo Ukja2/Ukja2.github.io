@@ -15,17 +15,18 @@
 
 .home-header-menu {
   a {
+    color: var(--link-color);
     border-bottom: 1px solid rgba(0, 0, 0, 0);
 
     &:hover,
     &:focus {
-      color: inherit;
+      color: var(--gray-600);
       background-color: inherit;
-      border-bottom-color: var(--link-color);
+      border-bottom-color: var(--gray-600);
     }
   }
 
   .current-item {
-    border-bottom-color: var(--link-color);
+    border-bottom-color: var(--gray-600);
   }
 }

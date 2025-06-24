@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 Network 」 1주 ~ 2주 1차시, 네트워크 소개 및 OSI 7 계층
+title: 네트워크 소개 및 OSI 7 Layer
 date: 2025-03-11 00:00 +0800
 tags: [Network]
 categories: [Network]

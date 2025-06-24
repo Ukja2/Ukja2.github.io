@@ -4,10 +4,10 @@ layout: default
 
 {% include home-header.html %}
 
-<div class="posts">
+<div class="posts posts-grid">
   {% for post in paginator.posts %}
-  <section class="post-entry">
-    <h2 class="post-title">
+  <section class="post-entry post-card">
+    <h2 class="post-title post-title-line">
       <a href="{{ post.url | relative_url }}">
         {{ post.title }}
       </a>
@@ -21,8 +21,15 @@ layout: default
         </a>
       {%- endif -%}
     </div>
-    <div class="post-content">
-      {{ post.excerpt | strip_html }}
+    {% if post.categories and post.categories.size > 0 %}
+    <ul class="post-tags-min post-categories-min">
+      {% for category in post.categories limit:4 %}
+        <li><span class="post-tag-min">{{ category }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="post-content post-excerpt-line">
+      {{ post.excerpt | strip_html | truncate: 60 }}
     </div>
   </section>
   {% endfor %}

@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
   <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>「 Linux 」 리눅스 명령어 | Ukja2</title>
+<title>리눅스 명령어 | Ukja2</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="「 Linux 」 리눅스 명령어" />
+<meta property="og:title" content="리눅스 명령어" />
 <meta name="author" content="Ukja2" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Linux 기본 명령어" />
@@ -20,9 +20,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-02-20T01:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="「 Linux 」 리눅스 명령어" />
+<meta property="twitter:title" content="리눅스 명령어" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-02-20T01:00:00+09:00","datePublished":"2025-02-20T01:00:00+09:00","description":"Linux 기본 명령어","headline":"「 Linux 」 리눅스 명령어","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/Linux-Command/"},"url":"http://localhost:4000/linux/Linux-Command/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-02-20T01:00:00+09:00","datePublished":"2025-02-20T01:00:00+09:00","description":"Linux 기본 명령어","headline":"리눅스 명령어","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linux/Linux-Command/"},"url":"http://localhost:4000/linux/Linux-Command/"}</script>
 <!-- End Jekyll SEO tag -->
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
 <style>
@@ -85,7 +85,7 @@
 </div>
       <div class="content pure-u-1 pure-u-md-1-2"><main>
   <article class="post">
-  <h1 class="post-title">「 Linux 」 리눅스 명령어</h1>
+  <h1 class="post-title">리눅스 명령어</h1>
   <div class="post-meta"><time datetime="2025-02-20T01:00:00+09:00" itemprop="datePublished">2025년 2월 20일</time></div>
 
   <h2 id="linux-기본-명령어">Linux 기본 명령어</h2>
@@ -341,13 +341,6 @@
   <ul class="related-posts">
     
       <li>
-        <a href="/spring/AIproject/">
-          뽑아주소서 서비스 동작 흐름
-          <small><time datetime="2025-04-13T02:00:00+09:00">13 Apr 2025</time></small>
-        </a>
-      </li>
-    
-      <li>
         <a href="/spring/Dependency_Injection/">
           의존성 주입
           <small><time datetime="2025-04-10T02:00:00+09:00">10 Apr 2025</time></small>
@@ -356,8 +349,15 @@
     
       <li>
         <a href="/java/JavaMap/">
-          Map 인터페이스
+          Map
           <small><time datetime="2025-04-03T03:00:00+09:00">03 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/network/ComputerNetwork-Email/">
+          Application Layer - Email
+          <small><time datetime="2025-04-01T03:00:00+09:00">01 Apr 2025</time></small>
         </a>
       </li>
     
@@ -372,52 +372,83 @@
   </small>
 </footer>
 </div>
-      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
-<div class="toc-wrapper">
-  <h2 class="toc-title">Table of Contents</h2>
-  <nav class="toc-nav">
-    <ul class="toc">
-  <li><a href="#linux-기본-명령어">Linux 기본 명령어</a>
-    <ul>
-      <li><a href="#️-1-파일-및-디렉토리-관리">⚙️ 1. 파일 및 디렉토리 관리</a></li>
-      <li><a href="#ls--디렉토리-내용-목록-보기"><code class="language-plaintext highlighter-rouge">ls</code> : 디렉토리 내용 목록 보기</a></li>
-      <li><a href="#cd--디렉토리-이동"><code class="language-plaintext highlighter-rouge">cd</code> : 디렉토리 이동</a></li>
-      <li><a href="#pwd--현재-작업-중인-디렉토리-경로-출력"><code class="language-plaintext highlighter-rouge">pwd</code> : 현재 작업 중인 디렉토리 경로 출력</a></li>
-      <li><a href="#cp--파일-복사"><code class="language-plaintext highlighter-rouge">cp</code> : 파일 복사</a></li>
-      <li><a href="#mv--파일디렉토리-이동-또는-이름-변경"><code class="language-plaintext highlighter-rouge">mv</code> : 파일/디렉토리 이동 또는 이름 변경</a></li>
-      <li><a href="#rm--파일-삭제"><code class="language-plaintext highlighter-rouge">rm</code> : 파일 삭제</a></li>
-      <li><a href="#mkdir--디렉토리-생성"><code class="language-plaintext highlighter-rouge">mkdir</code> : 디렉토리 생성</a></li>
-      <li><a href="#touch--빈-파일-생성-또는-수정-시간-갱신"><code class="language-plaintext highlighter-rouge">touch</code> : 빈 파일 생성 또는 수정 시간 갱신</a></li>
-      <li><a href="#rmdir--빈-디렉토리-삭제"><code class="language-plaintext highlighter-rouge">rmdir</code> : 빈 디렉토리 삭제</a></li>
-    </ul>
-  </li>
-  <li><a href="#-2파일-내용-조회">🔍 2.파일 내용 조회</a>
-    <ul>
-      <li><a href="#cat--파일-내용-출력"><code class="language-plaintext highlighter-rouge">cat</code> : 파일 내용 출력</a></li>
-      <li><a href="#more--파일-내용-한-페이지씩-출력"><code class="language-plaintext highlighter-rouge">more</code> : 파일 내용 한 페이지씩 출력</a></li>
-      <li><a href="#less--파일-내용-스크롤하며-출력"><code class="language-plaintext highlighter-rouge">less</code> : 파일 내용 스크롤하며 출력</a></li>
-      <li><a href="#head--파일의-처음-10줄-출력"><code class="language-plaintext highlighter-rouge">head</code> : 파일의 처음 10줄 출력</a></li>
-      <li><a href="#tail--파일의-마지막-10줄-출력"><code class="language-plaintext highlighter-rouge">tail</code> : 파일의 마지막 10줄 출력</a></li>
-      <li><a href="#grep--파일에서-특정-문자열-검색"><code class="language-plaintext highlighter-rouge">grep</code> : 파일에서 특정 문자열 검색</a></li>
-    </ul>
-  </li>
-  <li><a href="#-3-파일-및-디렉토리-권한">🔒 3. 파일 및 디렉토리 권한</a>
-    <ul>
-      <li><a href="#chmod--파일-권한-변경"><code class="language-plaintext highlighter-rouge">chmod</code> : 파일 권한 변경</a></li>
-      <li><a href="#chown--파일-소유자와-그룹-변경"><code class="language-plaintext highlighter-rouge">chown</code> : 파일 소유자와 그룹 변경</a></li>
-    </ul>
-  </li>
-  <li><a href="#-이-외의-추가적인-명령어">💻 이 외의 추가적인 명령어</a>
-    <ul>
-      <li><a href="#echo--텍스트나-변수-값을-출력할-때-사용"><code class="language-plaintext highlighter-rouge">echo</code> : 텍스트나 변수 값을 출력할 때 사용</a></li>
-      <li><a href="#sudo--관리자-권한으로-명령어를-실행할-때-사용"><code class="language-plaintext highlighter-rouge">sudo</code> : 관리자 권한으로 명령어를 실행할 때 사용</a></li>
-    </ul>
-  </li>
-</ul>
-
-  </nav>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4"><div class="tags-wrapper">
+  <h2 class="tags-title">Tags</h2>
+  <ul class="tags-list">
+    
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#aws" class="tag-link">
+            AWS
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#network" class="tag-link">
+            Network
+            <span class="tag-count">(7)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#springboot" class="tag-link">
+            SpringBoot
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#spring" class="tag-link">
+            Spring
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#linux" class="tag-link">
+            Linux
+            <span class="tag-count">(3)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#git" class="tag-link">
+            Git
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#java" class="tag-link">
+            Java
+            <span class="tag-count">(2)</span>
+          </a>
+        </li>
+      
+    
+  </ul>
 </div>
-
 </div>
     </div>
 

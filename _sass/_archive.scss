@@ -31,6 +31,21 @@
   time {
     font-family: var(--code-font);
   }
+
+  li {
+    list-style: none;
+    margin: 0.2rem 0;
+  }
+
+  a {
+    color: var(--body-color);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--gray-600);
+    }
+  }
 }
 
 .back-to-top {

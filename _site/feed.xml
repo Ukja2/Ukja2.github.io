@@ -1,56 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-04-19T17:24:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">뽑아주소서 서비스 동작 흐름</title><link href="http://localhost:4000/spring/AIproject/" rel="alternate" type="text/html" title="뽑아주소서 서비스 동작 흐름" /><published>2025-04-13T02:00:00+09:00</published><updated>2025-04-13T02:00:00+09:00</updated><id>http://localhost:4000/spring/AIproject</id><content type="html" xml:base="http://localhost:4000/spring/AIproject/"><![CDATA[<h3 id="서비스-동작-흐름도-기록용">서비스 동작 흐름도 기록용</h3>
-<!--more-->
-<ol>
-  <li>
-    <p>사용자가 질문을 입력
-→ 프론트엔드에서 입력값은 단순한 string 형태로 존재</p>
-  </li>
-  <li>프론트에서 fetch() 함수로 백엔드에 전송
-→ 이때 자바스크립트에서 JSON.stringify()를 사용해
-→ JSON 형태로 포장해서 전송됨
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "message": "자기소개서 도와줘!"
-}
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>백엔드는 이 JSON을 <code class="language-plaintext highlighter-rouge">@RequestBody</code>로 받아 처리
-→ <code class="language-plaintext highlighter-rouge">"message"</code> 값을 매개변수로 꺼냄</p>
-  </li>
-  <li>
-    <p>그 값을 바탕으로 GPT API에 보낼 본문(JSON)을 생성
-→ <code class="language-plaintext highlighter-rouge">"model"</code>, <code class="language-plaintext highlighter-rouge">"messages"</code>, <code class="language-plaintext highlighter-rouge">"max_tokens"</code> 등 GPT가 이해할 수 있는 구조로 만듦
-→ 헤더(Authorization, Content-Type)도 포함해서 GPT에게 POST 요청</p>
-  </li>
-  <li>GPT는 응답(JSON)을 반환함</li>
-</ol>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-06-24T18:21:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ukja2</title><subtitle>Practice &amp; Practice</subtitle><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><entry><title type="html">의존성 주입</title><link href="http://localhost:4000/spring/Dependency_Injection/" rel="alternate" type="text/html" title="의존성 주입" /><published>2025-04-10T02:00:00+09:00</published><updated>2025-04-10T02:00:00+09:00</updated><id>http://localhost:4000/spring/Dependency_Injection</id><content type="html" xml:base="http://localhost:4000/spring/Dependency_Injection/"><![CDATA[<h2 id="의존성-주입dependency-injection-di">의존성 주입(Dependency Injection, DI)?</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "choices": [
-    {
-      "message": {
-        "role": "assistant",
-        "content": "이렇게 작성해보세요!"
-      }
-    }
-  ]
-}
-</code></pre></div></div>
-
-<ol>
-  <li>백엔드는 이 응답을 파싱하여 “content”만 추출
-→ 그 내용을 다시 JSON으로 포장해서 프론트에 반환
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "response": "이렇게 작성해보세요!"
-}
-</code></pre></div>    </div>
-  </li>
-  <li>프론트는 response 값을 받아 사용자에게 보여줌</li>
-</ol>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Spring" /><category term="Spring" /><summary type="html"><![CDATA[서비스 동작 흐름도 기록용]]></summary></entry><entry><title type="html">의존성 주입</title><link href="http://localhost:4000/spring/Dependency_Injection/" rel="alternate" type="text/html" title="의존성 주입" /><published>2025-04-10T02:00:00+09:00</published><updated>2025-04-10T02:00:00+09:00</updated><id>http://localhost:4000/spring/Dependency_Injection</id><content type="html" xml:base="http://localhost:4000/spring/Dependency_Injection/"><![CDATA[<h2 id="의존성-주입dependency-injection-di">의존성 주입(Dependency Injection, DI)?</h2>
-
-<p>이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.</p>
-
-<!--more-->
+<p>이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.
+<!--more--></p>
 
 <p>예를 들어</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Car {
@@ -112,7 +63,7 @@ public class Car {
   <li>가장 보편적으로 사용된다.</li>
 </ul>
 
-<p>### 3. 세터 주입 방식</p>
+<h3 id="3-세터-주입-방식">3. 세터 주입 방식</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
  @Component
@@ -131,8 +82,7 @@ public class Car {
 <p>이렇게 set 메서드에 @Autowired 붙여서 주입하는 방식으로</p>
 <ul>
   <li>필수는 아닌 의존성, 선택적으로 넣고 싶을 때 사용한다.</li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Spring" /><category term="Spring" /><summary type="html"><![CDATA[의존성 주입(Dependency Injection, DI)? 이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.]]></summary></entry><entry><title type="html">Map 인터페이스</title><link href="http://localhost:4000/java/JavaMap/" rel="alternate" type="text/html" title="Map 인터페이스" /><published>2025-04-03T03:00:00+09:00</published><updated>2025-04-03T03:00:00+09:00</updated><id>http://localhost:4000/java/JavaMap</id><content type="html" xml:base="http://localhost:4000/java/JavaMap/"><![CDATA[<h4 id="map이란">Map이란?</h4>
-<p>자바에서 Map은 <strong>Key(키)</strong> 와 <strong>Value(값)</strong> 의 쌍으로 데이터를 저장하는 자료구조</p>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Spring" /><category term="Spring" /><summary type="html"><![CDATA[의존성 주입(Dependency Injection, DI)? 이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.]]></summary></entry><entry><title type="html">Map</title><link href="http://localhost:4000/java/JavaMap/" rel="alternate" type="text/html" title="Map" /><published>2025-04-03T03:00:00+09:00</published><updated>2025-04-03T03:00:00+09:00</updated><id>http://localhost:4000/java/JavaMap</id><content type="html" xml:base="http://localhost:4000/java/JavaMap/"><![CDATA[<p>자바에서 Map은 <strong>Key(키)</strong> 와 <strong>Value(값)</strong> 의 쌍으로 데이터를 저장하는 자료구조</p>
 
 <!--more-->
 
@@ -175,7 +125,7 @@ map.put("isStudent", true);
   <li>Key 값은 중복될 수 없다.</li>
   <li>Value는 중복될 수 있다.</li>
   <li>순서를 보장하지 않는다. (LinkedHashMap 클래스는 보장함)</li>
-</ol>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Java" /><category term="Java" /><summary type="html"><![CDATA[Map이란? 자바에서 Map은 Key(키) 와 Value(값) 의 쌍으로 데이터를 저장하는 자료구조]]></summary></entry><entry><title type="html">「 Network 」 5주 1차시, Application Layer - Email</title><link href="http://localhost:4000/network/ComputerNetwork-Email/" rel="alternate" type="text/html" title="「 Network 」 5주 1차시, Application Layer - Email" /><published>2025-04-01T03:00:00+09:00</published><updated>2025-04-01T03:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork-Email</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork-Email/"><![CDATA[<h3 id="email">Email</h3>
+</ol>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Java" /><category term="Java" /><summary type="html"><![CDATA[자바에서 Map은 Key(키) 와 Value(값) 의 쌍으로 데이터를 저장하는 자료구조]]></summary></entry><entry><title type="html">Application Layer - Email</title><link href="http://localhost:4000/network/ComputerNetwork-Email/" rel="alternate" type="text/html" title="Application Layer - Email" /><published>2025-04-01T03:00:00+09:00</published><updated>2025-04-01T03:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork-Email</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork-Email/"><![CDATA[<h3 id="email">Email</h3>
 <p>Email의 세가지 구성요소</p>
 
 <p><img src="https://velog.velcdn.com/images/ghkdehs/post/6c98f74d-a106-48fd-8afa-b9a7b95eceda/image.png" alt="" /></p>
@@ -586,7 +536,7 @@ map.put("isStudent", true);
 
 <p>유토피아 회사는 등록기관을 통해 사용 가능한 도메인 이름을 찾아서 이를 등록하면, 등록기관에서  그 도메인에 대한 authoritative DNS 서버 정보(dns1.networkuptopia.com , 212.212.212.1)를 TLD 서버에 등록해준다. 이때 A 레코드, NS 레코드를 등록하면 TLD 서버에 추가되고, 해당 도메인(networkutopia.com)에 대한 요청은 authoritative DNS 서버 주소(dns1.networkuptopia.com)로 향하게 된다. 그러고나서 회사는 authoritative DNS 서버에서 A레코드 및 MX 레코드를 설정하여 최종적으로 본인 자사 홈페이지와 연결할 수 있게 설정한다.</p>
 
-<p>클라이언트 입장에서 networkutopia.com 주소를 입력하면 <code class="language-plaintext highlighter-rouge">.com</code> TLD 서버에서 이에 해당하는 도메인을 찾고, 그 도메인의 실제 authoritative DNS 서버 주소로 연결해준다. 이후 authoritative DNS 서버에 설정된 실제 주소를 통해 홈페이지에 접속할 수 있게 된다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Email Email의 세가지 구성요소]]></summary></entry><entry><title type="html">「 Network 」 4주 2차시, Application Layer - HTTP (1)</title><link href="http://localhost:4000/network/ComputerNetwork/" rel="alternate" type="text/html" title="「 Network 」 4주 2차시, Application Layer - HTTP (1)" /><published>2025-03-31T03:00:00+09:00</published><updated>2025-03-31T03:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork/"><![CDATA[<h3 id="web--http">WEB &amp; HTTP</h3>
+<p>클라이언트 입장에서 networkutopia.com 주소를 입력하면 <code class="language-plaintext highlighter-rouge">.com</code> TLD 서버에서 이에 해당하는 도메인을 찾고, 그 도메인의 실제 authoritative DNS 서버 주소로 연결해준다. 이후 authoritative DNS 서버에 설정된 실제 주소를 통해 홈페이지에 접속할 수 있게 된다.</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Email Email의 세가지 구성요소]]></summary></entry><entry><title type="html">Application Layer - HTTP</title><link href="http://localhost:4000/network/ComputerNetwork/" rel="alternate" type="text/html" title="Application Layer - HTTP" /><published>2025-03-31T03:00:00+09:00</published><updated>2025-03-31T03:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork/"><![CDATA[<h3 id="web--http">WEB &amp; HTTP</h3>
 <ul>
   <li>웹 페이지는 객체(objects)로 구성되어 있다.
 <!--more-->
@@ -903,49 +853,10 @@ User enters URL: www.someSchool.edu/someDepartment/home.index</p>
 
 <p>이런 작업들은 단순한 데이터 저장이 아니라, <strong>“회원가입이라는 비즈니스 규칙”</strong>을 따르는 것</p>
 
-<p>-&gt; 이러한 모든 작업이 “비즈니스 로직”에 해당됨</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Backend" /><category term="Backend" /><summary type="html"><![CDATA[3계층 구조 (Three-Tier Architecture) 백엔드의 내부 로직을 3계층으로 분리하여 각각의 역할을 담당하는 아키텍처로 유지보수가 쉽고, 확장성이 좋다는 장점이 있다.]]></summary></entry><entry><title type="html">Getter &amp;amp; Setter</title><link href="http://localhost:4000/java/Java-getter-setter/" rel="alternate" type="text/html" title="Getter &amp;amp; Setter" /><published>2025-03-29T02:00:00+09:00</published><updated>2025-03-29T02:00:00+09:00</updated><id>http://localhost:4000/java/Java-getter-setter</id><content type="html" xml:base="http://localhost:4000/java/Java-getter-setter/"><![CDATA[<h4 id="getter--setter">Getter &amp; Setter?</h4>
+<p>-&gt; 이러한 모든 작업이 “비즈니스 로직”에 해당됨</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Backend" /><category term="Backend" /><summary type="html"><![CDATA[3계층 구조 (Three-Tier Architecture) 백엔드의 내부 로직을 3계층으로 분리하여 각각의 역할을 담당하는 아키텍처로 유지보수가 쉽고, 확장성이 좋다는 장점이 있다.]]></summary></entry><entry><title type="html">Application Layer (2)</title><link href="http://localhost:4000/network/Network-05/" rel="alternate" type="text/html" title="Application Layer (2)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/Network-05</id><content type="html" xml:base="http://localhost:4000/network/Network-05/"><![CDATA[<h2 id="an-application-layer-protocol-defines">An application-layer protocol defines</h2>
 
-<p>클래스 내부의 private 필드에 접근하거나 값을 설정하는 방법을 제공하는 메서드들이다.</p>
-
-<!--more-->
-<p>Getter: 필드의 값을 반환하는 메서드</p>
-
-<p>Setter: 필드의 값을 설정하는 메서드</p>
-
-<h4 id="왜-필요한가">왜 필요한가?</h4>
-<p>자바에서는 private 접근 제어자를 사용해서 클래스의 필드를 외부에서 직접 접근하지 못하도록 막을 수 있는데, Getter와 Setter는 이런 제한을 우회해서 필드에 접근하거나 값을 변경할 수 있게 해주는 역할을 한다.</p>
-
-<h4 id="예시">예시</h4>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Person {
-
-    // 필드는 private으로 설정 (외부에서 직접 접근 불가)
-    private String name;
-    private int age;
-
-    // Getter: name 필드의 값을 반환
-    public String getName() {
-        return name;
-    }
-
-    // Setter: name 필드에 값을 설정
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Getter: age 필드의 값을 반환
-    public int getAge() {
-        return age;
-    }
-
-    // Setter: age 필드에 값을 설정
-    public void setAge(int age) {
-        this.age = age;
-    }
-}
-</code></pre></div></div>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Java" /><category term="Java" /><summary type="html"><![CDATA[Getter &amp; Setter? 클래스 내부의 private 필드에 접근하거나 값을 설정하는 방법을 제공하는 메서드들이다.]]></summary></entry><entry><title type="html">「 Network 」 4주 1차시, Application Layer (2)</title><link href="http://localhost:4000/network/Network-05/" rel="alternate" type="text/html" title="「 Network 」 4주 1차시, Application Layer (2)" /><published>2025-03-25T01:00:00+09:00</published><updated>2025-03-25T01:00:00+09:00</updated><id>http://localhost:4000/network/Network-05</id><content type="html" xml:base="http://localhost:4000/network/Network-05/"><![CDATA[<h2 id="an-application-layer-protocol-defines">An application-layer protocol defines</h2>
-<p>애플리케이션 계층 프로토콜은 네트워크를 통해 <code class="language-plaintext highlighter-rouge">프로세스 간의 통신 방식</code>을 규정하는 규칙들을 말한다.</p>
-
-<!--more-->
+<p>애플리케이션 계층 프로토콜은 네트워크를 통해 <code class="language-plaintext highlighter-rouge">프로세스 간의 통신 방식</code>을 규정하는 규칙들을 말한다.
+<!--more--></p>
 
 <p>애플리케이션 계층 프로토콜이 정의하는 주요 요소들은 아래와 같다.</p>
 
@@ -1076,7 +987,7 @@ UDP 서비스는 기본적으로 시간이 오래 걸리지 않으며, 정확성
       <li>TLS는 어플리케이션 계층에서 구현된다</li>
     </ul>
   </li>
-</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[An application-layer protocol defines 애플리케이션 계층 프로토콜은 네트워크를 통해 프로세스 간의 통신 방식을 규정하는 규칙들을 말한다.]]></summary></entry><entry><title type="html">「 Network 」 3주 2차시, Application Layer (1)</title><link href="http://localhost:4000/network/ComputerNetwork_04/" rel="alternate" type="text/html" title="「 Network 」 3주 2차시, Application Layer (1)" /><published>2025-03-24T01:00:00+09:00</published><updated>2025-03-24T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_04</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_04/"><![CDATA[<p>Application Layer 에는 다음과 같은 예시가 있다.
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[An application-layer protocol defines 애플리케이션 계층 프로토콜은 네트워크를 통해 프로세스 간의 통신 방식을 규정하는 규칙들을 말한다.]]></summary></entry><entry><title type="html">「 Network 」 Application Layer(1)</title><link href="http://localhost:4000/network/ComputerNetwork_04/" rel="alternate" type="text/html" title="「 Network 」 Application Layer(1)" /><published>2025-03-24T01:00:00+09:00</published><updated>2025-03-24T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_04</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_04/"><![CDATA[<p>Application Layer 에는 다음과 같은 예시가 있다.
 <!--more--></p>
 
 <ul>
@@ -1385,4 +1296,404 @@ sudo chown www-data:www-data /var/www/html/style.css
 
 <p><strong>current ip</strong> 탭에 EC2 IP를 적어주면 끝!</p>
 
-<p><strong><code class="language-plaintext highlighter-rouge">내가 설정한 주소 이름.duckdns.org</code></strong> 을 주소창에 입력하면 잘 접속이 될 것이다!</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWS" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry></feed>
+<p><strong><code class="language-plaintext highlighter-rouge">내가 설정한 주소 이름.duckdns.org</code></strong> 을 주소창에 입력하면 잘 접속이 될 것이다!</p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Infra" /><category term="AWS" /><category term="AWS" /><summary type="html"><![CDATA[Apache로 웹서버를 구축하고, 배포까지 해보려 했으나 공유기 Admin 설정 문제로 지금까지 미뤄왔던 AWS를 활용한 배포를 해보려한다.]]></summary></entry><entry><title type="html">네트워크 보안 및 계층화</title><link href="http://localhost:4000/network/ComputerNetwork_03-copy-2/" rel="alternate" type="text/html" title="네트워크 보안 및 계층화" /><published>2025-03-18T01:00:00+09:00</published><updated>2025-03-18T01:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork_03%20copy%202</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork_03-copy-2/"><![CDATA[<h2 id="network-security">Network Security</h2>
+
+<p>현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.
+<!--more--></p>
+
+<p>고 단계의 계층으로 갈 수록 암호화의 기술도 고도화할 수 있게 됐다.
+예를 들어, 파일의 암호화 등</p>
+
+<h2 id="malware">Malware</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Mal</code>: 그리스어로 나쁜 ,<code class="language-plaintext highlighter-rouge">ware</code>: software = 나쁜 소프트웨어</li>
+</ul>
+
+<p>Virus : 사용가자 특정 개체를 실행시 감염
+Worm : 사용자의 행동과 무관하게, 직접 수신하면 감염됨</p>
+
+<p>Spyware : 사용자의 컴퓨터에 몰래 접근하여 권한을 얻어내는 멀웨어</p>
+
+<p>DDos : DDOS는? <code class="language-plaintext highlighter-rouge">좀비 컴퓨터(botnet)</code>를 넓은 영역에 펼쳐서  연결된 네트워크들에게 특정 시간에 불필요한 패킷을 마구잡이로 보내는 것</p>
+
+<h3 id="denial-of-service">Denial of service</h3>
+
+<ul>
+  <li>Dos: <code class="language-plaintext highlighter-rouge">Denial of Service(서비스를 거절한다.)</code>라는 뜻의 약자</li>
+</ul>
+
+<p>공격자가 <strong>가짜 트래픽(bogus traffic)</strong> 으로 리소스(서버, 대역폭)를 과부하(overwhelming) 시켜, 정상적인 사용자(legitimate traffic)가 이를 사용할 수 없도록 만드는 공격</p>
+
+<h3 id="packet-interception">Packet interception</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Packet interception</code> :  네트워크에서 전송 중인 패킷을 가로채는 행위</p>
+
+<p><code class="language-plaintext highlighter-rouge">Packet Sniffing</code> : Interception의 한 방식으로 네트워크에서 전송되는 패킷을 <code class="language-plaintext highlighter-rouge">엿보고(Sniffing)</code> 분석하는 행위</p>
+
+<ul>
+  <li>좀더 발전된 사이버 공격으로 <code class="language-plaintext highlighter-rouge">일반 도스 공격</code>은 예를 들어 은행 업무를 아예 사용하지 못하도록 마비시키고, <code class="language-plaintext highlighter-rouge">스니핑</code>은 특정 정보를 빼내오는 기술임</li>
+</ul>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/28fbfe3b-8733-48eb-b9df-52dc88987fa8/image.png" alt="" /></p>
+
+<p>로그인 정보가 a로만 가야되는데 중간의 c가 정보를 탈취하는(interception) 것을 보여준다.</p>
+
+<h3 id="fake-identity">fake identity</h3>
+
+<p>IP spoofing: 공격자가 가짜 IP주소를 사용하여 자신을 다른 시스템처럼 보이게하는 기술이다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/296de5ec-710e-4fb6-bea7-211d3c86dba2/image.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>공격자가 적극적으로 악의적인 행동을 한다.</p>
+  </li>
+  <li>
+    <p>A가 은행서버, B는 피해자</p>
+  </li>
+  <li>
+    <p>c가 스니핑을 통해서 정보를 획득 후,  c가 a인 것처럼 행동, 원래는 c가 a를 공격해야 하는데 그 반대가 되는 경우임</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="네트워크의-계층화">네트워크의 계층화</h2>
+
+<ol>
+  <li><strong>복잡한 시스템의 조직화</strong></li>
+</ol>
+
+<ul>
+  <li>
+    <p>네트워크와 같은 복잡한 시스템은 여러 구성 요소(호스트, 라우터, 링크, 애플리케이션, 프로토콜 등)로 이루어져 있음.</p>
+  </li>
+  <li>
+    <p>이러한 시스템은 <strong><code class="language-plaintext highlighter-rouge">계층화</code></strong> 를 통해 관리하고 이해하기 쉽게 조직할 수 있음.</p>
+  </li>
+</ul>
+
+<ol>
+  <li><strong>항공 여행 과정의 예시</strong></li>
+</ol>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/fa93a7c7-21d3-4d2b-abdf-d9c327b40725/image.png" alt="" /></p>
+
+<p>항공 여행 과정에서 각 단계(티켓 구매, 수하물 체크, 비행기 이륙 등)를 네트워크 계층화에 빗대어 설명할 수 있다.</p>
+
+<ol>
+  <li><strong>왜 계층화가 필요하며, 수 많은 계층을 만들까?</strong></li>
+</ol>
+
+<ul>
+  <li>
+    <p>계층화는 복잡한 시스템을 더 쉽게 관리하고 단순화하기 위해 사용된다.</p>
+  </li>
+  <li>
+    <p>시스템을 여러 개의 잘 정의된 계층으로 나누어 각 계층이 구조적으로 상호작용하도록 만든다.</p>
+  </li>
+  <li>
+    <p>여러 가지 계층화 모델이나 구성 방법을 많이 시도한 후, 표준화된 규격을 만들어서 네트워크를 구성하는 것이 그 이유</p>
+  </li>
+</ul>
+
+<h2 id="internet-protocol-stack">Internet protocol stack</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/5fcb4cc4-e99d-4400-b160-8e9ac4dff249/image.png" alt="" /></p>
+
+<ul>
+  <li>internet protocol stack에서는 Application 계층이 presentation과 session 계층을 모두 포함한다.</li>
+</ul>
+
+<p><strong>OSI 7layer와 차이점?</strong></p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">OSI 7계층</code>은 네트워크 통신의 각 단계를 매우 세분화하여 정의한 이론적인 모델이며, <code class="language-plaintext highlighter-rouge">인터넷 프로토콜 스택</code>은 실제로 인터넷에서 데이터를 전송하는 데 사용되는 프로토콜을 기반으로 한 실용적 모델이다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">인터넷 프로토콜 스택</code>은 OSI 모델을 참고하여 설계되었지만, OSI 모델처럼 복잡하게 구분된 계층을 사용하지 않고, 계층을 통합하여 효율성을 추구한다.</p>
+  </li>
+</ul>
+
+<h2 id="encapsulation">Encapsulation</h2>
+
+<p>Encapsulation : 캡슐화</p>
+
+<p>데이터를 네트워크를 통해 전송할 때, 각 계층은 자신만의 정보를 담은 <strong>헤더(header)</strong> 를 추가하며, 계층이 내려갈 때마다 헤더가 붙는다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/c2f95679-d149-4a6f-993d-d550485d93e7/image.png" alt="" /></p>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Network Security 현재의 세대는 인터넷 보안이 매우 중요한데, OSI 7 layer의 모든 부분에서 보안을 신경쓰도록 바뀌었다.]]></summary></entry><entry><title type="html">인터넷 구조, 패킷 딜레이</title><link href="http://localhost:4000/network/ComputerNetwork01/" rel="alternate" type="text/html" title="인터넷 구조, 패킷 딜레이" /><published>2025-03-16T01:00:00+09:00</published><updated>2025-03-25T14:00:00+09:00</updated><id>http://localhost:4000/network/ComputerNetwork01</id><content type="html" xml:base="http://localhost:4000/network/ComputerNetwork01/"><![CDATA[<h2 id="network-core">Network core</h2>
+
+<p>ISP 내부에는 <code class="language-plaintext highlighter-rouge">Network core</code>와 <code class="language-plaintext highlighter-rouge">Network Edge</code>가 있다.
+<!--more--></p>
+
+<p>어떠한 정보를 보낼 때 네트워크 코어에서 데이터를 처리하는 두 가지 전송 방식이 존재한다.</p>
+
+<ol>
+  <li>Circuit Switching - 고정된 경로(회선) 를 설정하고, 데이터가 이 경로를 따라 전송되는 방식</li>
+  <li>Packet Switching - 박스에 정보를 담아 전송하는 방식</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">스위치</code>나 <code class="language-plaintext highlighter-rouge">라우터</code>가 있어야 현재의 네트워크에서 다른 네트워크로 전송이 가능함</p>
+
+<ul>
+  <li>Forwarding (전달하다) - 패킷을 라우터에서 라우터, 다른 호스트로 전달하는 과정을 의미
+    <ul>
+      <li>즉 데이터를 생성한 사람은 내가 아니며, 누군가로 부터 받은 데이터를 다른 쪽으로 전송하는 것이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="packet-switching-store-and-forward">Packet-switching: store-and-forward</h3>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/cc6eab54-5b9f-47be-8497-b0c548c6829a/image.png" alt="" /></p>
+
+<p>Packet Swtiching 방식은 store and forward 방식으로 작동한다.</p>
+
+<p>source에서 L개의 비트로 이루어진 패킷을 보내려고 하면, 라우터 내부의 <code class="language-plaintext highlighter-rouge">buffer</code>에 해당 패킷을 저장 후 라우터는 버퍼에 들어온 순서대로 패킷을 정해진 destination으로 <code class="language-plaintext highlighter-rouge">전달한다</code> .</p>
+
+<p>패킷전송지연률 = L / R</p>
+
+<p><code class="language-plaintext highlighter-rouge">End to End Delay</code> : 데이터가 출발지에서 목적지까지 전달되는 데 걸리는 전체 시간 = 2L/R</p>
+
+<p>라우터 하나를 거칠 때 2L 이며 이후 N개 만큼 곱한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">hop</code> : 패킷의 이동 단위</p>
+
+<p>위 그림에서 source에서 라우터까지의 한 번의 이동이 1hop이 된다.</p>
+
+<h3 id="packet-switching-queueing-delay-loss">Packet-switching: queueing delay, loss</h3>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/af6425b3-da50-4655-9e53-62ff0cbf3140/image.png" alt="" /></p>
+
+<p>원래 Packet switching은 여러 개의 컴퓨터가 하나의 스위치나 라우터에 연결되어서 네트워크를 좀 더 효율적으로 쓰기 위함으로 위 그림이 좀 더 현실적이라 할 수 있다.</p>
+
+<p>위의 그림예시로 A컴퓨터에서 패킷을 보내는 속도가 100Mb/s고 라우터가 처리하는 속도가 1.5Mb/s 일 때 라우터의 buffer가 전부 차면 아직 처리되지 못한 패킷을 삭제하고 새로운 패킷이 들어오게 되는데 이를 <code class="language-plaintext highlighter-rouge">loss</code> 라고 칭한다.</p>
+
+<h3 id="two-key-network-core-functions">Two key network-core functions</h3>
+
+<p>네트워크 코어의 두 가지 주요 기능</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b30c9a89-7e2b-4f76-9f56-ce03b5f9ce9e/image.png" alt="" /></p>
+
+<p>위 이미지는 여러 라우터 간 연결을 보여주며, 라우팅 알고리즘이 패킷의 최적 경로를 선택하는 과정을 나타낸다</p>
+
+<ul>
+  <li>Forwarding (포워딩)
+로컬 작업 - 라우터 하나의 관점에서 보는 것
+    <ul>
+      <li>패킷의 헤더 값에 따라 <strong>local forwarding table(로컬 포워딩 테이블)</strong> 을 참조하여 출력 링크를 결정한다</li>
+      <li>예를 들어, 패킷의 헤더 값이 “0111”이라면, 테이블에 따라 출력 링크 “2”로 이동한다.</li>
+    </ul>
+  </li>
+  <li>Routing (라우팅)
+글로벌 작업: 라우터들 끼리 이어져있는 전체적인 구성에서의 관점으로 보는 것
+    <ul>
+      <li>이는 네트워크 전체에서 경로를 설정하며, 라우팅 알고리즘을 통해 진행된다</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="circuit-switching-fdm-and-tdm">Circuit switching: FDM and TDM</h3>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/577d8c93-c27d-484a-84fa-f235da93f9e4/image.png" alt="" /></p>
+
+<p>하나의 네트워크를 다수의 유저가  통신 자원인 <code class="language-plaintext highlighter-rouge">주파수</code> 와 <code class="language-plaintext highlighter-rouge">시간</code> 을  활용해서 효율적으로 나눠 쓰도록 하기 위한 기술</p>
+
+<ul>
+  <li>Frequency Division Multiplexing (FDM)
+    <ul>
+      <li>주파수를 여러 개의 작은 대역으로 나눠서 각각 할당하는 방식</li>
+      <li>각 사용자는 특정 주파수 대역을 계속 사용 가능</li>
+    </ul>
+  </li>
+  <li>Time Division Multiplexing (TDM)
+    <ul>
+      <li>시간을 여러 개의 슬롯으로 나누고, 각 사용자에게 특정 시간 동안만 전송 기회를 주는 방식</li>
+      <li>모든 사용자가 넓은 주파수 대역을 사용할 수 있지만, 특정 시간 슬롯에서만 전송 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<p>fdm을 쓰든 tdm을 쓰든 데이터의 총량(엔트로피)는 정해져있음 가로로 쓰냐 세로로 쓰냐의 차이일 뿐이다</p>
+
+<h3 id="packet-switching-vs-circuit-switching">Packet switching VS circuit switching</h3>
+
+<p>결론적으로 패킷스위칭이 좋다</p>
+
+<p>대부분의 부분에서 패킷 스위칭으로 전환이 되어가는 중임 (전화까지도)</p>
+
+<hr />
+
+<h2 id="internet-structure">Internet structure</h2>
+
+<p>과거의 인터넷 구조에서는 네트워크 간의 연결을 하나씩 설정하고 직접 연결하는 방식이었음</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/9cba6c73-ff5d-4673-b40b-7b0ffa4bc99a/image.png" alt="" /></p>
+
+<p>허나 이러한 방식은 원래는 각각의 액세스를 직접 연결해서 사용했기 때문에 그 개수의 제곱만큼의 연결선이 발생해서 비용적인 측면에서 매우 비효율적이었음</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/8a003087-b36c-4d6e-bf74-879d0ad0eadd/image.png" alt="" /></p>
+
+<p>이후 중앙 ISP가 생기고, 트래픅 흐름을 효율적으로 관리할 수 있게 되었다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/1b865831-b8b0-463a-942d-85ba7303e440/image.png" alt="" /></p>
+
+<p>하지만 글로벌 ISP는 다양하게 존재하고, 글로벌 ISP간의 데이터 교환을 위해 <code class="language-plaintext highlighter-rouge">IXP(Internet Exchange Point)</code>를 두어 다른 지역은 ISP여도 서로간의 데이터를 공유할 수 있게 됐다.</p>
+
+<h3 id="인터넷-계층-구조">인터넷 계층 구조</h3>
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/7f25a009-2e8b-4435-8220-e533e5517ef3/image.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Tier 1 ISP</code>
+Tier 1 ISP는 국제적 및 국가적 단위에서 인터넷 제공하는 상위 ISP</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Content Provider Networks (CPN)</code>
+    <ul>
+      <li>인터넷 콘텐츠를 제공하는 서비스나 플랫폼이 운영하는 네트워크</li>
+      <li>CPN 또한 사용자가 접속하려고 할떄 중개자인 ISP를 거쳐서 데이터를 받을 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">IXP</code>
+IXP는 여러 네트워크가 서로 데이터를 교환하는 물리적 장소</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Reginal ISP</code>
+    <ul>
+      <li>지역적으로 인터넷 서비스를 제공하는 ISP 예로 한국의 kt, lg, u+ 등이 있다.</li>
+      <li>Tier 1 ISP나 IXP와 연결되어 있으며, Access ISP를 통해 최종 사용자에게 서비스를 제공</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Access ISP</code>
+가장 하위 계층의 ISP로 지역 ISP를 통해 인터넷에 연결됩니다.</li>
+</ul>
+
+<hr />
+
+<h2 id="packet-delay">Packet Delay</h2>
+
+<p>Packet delay는 패킷이 출발지에서 목적지까지 전송되는 동안 발생하는 총 지연 시간을 의미하며, 크게 4가지 주요 원인으로 나눌 수 있다.</p>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/a443faa8-2a3e-4dbd-bc8b-9e22dd1f4ff1/image.png" alt="" /></p>
+
+<p>1.Processing delay
+연산이 복잡한 알고리즘을 돌리거나 창을 여러개 켜놓을 때에 발생하는 지연, 즉 연산을 처리할 때 걸리는 지연시간</p>
+
+<p>2.queueing delay
+라우터 버퍼에서 패킷이 출력되는 동안 지연되는 시간</p>
+
+<p>3.Transmission delay
+패킷이 전송될 때 걸리는 시간</p>
+
+<p>4.propagation
+거리 / 전파 속도</p>
+
+<p>즉 <code class="language-plaintext highlighter-rouge">패킷의 전체 지연 시간</code>은 네 가지 지연 요소의 합으로 구할 수 있다.</p>
+
+<ul>
+  <li>
+    <p>이 네 가지 지연요소 외에 남은 요소가 있다면?
+-&gt; 목적지 라우터로부터 확답을 받을 때 까지 걸리는 딜레이가 있다.</p>
+  </li>
+  <li>
+    <p>반대로 확답을 받지못해 재전송한다면? 
+-&gt; trans , porp 그리고 Echo Request를 받는 시간까지 추가 지연 발생</p>
+  </li>
+</ul>
+
+<h2 id="caravan-analogy">Caravan analogy</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/014cf9a8-1ca3-43cb-8470-a83b0728d552/image.png" alt="" /></p>
+
+<p>여기 자동차 한 대는 네트워크에서의 <code class="language-plaintext highlighter-rouge">비트</code>를, 10대의 자동차로 이루어진 카라반은 <code class="language-plaintext highlighter-rouge">패킷</code>을 의미한다</p>
+
+<p>속도와 처리 시간:</p>
+
+<ul>
+  <li>
+    <p>자동차는 시속 100km로 이동한다 (전송 속도)</p>
+  </li>
+  <li>
+    <p>톨게이트(라우터)는 한 대의 자동차를 처리하는 데 12초가 걸린다. (비트 전송 시간).</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>첫 번째 톨게이트를 통과한 카라반이 두 번째 톨게이트에 도착하여 정렬되기까지 걸리는 시간은?</p>
+</blockquote>
+
+<ul>
+  <li>첫 번째 톨게이트에서 카라반 처리 시간:</li>
+</ul>
+
+<p>각 자동차를 처리하는 데 12초가 걸리므로, 전체 카라반(10대)을 처리하는 데 
+<code class="language-plaintext highlighter-rouge">12 × 10 = 120</code> -&gt; 120초</p>
+
+<ul>
+  <li>두 번째 톨게이트까지 이동 시간:</li>
+</ul>
+
+<p>마지막 자동차가 첫 번째 톨게이트를 떠난 후 두 번째 톨게이트까지 이동하는 데 걸리는 시간은</p>
+
+<p><code class="language-plaintext highlighter-rouge">100km/(100km/hr)</code> -&gt; 1시간</p>
+
+<ul>
+  <li>총 소요 시간:</li>
+</ul>
+
+<p>첫 번째 톨게이트에서 카라반을 모두 처리하는 데 걸린 시간(120초 = 2분)과 마지막 자동차가 두 번째 톨게이트까지 도달하는 데 걸린 시간(1시간)을 합산하면 총  62분이 소요된다.</p>
+
+<h2 id="packet-queueing-delay">Packet queueing delay</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/600abe2e-7fff-488e-8812-f7b9927aba78/image.png" alt="" /></p>
+
+<p>R: 링크 대역폭 (bps, 초당 비트 전송 속도)</p>
+
+<p>L: 패킷 길이 (bits, 패킷의 크기)</p>
+
+<p>a: 평균 패킷 도착률 (초당 도착하는 패킷 수)</p>
+
+<p>La/R≈0: 트래픽 강도가 낮아 평균 큐잉 지연이 작음.</p>
+
+<p>La/R→1: 트래픽 강도가 높아져 평균 큐잉 지연이 커짐.</p>
+
+<p>La/R&gt;1: 도착하는 작업량이 서비스 가능한 양을 초과하여 지연 시간이 무한대가 됨.</p>
+
+<h2 id="packet-loss">Packet loss</h2>
+
+<ul>
+  <li>
+    <p>버퍼 내부의 원래 전송되어야 하는 패킷이 네트워크에서 사라지는 것을 의미</p>
+  </li>
+  <li>
+    <p>패킷이 도착하는 속도가 보내는 속도보다 빠를때 발생</p>
+  </li>
+  <li>
+    <p>일정 버퍼 메모리가 초과되면 <code class="language-plaintext highlighter-rouge">패킷이 삭제되는데 (buffer overwrite)</code>이를 <code class="language-plaintext highlighter-rouge">packet loss</code> 라고함</p>
+  </li>
+</ul>
+
+<h2 id="throughput">Throughput</h2>
+
+<p><img src="https://velog.velcdn.com/images/ghkdehs/post/b164bb99-2fd8-4adf-90b6-237fe4607b86/image.png" alt="" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Througput(처리랑)</code>? : 단위 시간당 전송된 데이터의 양을 의미한다. 쉽게 말해서, 네트워크가 실제로 전달할 수 있는 속도를 나타냄</p>
+
+<p>위 그림은 각각 two hop network에서 파이프라인의 크기에 따른 처리량을 나타낸다.</p>
+
+<ul>
+  <li>
+    <p>1번은 서버 -&gt; 라우터의 파이프라인이 좁고, 라우터 -&gt; 컴퓨터의 파이프라인의 크기가 넓다.</p>
+  </li>
+  <li>
+    <p>2번은 그 반대의 경우이다.</p>
+  </li>
+</ul>
+
+<p>하지만 throughput의 크기는 작은 throughput이 결정한다 큰 게 결정하는게 아님</p>
+
+<p>예를 들어 2번 그림을 보면 Rs속도 만큼 라우터에게 보내는데, 컴퓨로 보낼때는 파이프라인이 좁기 때문에 받은 만큼 전부 보내줄 수가 없게된다. 즉 보낼 수 있는건 Rc만큼이 된다</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bottleneck link(병목현상)</code>  : 병의 입구처럼 크기가 줄어들면 원래 보낼 속도만큼을 보낼 수 없게 된다.</li>
+</ul>]]></content><author><name>Ukja2</name><email>jaewooklee739@gmail.com</email></author><category term="Network" /><category term="Network" /><summary type="html"><![CDATA[Network core ISP 내부에는 Network core와 Network Edge가 있다.]]></summary></entry></feed>

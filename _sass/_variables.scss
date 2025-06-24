@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Pretendard-ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
@@ -6,7 +13,8 @@
 }
 
 *{
-  font-family: 'Pretendard-Regular';
+  font-family: 'Pretendard-ExtraLight', 'Pretendard-Regular';
+  font-weight: 200;
 }
 
 
@@ -47,7 +55,7 @@
   --text-font: Times, "Times New Roman", "Free Serif", "Noto Serif", TimesNewRomanPSMT, "Droid Serif";
 
   --link-color: var(--gray-600);
-  --link-hover-color: var(--gray-700);
+  --link-hover-color: var(--gray-600);
 
   --heading-color: #000;
 
@@ -61,6 +69,28 @@
   --spacer: 1rem;
   --spacer-2: calc(var(--spacer) * 1.5);
   --spacer-3: calc(var(--spacer) * 3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gray-000: #181a1b;
+    --gray-100: #23272a;
+    --gray-200: #2c2f34;
+    --gray-300: #36393f;
+    --gray-400: #424549;
+    --gray-500: #5a5e63;
+    --gray-600: #a0a0a0;
+    --gray-700: #c7c7c7;
+    --gray-800: #e0e0e0;
+    --gray-900: #f8f9fa;
+
+    --body-color: #e0e0e0;
+    --body-bg: #181a1b;
+    --link-color: var(--gray-600);
+    --link-hover-color: var(--gray-600);
+    --heading-color: #fbf1c7;
+    --border-color: #23272a;
+  }
 }
 
 $sm-width: 35.5rem;

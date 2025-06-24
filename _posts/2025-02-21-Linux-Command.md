@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 Linux 」 리눅스 명령어
+title: 리눅스 명령어
 date: 2025-02-20 00:00 +0800
 tags: [Linux]
 categories: [Linux]

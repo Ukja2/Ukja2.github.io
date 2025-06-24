@@ -6,8 +6,6 @@
 #   title: Tags
 #   url: /tags/
 
-- title: Infra
-  url: /categories/infra/
 - title: Frontend
   url: /categories/frontend/
 - title: Backend

@@ -3,8 +3,6 @@ title: Ukja2
 description: Practice & Practice 
 url: https://ukja2.github.io
 avatar: /MeMe.jpg
-paginate: 5
-paginate_path: "/page:num/"
 permalink: /:categories/:title/
 cover_image: /bg.jpg
 
@@ -82,7 +80,7 @@ markdown: kramdown
 include: ["_pages"]
 
 # Pagination
-paginate: 5
+paginate: 6
 paginate_path: "/page:num/"
 
 # Site settings

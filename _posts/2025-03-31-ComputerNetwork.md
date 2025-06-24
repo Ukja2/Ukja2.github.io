@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「 Network 」 4주 2차시,  Application Layer - HTTP (1)
+title: Application Layer - HTTP 
 date: 2025-03-31 02:00 +0800
 tags: [Network]
 categories: [Network]
