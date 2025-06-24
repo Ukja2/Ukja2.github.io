@@ -10,7 +10,7 @@ toc:  true
 ## 의존성 주입(Dependency Injection, DI)?
 
 이는 Spring에서 객체를 직접 만들지 않고, 필요한 객체를 외부에서 주입받는 것이다.
-ㅇ
+<!--more-->
 
 
 예를 들어

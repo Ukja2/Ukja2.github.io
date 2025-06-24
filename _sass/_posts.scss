@@ -161,7 +161,7 @@
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -282,11 +282,5 @@
 @media (min-width: 1920px) {
   .post-card {
     background: #202124 !important;
-  }
-}
-
-@media (min-width: 1900px) {
-  .posts-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
   }
 }

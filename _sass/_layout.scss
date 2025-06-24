@@ -14,8 +14,8 @@
 
 .content {
   padding-top: var(--spacer-2);
-  padding-left: var(--spacer-2);
-  padding-right: var(--spacer-2);
+  padding-left: var(--spacer-3);
+  padding-right: var(--spacer-3);
   margin-left:  auto;
   margin-right: auto;
   min-height: 100vh;
@@ -36,8 +36,8 @@ footer {
 @media (min-width: $md-width) {
   .content {
     padding-top: var(--spacer-3);
-    padding-left: var(--spacer-2);
-    padding-right: var(--spacer-2);
+    padding-left: var(--spacer-3);
+    padding-right: var(--spacer-3);
     margin-left: 21%;
     width: 58%;
   }
@@ -54,6 +54,11 @@ footer {
     display: block;
     padding: var(--spacer-3);
     float: right;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    right: 0;
   }
 
   .home-header {
