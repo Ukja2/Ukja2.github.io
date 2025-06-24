@@ -49,8 +49,8 @@
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --body-font-size: 18px;
   --body-line-height: 1.5;
-  --body-color: #a3a8b0;
-  --body-bg: #16171a;
+  --body-color: var(--gray-700);
+  --body-bg: #ffffffa0;
 
   --text-font: Times, "Times New Roman", "Free Serif", "Noto Serif", TimesNewRomanPSMT, "Droid Serif";
 
@@ -84,8 +84,8 @@
     --gray-800: #e0e0e0;
     --gray-900: #f8f9fa;
 
-    --body-color: #a3a8b0;
-    --body-bg: #16171a;
+    --body-color: #e0e0e0;
+    --body-bg: #181a1b;
     --link-color: var(--gray-600);
     --link-hover-color: var(--gray-600);
     --heading-color: #fbf1c7;

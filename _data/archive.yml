@@ -6,7 +6,7 @@
 #   title: Tags
 #   url: /tags/
 
-- title: Frontend
-  url: /categories/frontend/
 - title: Backend
   url: /categories/backend/
+- title: SQL
+  url: /categories/sql/

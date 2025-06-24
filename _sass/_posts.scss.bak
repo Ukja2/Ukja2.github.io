@@ -167,7 +167,7 @@
 }
 
 .post-card {
-  background: #202124 !important;
+  background: #fff;
   border: 1px solid var(--gray-200);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -181,7 +181,7 @@
 
 @media (prefers-color-scheme: dark) {
   .post-card {
-    background: #202124 !important;
+    background: var(--gray-100);
     border-color: var(--gray-300);
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   }
@@ -281,12 +281,6 @@
 
 @media (min-width: 1920px) {
   .post-card {
-    background: #202124 !important;
-  }
-}
-
-@media (min-width: 1900px) {
-  .posts-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    background: #191a1d !important;
   }
 }

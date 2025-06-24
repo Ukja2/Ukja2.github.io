@@ -1,0 +1,18 @@
+{% include home-header.html %}
+
+<div class="archive">
+  {% assign category = page.type | capitalize %}
+  <h1 class="archive-title" style="margin: 1rem 0; font-size: 2em;">{{ category }}</h1>
+  <ul class="post-list" style="margin-top: 0;">
+    {% for post in site.categories[category] %}
+      <li class="post-entry">
+        <div class="post-date" style="display: inline-block; margin-right: 1rem; color: var(--gray-500);">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        </div>
+        <h3 class="post-title" style="display: inline-block; margin: 0;">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div> 

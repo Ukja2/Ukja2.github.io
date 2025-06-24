@@ -94,46 +94,6 @@ footer {
   }
 }
 
-@media (max-width: 1440px) and (max-height: 900px) {
-  .content,
-  .pure-u-1,
-  .pure-u-md-1-2 {
-    padding-right: 0.5rem !important;
-  }
-}
-
-@media (min-width: 2000px) and (min-height: 1440px) {
-  .content,
-  .pure-u-1,
-  .pure-u-md-1-2 {
-    padding-right: 1rem !important;
-  }
-}
-
-@media (min-width: 1920px) and (min-height: 1440px) {
-  .content,
-  .pure-u-1,
-  .pure-u-md-1-2 {
-    padding-right: 0.5rem !important;
-  }
-}
-
-@media (min-width: 1900px) {
-  .content,
-  .pure-u-1,
-  .pure-u-md-1-2 {
-    padding-right: 0.5rem !important;
-  }
-}
-
-@media (min-width: 2500px) {
-  .content,
-  .pure-u-1,
-  .pure-u-md-1-2 {
-    padding-right: 0.5rem !important;
-  }
-}
-
 .recent-posts {
   padding: var(--spacer);
   

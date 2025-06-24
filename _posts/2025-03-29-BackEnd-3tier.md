@@ -5,6 +5,7 @@ date: 2025-03-29 02:00 +0800
 tags: [Backend]
 categories: [Backend]
 toc:  true
+thumbnail: /Users/jaeuk/Desktop/Ukja2.github.io/meme.jpg
 ---
 
 ### 3계층 구조 (Three-Tier Architecture)
