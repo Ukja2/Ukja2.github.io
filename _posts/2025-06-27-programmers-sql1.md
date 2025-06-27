@@ -3,7 +3,7 @@ layout: post
 title:  "[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기"
 date: 2025-06-27 21:55 +0900
 tags: [SQL]
-categories: [SQL]
+categories: [SQL, Coding test, Programmers]
 toc:  true
 ---
 
