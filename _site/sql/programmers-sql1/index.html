@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기 | Ukja2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기" />
+<meta name="author" content="Ukja2" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="문제 다음은 중고거래 게시판 정보를 담은 USED_GOODS_BOARD 테이블과 중고거래 게시판 첨부파일 정보를 담은 USED_GOODS_REPLY 테이블입니다. USED_GOODS_BOARD 테이블은 다음과 같으며 BOARD_ID, WRITER_ID, TITLE, CONTENTS, PRICE, CREATED_DATE, STATUS, VIEWS은 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다. Column name Type Nullable BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE TITLE VARCHAR(100) FALSE CONTENTS VARCHAR(1000) FALSE PRICE NUMBER FALSE CREATED_DATE DATE FALSE STATUS VARCHAR(10) FALSE VIEWS NUMBER FALSE USED_GOODS_REPLY 테이블은 다음과 같으며 REPLY_ID, BOARD_ID, WRITER_ID, CONTENTS, CREATED_DATE는 각각 댓글 ID, 게시글 ID, 작성자 ID, 댓글 내용, 작성일을 의미합니다. Column name Type Nullable REPLY_ID VARCHAR(10) FALSE BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE CONTENTS VARCHAR(1000) TRUE CREATED_DATE DATE FALSE 문제 USED_GOODS_BOARD와 USED_GOODS_REPLY 테이블에서 2022년 10월에 작성된 게시글 제목, 게시글 ID, 댓글 ID, 댓글 작성자 ID, 댓글 내용, 댓글 작성일을 조회하는 SQL문을 작성해주세요. 결과는 댓글 작성일을 기준으로 오름차순 정렬해주시고, 댓글 작성일이 같다면 게시글 제목을 기준으로 오름차순 정렬해주세요. 예시 USED_GOODS_BOARD 테이블이 다음과 같고 BOARD_ID WRITER_ID TITLE CONTENTS PRICE CREATED_DATE STATUS VIEWS B0001 kwag98 반려견 배변패드 팝니다 정말 저렴히 판매합니다. 전부 미개봉 새상품입니다. 12000 2022-10-01 DONE 250 B0002 lee871201 국내산 볶음참깨 직접 농사지은 참깨입니다. 3000 2022-10-02 DONE 121 B0003 goung12 배드민턴 라켓 사놓고 방치만 해서 팝니다. 9000 2022-10-02 SALE 212 B0004 keel1990 디올 귀걸이 신세계강남점에서 구입. 정품 아닐시 백퍼센트 환불 130000 2022-10-02 SALE 199 B0005 haphli01 스팸클래식 팔아요 유통기한 2025년까지에요 10000 2022-10-02 SALE 121 USED_GOODS_REPLY 테이블이 다음과 같을 때 REPLY_ID BOARD_ID WRITER_ID CONTENTS CREATED_DATE R000000001 B0001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 R000000002 B0002 hoho1112 쪽지 주세요. 2022-10-03 R000000003 B0006 hwahwa2 삽니다. 연락주세요. 2022-10-03 R000000004 B0007 hong02 예약중 2022-10-06 R000000005 B0009 hanju23 구매완료 2022-10-07 SQL을 실행하면 다음과 같이 출력되어야 합니다. TITLE BOARD_ID REPLY_ID WRITER_ID CONTENTS CREATED_DATE 반려견 배변패드 팝니다 B0001 R000000001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 국내산 볶음참깨 B0002 R000000002 hoho1112 쪽지 주세요. 2022-10-03 정답 SELECT A.TITLE, A.BOARD_ID, B.REPLY_ID, B.WRITER_ID, B.CONTENTS, DATE_FORMAT(B.CREATED_DATE, &#39;%Y-%m-%d&#39;) AS CREATED_DATE FROM USED_GOODS_BOARD as A JOIN USED_GOODS_REPLY as B on A.BOARD_ID = B.BOARD_ID where A.CREATED_DATE Between DATE(&#39;2022-10-01&#39;) and DATE(&#39;2022-10-31&#39;) order by B.CREATED_DATE, A.TITLE; 풀이 FROM절에서 BOARD 테이블과 REPLY 테이블을 BOARD_ID를 기준으로 조인, 그리고 WHERE절에서 BETWEEN을 사용하여 게시글 작성일이 2022년 10월 1일부터 10월 31일 사이인 데이터만 조회한다. ORDER BY에서 CREATED_DATE 오름차순, TITLE 오름차순으로 정렬하라 했으니, 별다른 지정없이(ASC) 컬럼만 명시" />
+<meta property="og:description" content="문제 다음은 중고거래 게시판 정보를 담은 USED_GOODS_BOARD 테이블과 중고거래 게시판 첨부파일 정보를 담은 USED_GOODS_REPLY 테이블입니다. USED_GOODS_BOARD 테이블은 다음과 같으며 BOARD_ID, WRITER_ID, TITLE, CONTENTS, PRICE, CREATED_DATE, STATUS, VIEWS은 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다. Column name Type Nullable BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE TITLE VARCHAR(100) FALSE CONTENTS VARCHAR(1000) FALSE PRICE NUMBER FALSE CREATED_DATE DATE FALSE STATUS VARCHAR(10) FALSE VIEWS NUMBER FALSE USED_GOODS_REPLY 테이블은 다음과 같으며 REPLY_ID, BOARD_ID, WRITER_ID, CONTENTS, CREATED_DATE는 각각 댓글 ID, 게시글 ID, 작성자 ID, 댓글 내용, 작성일을 의미합니다. Column name Type Nullable REPLY_ID VARCHAR(10) FALSE BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE CONTENTS VARCHAR(1000) TRUE CREATED_DATE DATE FALSE 문제 USED_GOODS_BOARD와 USED_GOODS_REPLY 테이블에서 2022년 10월에 작성된 게시글 제목, 게시글 ID, 댓글 ID, 댓글 작성자 ID, 댓글 내용, 댓글 작성일을 조회하는 SQL문을 작성해주세요. 결과는 댓글 작성일을 기준으로 오름차순 정렬해주시고, 댓글 작성일이 같다면 게시글 제목을 기준으로 오름차순 정렬해주세요. 예시 USED_GOODS_BOARD 테이블이 다음과 같고 BOARD_ID WRITER_ID TITLE CONTENTS PRICE CREATED_DATE STATUS VIEWS B0001 kwag98 반려견 배변패드 팝니다 정말 저렴히 판매합니다. 전부 미개봉 새상품입니다. 12000 2022-10-01 DONE 250 B0002 lee871201 국내산 볶음참깨 직접 농사지은 참깨입니다. 3000 2022-10-02 DONE 121 B0003 goung12 배드민턴 라켓 사놓고 방치만 해서 팝니다. 9000 2022-10-02 SALE 212 B0004 keel1990 디올 귀걸이 신세계강남점에서 구입. 정품 아닐시 백퍼센트 환불 130000 2022-10-02 SALE 199 B0005 haphli01 스팸클래식 팔아요 유통기한 2025년까지에요 10000 2022-10-02 SALE 121 USED_GOODS_REPLY 테이블이 다음과 같을 때 REPLY_ID BOARD_ID WRITER_ID CONTENTS CREATED_DATE R000000001 B0001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 R000000002 B0002 hoho1112 쪽지 주세요. 2022-10-03 R000000003 B0006 hwahwa2 삽니다. 연락주세요. 2022-10-03 R000000004 B0007 hong02 예약중 2022-10-06 R000000005 B0009 hanju23 구매완료 2022-10-07 SQL을 실행하면 다음과 같이 출력되어야 합니다. TITLE BOARD_ID REPLY_ID WRITER_ID CONTENTS CREATED_DATE 반려견 배변패드 팝니다 B0001 R000000001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 국내산 볶음참깨 B0002 R000000002 hoho1112 쪽지 주세요. 2022-10-03 정답 SELECT A.TITLE, A.BOARD_ID, B.REPLY_ID, B.WRITER_ID, B.CONTENTS, DATE_FORMAT(B.CREATED_DATE, &#39;%Y-%m-%d&#39;) AS CREATED_DATE FROM USED_GOODS_BOARD as A JOIN USED_GOODS_REPLY as B on A.BOARD_ID = B.BOARD_ID where A.CREATED_DATE Between DATE(&#39;2022-10-01&#39;) and DATE(&#39;2022-10-31&#39;) order by B.CREATED_DATE, A.TITLE; 풀이 FROM절에서 BOARD 테이블과 REPLY 테이블을 BOARD_ID를 기준으로 조인, 그리고 WHERE절에서 BETWEEN을 사용하여 게시글 작성일이 2022년 10월 1일부터 10월 31일 사이인 데이터만 조회한다. ORDER BY에서 CREATED_DATE 오름차순, TITLE 오름차순으로 정렬하라 했으니, 별다른 지정없이(ASC) 컬럼만 명시" />
+<link rel="canonical" href="http://localhost:4000/sql/programmers-sql1/" />
+<meta property="og:url" content="http://localhost:4000/sql/programmers-sql1/" />
+<meta property="og:site_name" content="Ukja2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-06-27T21:55:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Ukja2","url":"https://ukja2.github.io"},"dateModified":"2025-06-27T21:55:00+09:00","datePublished":"2025-06-27T21:55:00+09:00","description":"문제 다음은 중고거래 게시판 정보를 담은 USED_GOODS_BOARD 테이블과 중고거래 게시판 첨부파일 정보를 담은 USED_GOODS_REPLY 테이블입니다. USED_GOODS_BOARD 테이블은 다음과 같으며 BOARD_ID, WRITER_ID, TITLE, CONTENTS, PRICE, CREATED_DATE, STATUS, VIEWS은 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다. Column name Type Nullable BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE TITLE VARCHAR(100) FALSE CONTENTS VARCHAR(1000) FALSE PRICE NUMBER FALSE CREATED_DATE DATE FALSE STATUS VARCHAR(10) FALSE VIEWS NUMBER FALSE USED_GOODS_REPLY 테이블은 다음과 같으며 REPLY_ID, BOARD_ID, WRITER_ID, CONTENTS, CREATED_DATE는 각각 댓글 ID, 게시글 ID, 작성자 ID, 댓글 내용, 작성일을 의미합니다. Column name Type Nullable REPLY_ID VARCHAR(10) FALSE BOARD_ID VARCHAR(5) FALSE WRITER_ID VARCHAR(50) FALSE CONTENTS VARCHAR(1000) TRUE CREATED_DATE DATE FALSE 문제 USED_GOODS_BOARD와 USED_GOODS_REPLY 테이블에서 2022년 10월에 작성된 게시글 제목, 게시글 ID, 댓글 ID, 댓글 작성자 ID, 댓글 내용, 댓글 작성일을 조회하는 SQL문을 작성해주세요. 결과는 댓글 작성일을 기준으로 오름차순 정렬해주시고, 댓글 작성일이 같다면 게시글 제목을 기준으로 오름차순 정렬해주세요. 예시 USED_GOODS_BOARD 테이블이 다음과 같고 BOARD_ID WRITER_ID TITLE CONTENTS PRICE CREATED_DATE STATUS VIEWS B0001 kwag98 반려견 배변패드 팝니다 정말 저렴히 판매합니다. 전부 미개봉 새상품입니다. 12000 2022-10-01 DONE 250 B0002 lee871201 국내산 볶음참깨 직접 농사지은 참깨입니다. 3000 2022-10-02 DONE 121 B0003 goung12 배드민턴 라켓 사놓고 방치만 해서 팝니다. 9000 2022-10-02 SALE 212 B0004 keel1990 디올 귀걸이 신세계강남점에서 구입. 정품 아닐시 백퍼센트 환불 130000 2022-10-02 SALE 199 B0005 haphli01 스팸클래식 팔아요 유통기한 2025년까지에요 10000 2022-10-02 SALE 121 USED_GOODS_REPLY 테이블이 다음과 같을 때 REPLY_ID BOARD_ID WRITER_ID CONTENTS CREATED_DATE R000000001 B0001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 R000000002 B0002 hoho1112 쪽지 주세요. 2022-10-03 R000000003 B0006 hwahwa2 삽니다. 연락주세요. 2022-10-03 R000000004 B0007 hong02 예약중 2022-10-06 R000000005 B0009 hanju23 구매완료 2022-10-07 SQL을 실행하면 다음과 같이 출력되어야 합니다. TITLE BOARD_ID REPLY_ID WRITER_ID CONTENTS CREATED_DATE 반려견 배변패드 팝니다 B0001 R000000001 s2s2123 구매하겠습니다. 쪽지 드립니다. 2022-10-02 국내산 볶음참깨 B0002 R000000002 hoho1112 쪽지 주세요. 2022-10-03 정답 SELECT A.TITLE, A.BOARD_ID, B.REPLY_ID, B.WRITER_ID, B.CONTENTS, DATE_FORMAT(B.CREATED_DATE, &#39;%Y-%m-%d&#39;) AS CREATED_DATE FROM USED_GOODS_BOARD as A JOIN USED_GOODS_REPLY as B on A.BOARD_ID = B.BOARD_ID where A.CREATED_DATE Between DATE(&#39;2022-10-01&#39;) and DATE(&#39;2022-10-31&#39;) order by B.CREATED_DATE, A.TITLE; 풀이 FROM절에서 BOARD 테이블과 REPLY 테이블을 BOARD_ID를 기준으로 조인, 그리고 WHERE절에서 BETWEEN을 사용하여 게시글 작성일이 2022년 10월 1일부터 10월 31일 사이인 데이터만 조회한다. ORDER BY에서 CREATED_DATE 오름차순, TITLE 오름차순으로 정렬하라 했으니, 별다른 지정없이(ASC) 컬럼만 명시","headline":"[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sql/programmers-sql1/"},"url":"http://localhost:4000/sql/programmers-sql1/"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ukja2" />
+<style>
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+      gap: 0.2rem;
+    }
+    .pagination-item {
+      padding: 0.5rem 0.4rem;
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+    .pagination-item:hover {
+      color: var(--gray-900) !important;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bg.jpg);"><header class="masthead">
+  <div class="avatar"><img src="/MeMe.jpg" class="avatar-image" alt="Ukja2">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">Ukja2</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>Practice & Practice</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Home</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/categories/">Categories</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://jaewooklee739@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://www.instagram.com/ukja2/">
+            <i class="fab fa-instagram" title="Instagram"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/Ukja2">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">[프로그래머스 SQL] 조건에 부합하는 중고거래 댓글 조회하기</h1>
+  <div class="post-meta"><time datetime="2025-06-27T21:55:00+09:00" itemprop="datePublished">2025년 6월 27일</time></div>
+
+  <h2 id="문제">문제</h2>
+
+<p>다음은 중고거래 게시판 정보를 담은 USED_GOODS_BOARD 테이블과 중고거래 게시판 첨부파일 정보를 담은 USED_GOODS_REPLY 테이블입니다. USED_GOODS_BOARD 테이블은 다음과 같으며 BOARD_ID, WRITER_ID, TITLE, CONTENTS, PRICE, CREATED_DATE, STATUS, VIEWS은 게시글 ID, 작성자 ID, 게시글 제목, 게시글 내용, 가격, 작성일, 거래상태, 조회수를 의미합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column name</th>
+      <th>Type</th>
+      <th>Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BOARD_ID</td>
+      <td>VARCHAR(5)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>WRITER_ID</td>
+      <td>VARCHAR(50)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>TITLE</td>
+      <td>VARCHAR(100)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>CONTENTS</td>
+      <td>VARCHAR(1000)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>PRICE</td>
+      <td>NUMBER</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>CREATED_DATE</td>
+      <td>DATE</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>STATUS</td>
+      <td>VARCHAR(10)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>VIEWS</td>
+      <td>NUMBER</td>
+      <td>FALSE</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USED_GOODS_REPLY 테이블은 다음과 같으며 REPLY_ID, BOARD_ID, WRITER_ID, CONTENTS, CREATED_DATE는 각각 댓글 ID, 게시글 ID, 작성자 ID, 댓글 내용, 작성일을 의미합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column name</th>
+      <th>Type</th>
+      <th>Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REPLY_ID</td>
+      <td>VARCHAR(10)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>BOARD_ID</td>
+      <td>VARCHAR(5)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>WRITER_ID</td>
+      <td>VARCHAR(50)</td>
+      <td>FALSE</td>
+    </tr>
+    <tr>
+      <td>CONTENTS</td>
+      <td>VARCHAR(1000)</td>
+      <td>TRUE</td>
+    </tr>
+    <tr>
+      <td>CREATED_DATE</td>
+      <td>DATE</td>
+      <td>FALSE</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>문제<br />
+USED_GOODS_BOARD와 USED_GOODS_REPLY 테이블에서 2022년 10월에 작성된 게시글 제목, 게시글 ID, 댓글 ID, 댓글 작성자 ID, 댓글 내용, 댓글 작성일을 조회하는 SQL문을 작성해주세요. 결과는 댓글 작성일을 기준으로 오름차순 정렬해주시고, 댓글 작성일이 같다면 게시글 제목을 기준으로 오름차순 정렬해주세요.</p>
+
+<p>예시<br />
+USED_GOODS_BOARD 테이블이 다음과 같고</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>BOARD_ID</th>
+      <th>WRITER_ID</th>
+      <th>TITLE</th>
+      <th>CONTENTS</th>
+      <th>PRICE</th>
+      <th>CREATED_DATE</th>
+      <th>STATUS</th>
+      <th>VIEWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B0001</td>
+      <td>kwag98</td>
+      <td>반려견 배변패드 팝니다</td>
+      <td>정말 저렴히 판매합니다. 전부 미개봉 새상품입니다.</td>
+      <td>12000</td>
+      <td>2022-10-01</td>
+      <td>DONE</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <td>B0002</td>
+      <td>lee871201</td>
+      <td>국내산 볶음참깨</td>
+      <td>직접 농사지은 참깨입니다.</td>
+      <td>3000</td>
+      <td>2022-10-02</td>
+      <td>DONE</td>
+      <td>121</td>
+    </tr>
+    <tr>
+      <td>B0003</td>
+      <td>goung12</td>
+      <td>배드민턴 라켓</td>
+      <td>사놓고 방치만 해서 팝니다.</td>
+      <td>9000</td>
+      <td>2022-10-02</td>
+      <td>SALE</td>
+      <td>212</td>
+    </tr>
+    <tr>
+      <td>B0004</td>
+      <td>keel1990</td>
+      <td>디올 귀걸이</td>
+      <td>신세계강남점에서 구입. 정품 아닐시 백퍼센트 환불</td>
+      <td>130000</td>
+      <td>2022-10-02</td>
+      <td>SALE</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <td>B0005</td>
+      <td>haphli01</td>
+      <td>스팸클래식 팔아요</td>
+      <td>유통기한 2025년까지에요</td>
+      <td>10000</td>
+      <td>2022-10-02</td>
+      <td>SALE</td>
+      <td>121</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USED_GOODS_REPLY 테이블이 다음과 같을 때</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>REPLY_ID</th>
+      <th>BOARD_ID</th>
+      <th>WRITER_ID</th>
+      <th>CONTENTS</th>
+      <th>CREATED_DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R000000001</td>
+      <td>B0001</td>
+      <td>s2s2123</td>
+      <td>구매하겠습니다. 쪽지 드립니다.</td>
+      <td>2022-10-02</td>
+    </tr>
+    <tr>
+      <td>R000000002</td>
+      <td>B0002</td>
+      <td>hoho1112</td>
+      <td>쪽지 주세요.</td>
+      <td>2022-10-03</td>
+    </tr>
+    <tr>
+      <td>R000000003</td>
+      <td>B0006</td>
+      <td>hwahwa2</td>
+      <td>삽니다. 연락주세요.</td>
+      <td>2022-10-03</td>
+    </tr>
+    <tr>
+      <td>R000000004</td>
+      <td>B0007</td>
+      <td>hong02</td>
+      <td>예약중</td>
+      <td>2022-10-06</td>
+    </tr>
+    <tr>
+      <td>R000000005</td>
+      <td>B0009</td>
+      <td>hanju23</td>
+      <td>구매완료</td>
+      <td>2022-10-07</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>SQL을 실행하면 다음과 같이 출력되어야 합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>BOARD_ID</th>
+      <th>REPLY_ID</th>
+      <th>WRITER_ID</th>
+      <th>CONTENTS</th>
+      <th>CREATED_DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>반려견 배변패드 팝니다</td>
+      <td>B0001</td>
+      <td>R000000001</td>
+      <td>s2s2123</td>
+      <td>구매하겠습니다. 쪽지 드립니다.</td>
+      <td>2022-10-02</td>
+    </tr>
+    <tr>
+      <td>국내산 볶음참깨</td>
+      <td>B0002</td>
+      <td>R000000002</td>
+      <td>hoho1112</td>
+      <td>쪽지 주세요.</td>
+      <td>2022-10-03</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="정답">정답</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">A</span><span class="p">.</span><span class="n">TITLE</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">BOARD_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">REPLY_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">WRITER_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">CONTENTS</span><span class="p">,</span> 
+<span class="n">DATE_FORMAT</span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">CREATED_DATE</span><span class="p">,</span> <span class="s1">'%Y-%m-%d'</span><span class="p">)</span> <span class="k">AS</span> <span class="n">CREATED_DATE</span>
+<span class="k">FROM</span> <span class="n">USED_GOODS_BOARD</span> <span class="k">as</span> <span class="n">A</span>
+<span class="k">JOIN</span> <span class="n">USED_GOODS_REPLY</span> <span class="k">as</span> <span class="n">B</span> <span class="k">on</span> <span class="n">A</span><span class="p">.</span><span class="n">BOARD_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">BOARD_ID</span>
+<span class="k">where</span> <span class="n">A</span><span class="p">.</span><span class="n">CREATED_DATE</span> <span class="k">Between</span> <span class="nb">DATE</span><span class="p">(</span><span class="s1">'2022-10-01'</span><span class="p">)</span> <span class="k">and</span> <span class="nb">DATE</span><span class="p">(</span><span class="s1">'2022-10-31'</span><span class="p">)</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">B</span><span class="p">.</span><span class="n">CREATED_DATE</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">TITLE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="풀이">풀이</h2>
+<p>FROM절에서 BOARD 테이블과 REPLY 테이블을 BOARD_ID를 기준으로 조인,
+그리고 WHERE절에서 BETWEEN을 사용하여 게시글 작성일이 2022년 10월 1일부터 10월 31일 사이인 데이터만 조회한다. ORDER BY에서 CREATED_DATE 오름차순, TITLE 오름차순으로 정렬하라 했으니, 별다른 지정없이(ASC) 컬럼만 명시</p>
+
+
+  
+    <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <span class="post-tag">sql</span></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+<!--댓글 기능-->
+<script src="https://utteranc.es/client.js"
+        repo="Ukja2/Ukja2.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/spring/Dependency_Injection/">
+          의존성 주입
+          <small><time datetime="2025-04-10T02:00:00+09:00">10 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/network/ComputerNetwork-Email/">
+          Application Layer - Email
+          <small><time datetime="2025-04-01T03:00:00+09:00">01 Apr 2025</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/network/ComputerNetwork/">
+          Application Layer - HTTP
+          <small><time datetime="2025-03-31T03:00:00+09:00">31 Mar 2025</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2024&nbsp;-&nbsp;2025 <a href="https://ukja2.github.io">Ukja2</a> </a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4"><div class="tags-wrapper">
+  <h2 class="tags-title">Tags</h2>
+  <ul class="tags-list">
+    
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#aws" class="tag-link">
+            AWS
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#network" class="tag-link">
+            Network
+            <span class="tag-count">(7)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#springboot" class="tag-link">
+            SpringBoot
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#spring" class="tag-link">
+            Spring
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#linux" class="tag-link">
+            Linux
+            <span class="tag-count">(3)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#sql" class="tag-link">
+            SQL
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="tags-item">
+          <a href="/tags/#java" class="tag-link">
+            Java
+            <span class="tag-count">(1)</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

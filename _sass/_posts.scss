@@ -291,3 +291,51 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+.post table {
+  display: block;
+  max-width: 100%;
+  width: max-content;
+  min-width: 50%; /* 너무 작아지지 않게 최소값, 필요시 조정 */
+  overflow-x: auto;
+  white-space: nowrap;
+  background: var(--gray-000);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid var(--gray-200);
+  /* 스크롤바 스타일 */
+  scrollbar-color: var(--gray-400) var(--gray-100);
+  scrollbar-width: thin;
+}
+
+.post table::-webkit-scrollbar {
+  height: 10px;
+  background: var(--gray-100);
+  border-radius: 8px;
+}
+.post table::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 8px;
+}
+
+.post th, .post td {
+  background: var(--gray-000);
+}
+
+@media (prefers-color-scheme: dark) {
+  .post table {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-400);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    scrollbar-color: var(--gray-600) var(--gray-200);
+  }
+  .post table::-webkit-scrollbar {
+    background: var(--gray-200);
+  }
+  .post table::-webkit-scrollbar-thumb {
+    background: var(--gray-600);
+  }
+  .post th, .post td {
+    background: var(--gray-100);
+  }
+}
