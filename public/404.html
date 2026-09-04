@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <title>공부 기록</title>
     <script>
-      location.replace('/#' + location.pathname + location.search)
+      // GitHub Pages는 정적 호스팅이라 /posts/xxx 같은 경로를 직접 요청하면
+      // 이 404.html이 대신 뜬다. 원래 가려던 주소를 세션에 저장해두고
+      // 루트로 보내면, index.html이 그 주소를 복원해서 정상적으로 라우팅한다.
+      sessionStorage.redirect = location.href
     </script>
+    <meta http-equiv="refresh" content="0;URL='/'" />
   </head>
   <body></body>
 </html>

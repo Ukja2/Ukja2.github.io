@@ -15,6 +15,17 @@
         } catch (e) {}
       })()
     </script>
+    <script>
+      // 404.html이 GitHub Pages에서 못 찾은 경로를 세션에 저장해두면,
+      // 여기서 원래 주소로 복원해서 React Router가 정상적으로 라우팅하게 한다.
+      ;(function () {
+        var redirect = sessionStorage.redirect
+        delete sessionStorage.redirect
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect)
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
