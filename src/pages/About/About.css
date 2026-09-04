@@ -9,3 +9,17 @@
   color: var(--color-text-muted);
   line-height: 1.75;
 }
+
+.about-subtitle {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
