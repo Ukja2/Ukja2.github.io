@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconGithub, IconMenu, IconMoon, IconSun } from '../icons.jsx'
+import { IconGithub, IconMenu, IconMoon, IconPencil, IconSun } from '../icons.jsx'
 import SearchBox from './SearchBox.jsx'
 import './Header.css'
 
@@ -55,8 +55,14 @@ export default function Header() {
             <IconMenu />
           </button>
           <div className={`header-nav-items ${menuOpen ? 'open' : ''}`}>
-            <Link to="/about" onClick={() => setMenuOpen(false)}>
-              About
+            <Link
+              to="/write"
+              className="icon-link"
+              aria-label="글쓰기"
+              onClick={() => setMenuOpen(false)}
+            >
+              <IconPencil className="nav-icon" />
+              <span className="nav-label">글쓰기</span>
             </Link>
             <a
               href="https://github.com/Ukja2"
