@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconMoon, IconSun } from '../icons.jsx'
+import { IconGithub, IconMoon, IconSun } from '../icons.jsx'
 import SearchBox from './SearchBox.jsx'
 import './Header.css'
 
@@ -34,7 +34,15 @@ export default function Header() {
         </div>
         <nav className="header-nav">
           <Link to="/about">About</Link>
-          <Link to="/login">Login</Link>
+          <a
+            href="https://github.com/Ukja2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub 프로필"
+            className="icon-link"
+          >
+            <IconGithub />
+          </a>
           <button
             type="button"
             onClick={() => setDark((prev) => !prev)}
