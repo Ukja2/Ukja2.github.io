@@ -6,7 +6,6 @@ const Home = lazy(() => import('./pages/Home/Home.jsx'))
 const PostDetail = lazy(() => import('./pages/PostDetail/PostDetail.jsx'))
 const About = lazy(() => import('./pages/About/About.jsx'))
 const Login = lazy(() => import('./pages/Login/Login.jsx'))
-const Write = lazy(() => import('./pages/Write/Write.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound/NotFound.jsx'))
 
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
           <Route path="posts/:slug" element={<PostDetail />} />
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
-          <Route path="write" element={<Write />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
