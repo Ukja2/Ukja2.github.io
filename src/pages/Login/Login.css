@@ -1,0 +1,11 @@
+.login-title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.login-text {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}

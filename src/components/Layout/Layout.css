@@ -1,0 +1,19 @@
+.layout {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.layout-main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.layout-footer {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--color-text-faint);
+}
