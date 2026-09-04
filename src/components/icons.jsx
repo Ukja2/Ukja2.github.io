@@ -44,6 +44,16 @@ export function IconMoon(props) {
   )
 }
 
+export function IconMenu(props) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  )
+}
+
 export function IconGithub(props) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" {...props}>
