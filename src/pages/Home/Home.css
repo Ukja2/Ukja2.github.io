@@ -48,7 +48,12 @@
 }
 
 .post-list-title {
+  flex: 1;
+  min-width: 0;
   margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 1.125rem;
   font-weight: 500;
   transition: color 0.15s ease;
@@ -65,15 +70,23 @@
 }
 
 .post-list-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   margin: 0.25rem 0 0;
+  height: 2.45em;
   font-size: 0.875rem;
+  line-height: 1.225;
   color: var(--color-text-muted);
 }
 
 .post-list-tags {
   margin-top: 0.5rem;
+  height: 1.25rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: hidden;
   gap: 0.5rem;
 }
 
