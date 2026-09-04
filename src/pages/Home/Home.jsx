@@ -1,4 +1,5 @@
-import { Link, useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { posts } from '../../lib/posts.js'
 import { CATEGORIES } from '../../lib/categories.js'
 import './Home.css'
@@ -6,9 +7,8 @@ import './Home.css'
 const POSTS_PER_PAGE = 7
 
 export default function Home() {
-  const [params, setParams] = useSearchParams()
-  const activeTag = params.get('tag')
-  const page = Math.max(1, Number(params.get('page')) || 1)
+  const [activeTag, setActiveTag] = useState(null)
+  const [page, setPage] = useState(1)
 
   const filtered = activeTag ? posts.filter((post) => post.tags.includes(activeTag)) : posts
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE))
@@ -16,8 +16,9 @@ export default function Home() {
   const paged = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
   const placeholderCount = totalPages > 1 ? POSTS_PER_PAGE - paged.length : 0
 
-  function goToPage(nextPage) {
-    setParams(activeTag ? { tag: activeTag, page: nextPage } : { page: nextPage })
+  function selectTag(tag) {
+    setActiveTag(tag)
+    setPage(1)
   }
 
   return (
@@ -25,7 +26,7 @@ export default function Home() {
       <div className="tag-filter">
         <button
           type="button"
-          onClick={() => setParams({})}
+          onClick={() => selectTag(null)}
           className={`tag-pill ${!activeTag ? 'active' : ''}`}
         >
           전체
@@ -34,7 +35,7 @@ export default function Home() {
           <button
             type="button"
             key={tag}
-            onClick={() => setParams({ tag })}
+            onClick={() => selectTag(tag)}
             className={`tag-pill ${activeTag === tag ? 'active' : ''}`}
           >
             {tag}
@@ -83,7 +84,7 @@ export default function Home() {
           <button
             type="button"
             className="pagination-button"
-            onClick={() => goToPage(currentPage - 1)}
+            onClick={() => setPage((p) => p - 1)}
             disabled={currentPage === 1}
           >
             이전
@@ -94,7 +95,7 @@ export default function Home() {
           <button
             type="button"
             className="pagination-button"
-            onClick={() => goToPage(currentPage + 1)}
+            onClick={() => setPage((p) => p + 1)}
             disabled={currentPage === totalPages}
           >
             다음
