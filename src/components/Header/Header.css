@@ -97,6 +97,10 @@
   height: 1.3rem;
 }
 
+.nav-label {
+  display: none;
+}
+
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -267,13 +271,23 @@
   .header-nav-items .theme-toggle {
     width: 100%;
     justify-content: flex-start;
+    gap: 0.6rem;
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
+  }
+
+  .header-nav-items .nav-icon {
+    display: none;
+  }
+
+  .header-nav-items .nav-label {
+    display: inline;
+    font-size: 0.875rem;
   }
 
   .header-nav-items a:hover,
   .header-nav-items .icon-link:hover,
   .header-nav-items .theme-toggle:hover {
-    background: var(--color-hover-bg);
+    background: none;
   }
 }

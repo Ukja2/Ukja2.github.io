@@ -66,7 +66,8 @@ export default function Header() {
               className="icon-link"
               onClick={() => setMenuOpen(false)}
             >
-              <IconGithub />
+              <IconGithub className="nav-icon" />
+              <span className="nav-label">GitHub</span>
             </a>
             <button
               type="button"
@@ -74,7 +75,8 @@ export default function Header() {
               aria-label="다크 모드 전환"
               className="theme-toggle"
             >
-              {dark ? <IconSun /> : <IconMoon />}
+              {dark ? <IconSun className="nav-icon" /> : <IconMoon className="nav-icon" />}
+              <span className="nav-label">{dark ? 'LightMode' : 'DarkMode'}</span>
             </button>
           </div>
         </nav>
