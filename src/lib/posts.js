@@ -7,28 +7,12 @@ function parseFrontmatter(raw) {
 
   const [, frontmatter, content] = match
   const data = {}
-  const lines = frontmatter.split('\n')
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i]
+  frontmatter.split('\n').forEach((line) => {
     const idx = line.indexOf(':')
-    if (idx === -1) continue
+    if (idx === -1) return
     const key = line.slice(0, idx).trim()
     let value = line.slice(idx + 1).trim()
-
-    // CMS가 저장하는 여러 줄짜리 목록 형태도 지원한다.
-    // tags:
-    //   - Dev
-    //   - Network
-    if (value === '') {
-      const items = []
-      while (i + 1 < lines.length && /^\s*-\s+/.test(lines[i + 1])) {
-        i++
-        items.push(lines[i].trim().replace(/^-\s+/, '').replace(/^["']|["']$/g, ''))
-      }
-      data[key] = items
-      continue
-    }
 
     if (value.startsWith('[') && value.endsWith(']')) {
       value = value
@@ -41,7 +25,7 @@ function parseFrontmatter(raw) {
     }
 
     data[key] = value
-  }
+  })
 
   return { data, content: content.trim() }
 }
