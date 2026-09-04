@@ -4,7 +4,7 @@ import { posts } from '../../lib/posts.js'
 import { CATEGORIES } from '../../lib/categories.js'
 import './Home.css'
 
-const POSTS_PER_PAGE = 7
+const POSTS_PER_PAGE = 6
 
 export default function Home() {
   const [activeTag, setActiveTag] = useState(null)
