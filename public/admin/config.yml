@@ -18,7 +18,7 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Date", name: "date", widget: "datetime", type: "date", format: "YYYY-MM-DD" }
       # 카테고리 종류가 바뀌면 src/lib/categories.js와 함께 여기도 맞춰서 수정하세요.
       - label: "Tags"
         name: "tags"
