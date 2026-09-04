@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiMoon, FiSun } from 'react-icons/fi'
+import { IconMoon, IconSun } from '../icons.jsx'
 import SearchBox from './SearchBox.jsx'
 import './Header.css'
 
@@ -41,7 +41,7 @@ export default function Header() {
             aria-label="다크 모드 전환"
             className="theme-toggle"
           >
-            {dark ? <FiSun /> : <FiMoon />}
+            {dark ? <IconSun /> : <IconMoon />}
           </button>
         </nav>
       </div>

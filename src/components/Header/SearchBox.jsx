@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FiSearch } from 'react-icons/fi'
+import { IconSearch } from '../icons.jsx'
 import { posts } from '../../lib/posts.js'
 
 const isMac = typeof navigator !== 'undefined' && /Mac/i.test(navigator.platform)
@@ -42,7 +42,7 @@ export default function SearchBox() {
 
   return (
     <div className="search-box">
-      <FiSearch className="search-icon" aria-hidden="true" />
+      <IconSearch className="search-icon" aria-hidden="true" />
       <input
         ref={inputRef}
         type="search"
