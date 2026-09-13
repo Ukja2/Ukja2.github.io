@@ -1,5 +1,5 @@
 ---
-title: 네트워크에서 DMZ란
+title: DMZ
 date: 2026-09-11
 tags: [Network]
 description: 내부망과 인터넷 사이에 두는 완충 지대 DMZ의 개념과 필요성

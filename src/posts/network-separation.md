@@ -1,5 +1,5 @@
 ---
-title: 망분리란
+title: 망분리
 date: 2026-09-11
 tags: [Network]
 description: 업무망과 인터넷망을 분리해 외부 위협을 차단하는 망분리의 개념과 동작 방식
