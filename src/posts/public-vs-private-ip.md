@@ -1,5 +1,5 @@
 ---
-title: 공인 IP와 사설 IP의 차이와 구별법
+title: Public IP vs Private IP
 date: 2026-09-09
 tags: [Network]
 description: 인터넷에서 유일한 공인 IP와, 사설 네트워크 안에서만 쓰이는 사설 IP의 차이 그리고 대역으로 구별하는 방법
@@ -41,9 +41,3 @@ description: 인터넷에서 유일한 공인 IP와, 사설 네트워크 안에�
 - **127.0.0.0/8**: 루프백(loopback) — 자기 자신을 가리키는 주소, `localhost`
 - **169.254.0.0/16**: APIPA — DHCP로 IP를 못 받았을 때 자동으로 할당되는 링크 로컬 주소
 
-## 직접 확인해보기
-
-- **내 사설 IP**: `ipconfig`(Windows) 또는 `ifconfig`, `ip addr`(Linux/Mac)로 확인. 위 대역에 속하면 사설 IP.
-- **내 공인 IP**: 브라우저에서 "내 IP" 검색, 또는 터미널에서 `curl ifconfig.me` — 공유기 밖에서 실제로 보이는 주소가 나온다.
-
-정리하면: 집이나 회사 내부의 기기들은 대부분 사설 IP를 갖고, 공유기가 NAT을 통해 하나의 공인 IP로 인터넷과의 통신을 대신 처리해주는 구조다.

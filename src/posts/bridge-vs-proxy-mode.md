@@ -1,5 +1,5 @@
 ---
-title: 네트워크 브릿지 모드와 프록시 모드
+title: Bridge Mode vs Proxy Mode
 date: 2026-09-04
 tags: [Network]
 description: 두 네트워크를 있는 브릿지와, 중간에서 대신 처리하는 프록시의 차이
