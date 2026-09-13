@@ -13,6 +13,7 @@ npm run dev
 ---
 title: 글 제목
 date: 2026-09-04
+order: 1
 tags: [태그1, 태그2]
 description: 목록에 보여줄 한 줄 설명
 ---
@@ -21,8 +22,8 @@ description: 목록에 보여줄 한 줄 설명
 ```
 
 - 파일명이 곧 글 주소(slug)가 됩니다. 예) `src/posts/my-post.md` → `/#/posts/my-post`
-- `date`가 최신인 글이 목록 맨 위로 정렬됩니다.
-- 홈 화면 태그 필터는 `src/lib/categories.js`에 등록된 고정 카테고리(`Network`, `Server`, `Dev`)만 표시됩니다. `tags`에는 이 중에서 골라 적어야 필터에 걸립니다. 카테고리 자체를 추가/변경하려면 `categories.js`를 수정하세요.
+- `date`가 최신인 글이 목록 맨 위로 정렬됩니다. `date`가 같은 글이 여러 개면 `order` 값이 낮은 글이 먼저 오며, `order`는 생략해도 됩니다(생략 시 맨 뒤로 정렬).
+- 홈 화면 태그 필터는 `src/lib/categories.js`에 등록된 고정 카테고리(`Network`, `Server`, `Dev`, `DataBase`, `Security`, `Finance`)만 표시됩니다. `tags`에는 이 중에서 골라 적어야 필터에 걸립니다. 카테고리 자체를 추가/변경하려면 `categories.js`를 수정하세요.
 - 글에 이미지를 넣고 싶으면 파일을 `public/assets/`에 넣고 `![설명](/assets/파일명.png)`처럼 절대 경로로 참조하세요.
 
 ## 배포
