@@ -48,12 +48,20 @@ export const posts = Object.entries(modules)
       slug,
       title: data.title || slug,
       date: data.date || '',
+      order: data.order !== undefined ? Number(data.order) : null,
       tags: Array.isArray(data.tags) ? data.tags : data.tags ? [data.tags] : [],
       description: data.description || '',
       content,
     }
   })
-  .sort((a, b) => new Date(b.date) - new Date(a.date))
+  .sort((a, b) => {
+    // 날짜 최신순 정렬이 우선이고, 날짜가 같을 때만 order 값(낮은 숫자가 먼저)으로 순서를 정한다.
+    const dateDiff = new Date(b.date) - new Date(a.date)
+    if (dateDiff !== 0) return dateDiff
+    const orderA = a.order ?? Infinity
+    const orderB = b.order ?? Infinity
+    return orderA - orderB
+  })
 
 export function getPostBySlug(slug) {
   return posts.find((post) => post.slug === slug)
