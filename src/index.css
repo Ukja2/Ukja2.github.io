@@ -10,6 +10,7 @@
   --color-hover-bg: #f0f0f0;
   --color-accent: #171717;
   --color-accent-text: #ffffff;
+  --color-footnote: #2563eb;
 
   --font-sans: 'Pretendard', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -26,6 +27,7 @@
   --color-hover-bg: #1a1a1a;
   --color-accent: #f5f5f5;
   --color-accent-text: #171717;
+  --color-footnote: #60a5fa;
 
   color-scheme: dark;
 }

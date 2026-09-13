@@ -5,8 +5,7 @@ export default function About() {
     <div>
       <h1 className="about-title">About</h1>
       <p className="about-text">
-        모르는 것에 대한 개인 기록 공간입니다. 인프라 및 데이터베이스에 관한 주제 위주로
-        정리합니다.
+        IT Admin으로서 배우는 모든 것을 기록합니다.
       </p>
 
       <h2 className="about-subtitle">경력</h2>
