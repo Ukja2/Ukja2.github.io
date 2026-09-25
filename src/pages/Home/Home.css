@@ -34,64 +34,84 @@
   font-size: 0.875rem;
 }
 
-.post-list-header .category-icon {
-  font-size: 1rem;
-  color: var(--color-text-faint);
-}
-
-.post-list {
+.post-grid {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+  position: relative;
+}
+
+.post-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-}
-
-.post-list-item {
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 0.75rem;
-}
-
-.post-list-item a {
-  display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.post-list-header {
+.post-card-thumb {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.625rem;
-  /* 글 줄, 빈 칸, 안내 문구 줄이 모두 같은 높이가 되도록 고정 */
-  height: 1.5rem;
-}
-
-.post-list-title {
-  flex: 1;
-  min-width: 0;
-  margin: 0;
+  justify-content: center;
+  aspect-ratio: 2 / 1;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: color 0.15s ease;
-}
-
-.post-list-item a:hover .post-list-title {
-  color: var(--color-text-muted);
-}
-
-.post-list-date {
-  flex-shrink: 0;
-  font-size: 0.75rem;
+  background: var(--color-hover-bg);
+  font-size: 2.5rem;
   color: var(--color-text-faint);
 }
 
-.post-list-placeholder {
+.post-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 구성도 이미지는 위쪽에 구역 제목이 있어서, 잘릴 때 위를 살리고 아래를 자른다. */
+  object-position: top;
+}
+
+/* 제목 2줄 + 메타 1줄 높이로 고정해서 모든 카드(빈 칸 포함)의 크기를 맞춘다. */
+.post-card-body {
+  height: 6.25rem;
+  padding-top: 1rem;
+}
+
+.post-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+a.post-card:hover .post-card-title {
+  color: var(--color-text-muted);
+}
+
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.625rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-faint);
+}
+
+.post-card-placeholder {
   visibility: hidden;
+}
+
+.post-grid-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .empty-state {
@@ -134,4 +154,28 @@
 .pagination-status {
   font-size: 0.8125rem;
   color: var(--color-text-faint);
+}
+
+@media (max-width: 960px) {
+  .post-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .post-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  /* 1열에서는 빈 칸이 너무 길어져서 푸터 고정을 포기하고 빈 칸을 숨긴다. */
+  .post-card-placeholder {
+    display: none;
+  }
+
+  /* 빈 칸이 없어서 격자 높이가 0이 되므로 안내 문구가 직접 자리를 차지한다. */
+  .post-grid-empty {
+    position: static;
+    padding: 4rem 0;
+  }
 }

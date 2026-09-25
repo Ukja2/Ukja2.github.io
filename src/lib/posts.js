@@ -1,4 +1,4 @@
-// 마크다운 파일을 읽어서 frontmatter(title, date, tags, description)와
+// 마크다운 파일을 읽어서 frontmatter(title, date, tags 등)와
 // 본문(content)으로 나눠주는 아주 단순한 파서.
 // gray-matter 대신 직접 구현해서 브라우저 번들에 불필요한 Node 의존성을 넣지 않는다.
 function parseFrontmatter(raw) {
@@ -30,6 +30,12 @@ function parseFrontmatter(raw) {
   return { data, content: content.trim() }
 }
 
+// 본문에서 처음 나오는 마크다운 이미지(![설명](경로))의 경로를 썸네일로 쓴다.
+function findFirstImage(content) {
+  const match = content.match(/!\[[^\]]*\]\(\s*<?([^)\s>]+)>?/)
+  return match ? match[1] : ''
+}
+
 function slugify(path) {
   return path.split('/').pop().replace(/\.md$/, '')
 }
@@ -51,6 +57,7 @@ export const posts = Object.entries(modules)
       order: data.order !== undefined ? Number(data.order) : null,
       tags: Array.isArray(data.tags) ? data.tags : data.tags ? [data.tags] : [],
       description: data.description || '',
+      thumbnail: findFirstImage(content),
       content,
     }
   })

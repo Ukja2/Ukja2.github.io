@@ -5,7 +5,8 @@ import { CATEGORIES, primaryCategory } from '../../lib/categories.js'
 import { CategoryIcon } from '../../components/icons.jsx'
 import './Home.css'
 
-const POSTS_PER_PAGE = 11
+// 3열 격자 기준 3줄.
+const POSTS_PER_PAGE = 9
 
 export default function Home() {
   const [activeTag, setActiveTag] = useState(null)
@@ -15,9 +16,9 @@ export default function Home() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE))
   const currentPage = Math.min(page, totalPages)
   const paged = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
-  // 글 개수와 상관없이 목록 높이를 POSTS_PER_PAGE 줄로 고정해서 푸터 위치가 흔들리지 않게 한다.
-  // 글이 없을 때는 안내 문구가 한 줄을 차지한다.
-  const placeholderCount = POSTS_PER_PAGE - Math.max(paged.length, 1)
+  // 글 개수와 상관없이 격자를 POSTS_PER_PAGE 칸으로 채워서 푸터 위치가 흔들리지 않게 한다.
+  // 글이 없을 때는 빈 칸들로 높이를 유지한 채 안내 문구를 격자 한가운데에 띄운다.
+  const placeholderCount = POSTS_PER_PAGE - paged.length
 
   function selectTag(tag) {
     setActiveTag(tag)
@@ -25,7 +26,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="home">
       <div className="tag-filter">
         <button
           type="button"
@@ -47,39 +48,45 @@ export default function Home() {
         ))}
       </div>
 
-      <ul className="post-list">
+      <ul className="post-grid">
         {paged.map((post) => {
           const category = primaryCategory(post.tags)
           return (
-            <li key={post.slug} className="post-list-item">
-              <Link to={`/posts/${post.slug}`}>
-                <div className="post-list-header">
-                  {category && (
-                    <span className="category-icon" title={category} role="img" aria-label={category}>
-                      <CategoryIcon category={category} aria-hidden="true" />
-                    </span>
+            <li key={post.slug}>
+              <Link to={`/posts/${post.slug}`} className="post-card">
+                <div className="post-card-thumb">
+                  {post.thumbnail ? (
+                    <img src={post.thumbnail} alt="" loading="lazy" />
+                  ) : (
+                    <CategoryIcon category={category} aria-hidden="true" />
                   )}
-                  <h2 className="post-list-title">{post.title}</h2>
-                  <time className="post-list-date">{post.date}</time>
+                </div>
+                <div className="post-card-body">
+                  <h2 className="post-card-title">{post.title}</h2>
+                  <div className="post-card-meta">
+                    {category && (
+                      <>
+                        <span>{category}</span>
+                        <span aria-hidden="true">·</span>
+                      </>
+                    )}
+                    <time>{post.date}</time>
+                  </div>
                 </div>
               </Link>
             </li>
           )
         })}
         {filtered.length === 0 && (
-          <li className="post-list-item post-list-empty">
-            <div className="post-list-header">
-              <p className="empty-state">아직 글이 없습니다.</p>
-            </div>
+          <li className="post-grid-empty">
+            <p className="empty-state">아직 글이 없습니다.</p>
           </li>
         )}
         {Array.from({ length: placeholderCount }).map((_, i) => (
-          <li key={`placeholder-${i}`} className="post-list-item post-list-placeholder" aria-hidden="true">
-            <div>
-              <div className="post-list-header">
-                <h2 className="post-list-title">placeholder</h2>
-                <time className="post-list-date">0000-00-00</time>
-              </div>
+          <li key={`placeholder-${i}`} className="post-card-placeholder" aria-hidden="true">
+            <div className="post-card">
+              <div className="post-card-thumb" />
+              <div className="post-card-body" />
             </div>
           </li>
         ))}

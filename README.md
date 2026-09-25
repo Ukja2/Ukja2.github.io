@@ -24,7 +24,8 @@ tags: [태그1, 태그2]
 - `date`가 최신인 글이 목록 맨 위로 정렬됩니다. `date`가 같은 글이 여러 개면 `order` 값이 낮은 글이 먼저 오며, `order`는 생략해도 됩니다(생략 시 맨 뒤로 정렬).
 - 홈 화면 태그 필터는 `src/lib/categories.js`에 등록된 고정 카테고리(`Network`, `Server`, `Security`)만 표시됩니다. `tags`에는 이 중에서 골라 적어야 필터에 걸립니다. 카테고리 자체를 추가/변경하려면 `categories.js`를 수정하세요.
 - 게시물 목록에서는 태그 대신 제목 앞 아이콘으로 카테고리를 구분합니다. 카테고리를 추가할 때는 `src/components/icons.jsx`의 `CATEGORY_ICONS`에 아이콘도 함께 등록하세요.
-- 글에 이미지를 넣고 싶으면 파일을 `public/assets/`에 넣고 `![설명](/assets/파일명.png)`처럼 절대 경로로 참조하세요.
+- 글에 이미지를 넣고 싶으면 파일을 `public/assets/posts/글-slug/`에 넣고 `![설명](/assets/posts/글-slug/파일명.webp)`처럼 절대 경로로 참조하세요. 예) `public/assets/posts/network-vpn/tunnel.webp` → `![VPN 터널](/assets/posts/network-vpn/tunnel.webp)`
+- 본문에 처음 나오는 이미지가 홈 목록의 썸네일로 쓰입니다. 이미지가 없는 글은 카테고리 아이콘이 대신 표시됩니다.
 
 ## 배포
 
