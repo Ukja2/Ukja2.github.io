@@ -12,6 +12,10 @@
   --color-accent-text: #171717;
   --color-footnote: #60a5fa;
 
+  /* 헤더/푸터와 홈 카드 격자의 전체 폭, 글 본문처럼 읽는 페이지의 폭 */
+  --layout-width: 72rem;
+  --content-width: 42rem;
+
   --font-sans: 'Pretendard', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
