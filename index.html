@@ -7,15 +7,6 @@
     <meta name="description" content="모르는 것을 찾아보고 정리한 공간" />
     <title>Ukja2 | Tech Notes</title>
     <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem('theme')
-          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
-          if (dark) document.documentElement.classList.add('dark')
-        } catch (e) {}
-      })()
-    </script>
-    <script>
       // 404.html이 GitHub Pages에서 못 찾은 경로를 세션에 저장해두면,
       // 여기서 원래 주소로 복원해서 React Router가 정상적으로 라우팅하게 한다.
       ;(function () {

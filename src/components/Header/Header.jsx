@@ -1,26 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconGithub, IconMenu, IconMoon, IconSun } from '../icons.jsx'
+import { IconGithub, IconMenu } from '../icons.jsx'
 import SearchBox from './SearchBox.jsx'
 import './Header.css'
 
-function useDarkMode() {
-  const [dark, setDark] = useState(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored) return stored === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
-  }, [dark])
-
-  return [dark, setDark]
-}
-
 export default function Header() {
-  const [dark, setDark] = useDarkMode()
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef(null)
 
@@ -69,15 +53,6 @@ export default function Header() {
               <IconGithub className="nav-icon" />
               <span className="nav-label">GitHub</span>
             </a>
-            <button
-              type="button"
-              onClick={() => setDark((prev) => !prev)}
-              aria-label="다크 모드 전환"
-              className="theme-toggle"
-            >
-              {dark ? <IconSun className="nav-icon" /> : <IconMoon className="nav-icon" />}
-              <span className="nav-label">{dark ? 'LightMode' : 'DarkMode'}</span>
-            </button>
           </div>
         </nav>
       </div>
