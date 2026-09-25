@@ -14,6 +14,8 @@ tags: [Network]
 
 그래서 서로 다른 네트워크라면 같은 사설 IP를 중복해서 써도 상관없다. 집집마다 공유기 기본 주소가 `192.168.0.1`인 이유가 여기 있다.
 
+![공인 IP가 서로 다른 집 A와 집 B에서 노트북이 똑같은 사설 IP 192.168.0.10을 쓰는 모습](/assets/posts/public-vs-private-ip/private-ip-reuse.webp)
+
 사설 IP를 쓰는 기기가 인터넷에 나갈 때는 공유기가 **NAT(Network Address Translation)** 을 통해 사설 IP를 공인 IP로 바꿔서 내보낸다.
 
 ## 굳이 사설 IP를 쓰는 이유
