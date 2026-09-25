@@ -61,3 +61,44 @@ export function IconGithub(props) {
     </svg>
   )
 }
+
+export function IconGlobe(props) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  )
+}
+
+export function IconServer(props) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+      <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+      <line x1="6" y1="6" x2="6.01" y2="6" />
+      <line x1="6" y1="18" x2="6.01" y2="18" />
+    </svg>
+  )
+}
+
+export function IconShield(props) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  )
+}
+
+const CATEGORY_ICONS = {
+  Network: IconGlobe,
+  Server: IconServer,
+  Security: IconShield,
+}
+
+// 카테고리 이름에 맞는 아이콘. 등록되지 않은 카테고리면 아무것도 그리지 않는다.
+export function CategoryIcon({ category, ...props }) {
+  const Icon = CATEGORY_ICONS[category]
+  return Icon ? <Icon {...props} /> : null
+}
