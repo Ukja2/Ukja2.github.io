@@ -2,7 +2,6 @@
 title: VPN
 date: 2026-09-12
 tags: [Network]
-description: 공용 인터넷을 거치면서도 사설망처럼 안전하게 통신하게 해주는 VPN의 개념과 동작 원리
 ---
 
 ## VPN(Virtual Private Network)이란

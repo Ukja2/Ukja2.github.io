@@ -2,7 +2,6 @@
 title: Public IP vs Private IP
 date: 2026-09-09
 tags: [Network]
-description: 인터넷에서 유일한 공인 IP와, 사설 네트워크 안에서만 쓰이는 사설 IP의 차이 그리고 대역으로 구별하는 방법
 ---
 
 ## 공인 IP(Public IP)란
